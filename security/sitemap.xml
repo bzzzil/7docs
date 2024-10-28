@@ -3,23 +3,23 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>/cib7/security/security-policy/</loc>
+    <loc>/7docs/security/security-policy/</loc>
   </url>
   
   <url>
-    <loc>/cib7/security/operations/</loc>
+    <loc>/7docs/security/operations/</loc>
   </url>
   
   <url>
-    <loc>/cib7/security/notices/</loc>
+    <loc>/7docs/security/notices/</loc>
   </url>
   
   <url>
-    <loc>/cib7/security/report-vulnerability/</loc>
+    <loc>/7docs/security/report-vulnerability/</loc>
   </url>
   
   <url>
-    <loc>/cib7/security/</loc>
+    <loc>/7docs/security/</loc>
   </url>
   
 </urlset>
