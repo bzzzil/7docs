@@ -117,7 +117,7 @@
           
   <li>
     
-      <a href="/7docs/manual/latest/introduction/downloading-camunda/" >Download</a>
+      <a href="/7docs/manual/latest/introduction/downloading-cibseven/" >Download</a>
     
   </li>
 
@@ -4559,7 +4559,7 @@ The naming pattern is <code>$DATABASENAME_engine_7.10_patch_?.sql</code>.</p>
 <p>For this reason, all the <code>TIMESTAMP</code> columns that the Camunda engine uses to store future dates were migrated to the <code>DATETIME</code> data type with a much larger time range.</p>
 <p>Be aware that <code>DATETIME</code> does not store time zone information. This means that, when applying the <code>[MySQL|MariaDB]_engine_7.10_to_7.11.sql</code> script, the database server time zone will be used to convert the <code>TIMESTAMP</code> into <code>DATETIME</code> values. Any future time zone changes on the database server will offset the time stored in these columns causing an incorrect operation of the engine.</p>
 <h1 id="full-distribution">Full Distribution</h1>
-<p>This section is applicable if you installed the <a href="/7docs/manual/latest/introduction/downloading-camunda/#full-distribution">Full Distribution</a> with a <strong>shared process engine</strong>.</p>
+<p>This section is applicable if you installed the <a href="/7docs/manual/latest/introduction/downloading-cibseven/#full-distribution">Full Distribution</a> with a <strong>shared process engine</strong>.</p>
 <p>The following steps are required:</p>
 <ol>
 <li>Update the Camunda libraries and applications inside the application server</li>

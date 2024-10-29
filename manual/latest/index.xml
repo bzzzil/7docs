@@ -184,10 +184,10 @@
     </item>
     <item>
       <title>Download</title>
-      <link>/7docs/manual/latest/introduction/downloading-camunda/</link>
+      <link>/7docs/manual/latest/introduction/downloading-cibseven/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>/7docs/manual/latest/introduction/downloading-camunda/</guid>
-      <description>&lt;h1 id=&#34;prerequisites&#34;&gt;Prerequisites&lt;/h1&gt;&#xA;&lt;p&gt;Before downloading Camunda, make sure you have a JRE (Java Runtime Environment), or better, a JDK&#xA;(Java Development Kit) installed. Please check the supported &lt;a href=&#34;/7docs/manual/latest/7docs/manual/latest/introduction/supported-environments/#java&#34;&gt;Java versions&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://www.oracle.com/technetwork/java/javase/downloads/index.html&#34;&gt;Download JDK&lt;/a&gt;&lt;/p&gt;&#xA;&lt;h1 id=&#34;download-the-runtime&#34;&gt;Download the Runtime&lt;/h1&gt;&#xA;&lt;p&gt;Camunda is a flexible framework which can be used in different contexts. See &lt;a href=&#34;/7docs/manual/latest/7docs/manual/latest/introduction/architecture/&#34;&gt;Architecture Overview&lt;/a&gt; for more details. Based on how you want&#xA;to use Camunda, you can choose a different distribution.&lt;/p&gt;&#xA;&lt;h2 id=&#34;community-vs-enterprise-edition&#34;&gt;Community vs. Enterprise Edition&lt;/h2&gt;&#xA;&lt;p&gt;Camunda provides separate runtime downloads for community users and enterprise subscription customers:&lt;/p&gt;</description>
+      <guid>/7docs/manual/latest/introduction/downloading-cibseven/</guid>
+      <description>&lt;h1 id=&#34;prerequisites&#34;&gt;Prerequisites&lt;/h1&gt;&#xA;&lt;p&gt;Before downloading CIB seven, make sure you have a JRE (Java Runtime Environment), or better, a JDK&#xA;(Java Development Kit) installed. Please check the supported &lt;a href=&#34;/7docs/manual/latest/7docs/manual/latest/introduction/supported-environments/#java&#34;&gt;Java versions&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://www.oracle.com/technetwork/java/javase/downloads/index.html&#34;&gt;Download JDK&lt;/a&gt;&lt;/p&gt;&#xA;&lt;h1 id=&#34;download-the-runtime&#34;&gt;Download the Runtime&lt;/h1&gt;&#xA;&lt;p&gt;CIB seven is a flexible framework which can be used in different contexts. See &lt;a href=&#34;/7docs/manual/latest/7docs/manual/latest/introduction/architecture/&#34;&gt;Architecture Overview&lt;/a&gt; for more details. Based on how you want&#xA;to use CIB seven, you can choose a different distribution.&lt;/p&gt;&#xA;&lt;h2 id=&#34;community-vs-enterprise-edition&#34;&gt;Community vs. Enterprise Edition&lt;/h2&gt;&#xA;&lt;p&gt;CIB seven provides separate runtime downloads for community users and enterprise subscription customers:&lt;/p&gt;</description>
     </item>
     <item>
       <title>Embedded Subprocess</title>
@@ -698,7 +698,7 @@
       <link>/7docs/manual/latest/installation/standalone-webapplication/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>/7docs/manual/latest/installation/standalone-webapplication/</guid>
-      <description>&lt;p&gt;Camunda Automation 7.19 is the last release providing support for Standalone Web Application Distribution.&lt;/p&gt;&#xA;&lt;p&gt;Please consider migrating to &lt;a href=&#34;/7docs/manual/latest/7docs/manual/latest/introduction/downloading-camunda/#download-the-runtime&#34;&gt;another supported&lt;/a&gt; setup.&lt;/p&gt;</description>
+      <description>&lt;p&gt;Camunda Automation 7.19 is the last release providing support for Standalone Web Application Distribution.&lt;/p&gt;&#xA;&lt;p&gt;Please consider migrating to &lt;a href=&#34;/7docs/manual/latest/7docs/manual/latest/introduction/downloading-cibseven/#download-the-runtime&#34;&gt;another supported&lt;/a&gt; setup.&lt;/p&gt;</description>
     </item>
     <item>
       <title>JNDI Bindings for CIB seven Services</title>
