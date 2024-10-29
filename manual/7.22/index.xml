@@ -8,13 +8,6 @@
     <language>en-us</language>
     <atom:link href="/7docs/manual/7.22/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Install the Camunda Modeler</title>
-      <link>/7docs/manual/7.22/installation/camunda-modeler/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>/7docs/manual/7.22/installation/camunda-modeler/</guid>
-      <description>&lt;p&gt;This content has moved to &lt;a href=&#34;https://docs.camunda.io/&#34;&gt;docs.camunda.io&lt;/a&gt; and is available &lt;a href=&#34;https://docs.camunda.io/docs/components/modeler/camunda-modeler/install-the-modeler/&#34;&gt;here&lt;/a&gt; for all future versions.&lt;/p&gt;</description>
-    </item>
-    <item>
       <title>Install the Database Schema</title>
       <link>/7docs/manual/7.22/installation/database-schema/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -187,7 +180,7 @@
       <link>/7docs/manual/7.22/introduction/downloading-cibseven/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>/7docs/manual/7.22/introduction/downloading-cibseven/</guid>
-      <description>&lt;h1 id=&#34;prerequisites&#34;&gt;Prerequisites&lt;/h1&gt;&#xA;&lt;p&gt;Before downloading CIB seven, make sure you have a JRE (Java Runtime Environment), or better, a JDK&#xA;(Java Development Kit) installed. Please check the supported &lt;a href=&#34;/7docs/manual/7.22/7docs/manual/7.22/introduction/supported-environments/#java&#34;&gt;Java versions&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://www.oracle.com/technetwork/java/javase/downloads/index.html&#34;&gt;Download JDK&lt;/a&gt;&lt;/p&gt;&#xA;&lt;h1 id=&#34;download-the-runtime&#34;&gt;Download the Runtime&lt;/h1&gt;&#xA;&lt;p&gt;CIB seven is a flexible framework which can be used in different contexts. See &lt;a href=&#34;/7docs/manual/7.22/7docs/manual/7.22/introduction/architecture/&#34;&gt;Architecture Overview&lt;/a&gt; for more details. Based on how you want&#xA;to use CIB seven, you can choose a different distribution.&lt;/p&gt;&#xA;&lt;h2 id=&#34;community-vs-enterprise-edition&#34;&gt;Community vs. Enterprise Edition&lt;/h2&gt;&#xA;&lt;p&gt;CIB seven provides separate runtime downloads for community users and enterprise subscription customers:&lt;/p&gt;</description>
+      <description>&lt;h1 id=&#34;prerequisites&#34;&gt;Prerequisites&lt;/h1&gt;&#xA;&lt;p&gt;Before downloading CIB seven, make sure you have a JRE (Java Runtime Environment), or better, a JDK&#xA;(Java Development Kit) installed. Please check the supported &lt;a href=&#34;/7docs/manual/7.22/7docs/manual/7.22/introduction/supported-environments/#java&#34;&gt;Java versions&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://www.oracle.com/technetwork/java/javase/downloads/index.html&#34;&gt;Download JDK&lt;/a&gt;&lt;/p&gt;&#xA;&lt;h1 id=&#34;download-the-runtime&#34;&gt;Download the Runtime&lt;/h1&gt;&#xA;&lt;p&gt;CIB seven is a flexible framework which can be used in different contexts. See &lt;a href=&#34;/7docs/manual/7.22/7docs/manual/7.22/introduction/architecture/&#34;&gt;Architecture Overview&lt;/a&gt; for more details. Based on how you want&#xA;to use CIB seven, you can choose a different distribution.&lt;/p&gt;&#xA;&lt;p&gt;It is also possible to run CIB seven with &lt;a href=&#34;/7docs/manual/7.22/7docs/manual/7.22/user-guide/spring-boot-integration/&#34;&gt;Spring Boot&lt;/a&gt; and &lt;a href=&#34;/7docs/manual/7.22/7docs/manual/7.22/installation/docker/&#34;&gt;Docker&lt;/a&gt;.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Embedded Subprocess</title>
@@ -307,13 +300,6 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>/7docs/manual/7.22/update/spring-boot-starter/migration-34-713/</guid>
       <description>&lt;h1 id=&#34;new-version-handling&#34;&gt;New version handling&lt;/h1&gt;&#xA;&lt;p&gt;Starting with version 7.13.0, CIB seven and its compatible Camunda Spring Boot Starter artifact will share the same version.&#xA;All adjustments in the Spring Boot Starter will now be covered in the general migration guide, i.e. the &lt;a href=&#34;/7docs/manual/7.22/7docs/manual/7.22/update/minor/712-to-713/#spring-boot-starter-update&#34;&gt;7.12 to 7.13 guide&lt;/a&gt;.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Modeling BPMN in Camunda Modeler</title>
-      <link>/7docs/manual/7.22/modeler/bpmn/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>/7docs/manual/7.22/modeler/bpmn/</guid>
-      <description>&lt;p&gt;This content has moved to &lt;a href=&#34;https://docs.camunda.io/&#34;&gt;docs.camunda.io&lt;/a&gt; and is available &lt;a href=&#34;https://docs.camunda.io/docs/components/modeler/bpmn/modeler-bpmn/&#34;&gt;here&lt;/a&gt; for all future versions.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Plan Items and Item Definitions</title>
@@ -603,13 +589,6 @@
       <description>&lt;figure class=&#34;image no-lightbox&#34;&gt;&#xA;  &lt;span&gt;&lt;img&#xA;      src=&#34;../img/output.png&#34;&#xA;      &#xA;          title=&#34;Output&#34;&#xA;       /&gt;&lt;/span&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;A decision table can have one or more outputs, also called output clauses. An&#xA;output clause defines the id, label, name and type of a decision table output.&lt;/p&gt;&#xA;&lt;p&gt;An output clause is represented by an &lt;code&gt;output&lt;/code&gt; element inside a &lt;code&gt;decisionTable&lt;/code&gt;&#xA;XML element.&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-xml&#34; data-lang=&#34;xml&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;definitions&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;xmlns=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;https://www.omg.org/spec/DMN/20191111/MODEL/&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;id=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;definitions&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;name=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;definitions&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;namespace=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;http://camunda.org/schema/1.0/dmn&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;decision&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;id=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;dish&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;name=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Dish&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;decisionTable&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;id=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;decisionTable&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#75715e&#34;&gt;&amp;lt;!-- ... --&amp;gt;&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;output&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;id=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;output1&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;label=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Dish&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;name=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;desiredDish&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;typeRef=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;string&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;/&amp;gt;&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#75715e&#34;&gt;&amp;lt;!-- ... --&amp;gt;&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;/decisionTable&amp;gt;&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;/decision&amp;gt;&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;/definitions&amp;gt;&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h1 id=&#34;output-id&#34;&gt;Output Id&lt;/h1&gt;&#xA;&lt;p&gt;The output id is a unique identifier of the decision table output. It is used&#xA;by CIB seven to reference the output in the history of&#xA;evaluated decisions. Therefore, it is required by the Camunda DMN engine. It is&#xA;set as the &lt;code&gt;id&lt;/code&gt; attribute of the &lt;code&gt;output&lt;/code&gt; XML element.&lt;/p&gt;</description>
     </item>
     <item>
-      <title>Editing DMN in Camunda Modeler</title>
-      <link>/7docs/manual/7.22/modeler/dmn/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>/7docs/manual/7.22/modeler/dmn/</guid>
-      <description>&lt;p&gt;This content has moved to &lt;a href=&#34;https://docs.camunda.io/&#34;&gt;docs.camunda.io&lt;/a&gt; and is available &lt;a href=&#34;https://docs.camunda.io/docs/components/modeler/dmn/camunda-modeler-dmn/&#34;&gt;here&lt;/a&gt; for all future versions.&lt;/p&gt;</description>
-    </item>
-    <item>
       <title>Engine CDI Integration</title>
       <link>/7docs/manual/7.22/user-guide/quarkus-integration/cdi-integration/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -670,7 +649,7 @@
       <link>/7docs/manual/7.22/introduction/implemented-standards/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>/7docs/manual/7.22/introduction/implemented-standards/</guid>
-      <description>&lt;p&gt;Camunda implements three different standards in the Business Process Management scope: BPMN 2.0, CMMN 1.1 and DMN 1.3.&#xA;These three standards are defined by the &lt;a href=&#34;http://www.omg.org/&#34;&gt;Object Management Group&lt;/a&gt; with active collaboration of Camunda.&lt;/p&gt;&#xA;&lt;p&gt;Camunda provides open source implementations of execution and &lt;a href=&#34;/7docs/manual/7.22/7docs/manual/7.22/modeler/&#34;&gt;modeling tools&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;h1 id=&#34;bpmn&#34;&gt;BPMN&lt;/h1&gt;&#xA;&lt;p&gt;Business Process Model and Notation (BPMN) is a standard for Workflow and Process Automation.&#xA;Camunda supports the 2.0 version of BPMN.&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Getting started implementing BPMN Processes: &lt;a href=&#34;/7docs/manual/7.22/get-started/quick-start/&#34;&gt;Quick Start (Java / JS)&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;Getting to Know BPMN as a Modeling Language: &lt;a href=&#34;https://camunda.org/bpmn/tutorial/&#34;&gt;BPMN Modeling Tutorial&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;Modeling BPMN: &lt;a href=&#34;https://camunda.org/bpmn/reference/&#34;&gt;BPMN Modeling Reference&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;Tool for modeling BPMN: &lt;a href=&#34;/7docs/manual/7.22/7docs/manual/7.22/modeler/&#34;&gt;BPMN Modeler&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;Implementing BPMN Processes: &lt;a href=&#34;/7docs/manual/7.22/7docs/manual/7.22/reference/bpmn20/&#34;&gt;BPMN Implementation Reference&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;Executing BPMN: &lt;a href=&#34;/7docs/manual/7.22/7docs/manual/7.22/user-guide/process-engine/&#34;&gt;Process Engine&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h1 id=&#34;cmmn&#34;&gt;CMMN&lt;/h1&gt;&#xA;&lt;p&gt;Case Management Model and Notation (CMMN) is a standard for Case Management.&#xA;Camunda supports the 1.1 version of CMMN.&lt;/p&gt;</description>
+      <description>&lt;p&gt;Camunda implements three different standards in the Business Process Management scope: BPMN 2.0, CMMN 1.1 and DMN 1.3.&#xA;These three standards are defined by the &lt;a href=&#34;http://www.omg.org/&#34;&gt;Object Management Group&lt;/a&gt; with active collaboration of Camunda.&lt;/p&gt;&#xA;&lt;p&gt;Camunda provides open source implementations of execution.&lt;/p&gt;&#xA;&lt;h1 id=&#34;bpmn&#34;&gt;BPMN&lt;/h1&gt;&#xA;&lt;p&gt;Business Process Model and Notation (BPMN) is a standard for Workflow and Process Automation.&#xA;Camunda supports the 2.0 version of BPMN.&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Getting started implementing BPMN Processes: &lt;a href=&#34;/7docs/manual/7.22/get-started/quick-start/&#34;&gt;Quick Start (Java / JS)&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;Getting to Know BPMN as a Modeling Language: &lt;a href=&#34;https://camunda.org/bpmn/tutorial/&#34;&gt;BPMN Modeling Tutorial&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;Modeling BPMN: &lt;a href=&#34;https://camunda.org/bpmn/reference/&#34;&gt;BPMN Modeling Reference&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;Implementing BPMN Processes: &lt;a href=&#34;/7docs/manual/7.22/7docs/manual/7.22/reference/bpmn20/&#34;&gt;BPMN Implementation Reference&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;Executing BPMN: &lt;a href=&#34;/7docs/manual/7.22/7docs/manual/7.22/user-guide/process-engine/&#34;&gt;Process Engine&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h1 id=&#34;cmmn&#34;&gt;CMMN&lt;/h1&gt;&#xA;&lt;p&gt;Case Management Model and Notation (CMMN) is a standard for Case Management.&#xA;Camunda supports the 1.1 version of CMMN.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Install the Full Distribution on a JBoss EAP/WildFly Application Server manually </title>
@@ -895,20 +874,6 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>/7docs/manual/7.22/installation/spring-boot/</guid>
       <description>&lt;p&gt;To learn how to run Camunda with Spring Boot, please consult the &lt;a href=&#34;/7docs/manual/7.22/7docs/manual/7.22/user-guide/spring-boot-integration/&#34;&gt;Spring Boot user guide&lt;/a&gt;.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Building Forms in Camunda Modeler</title>
-      <link>/7docs/manual/7.22/modeler/forms/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>/7docs/manual/7.22/modeler/forms/</guid>
-      <description>&lt;p&gt;This content has moved to &lt;a href=&#34;https://docs.camunda.io/&#34;&gt;docs.camunda.io&lt;/a&gt; and is available &lt;a href=&#34;https://docs.camunda.io/docs/guides/utilizing-forms/&#34;&gt;here&lt;/a&gt; for all future versions.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Use Element Templates to Extend the Modeler</title>
-      <link>/7docs/manual/7.22/modeler/element-templates/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>/7docs/manual/7.22/modeler/element-templates/</guid>
-      <description>&lt;p&gt;This content has moved to &lt;a href=&#34;https://docs.camunda.io/&#34;&gt;docs.camunda.io&lt;/a&gt; and is available &lt;a href=&#34;https://docs.camunda.io/docs/components/modeler/desktop-modeler/element-templates/about-templates/&#34;&gt;here&lt;/a&gt; for all future versions.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Activiti Migration</title>

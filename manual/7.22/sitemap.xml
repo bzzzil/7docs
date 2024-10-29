@@ -3,10 +3,6 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://docs.cibseven.de/7docs/manual/7.22/installation/camunda-modeler/</loc>
-  </url>
-  
-  <url>
     <loc>https://docs.cibseven.de/7docs/manual/7.22/update/minor/721-to-722/</loc>
   </url>
   
@@ -231,10 +227,6 @@
   </url>
   
   <url>
-    <loc>https://docs.cibseven.de/7docs/manual/7.22/modeler/bpmn/</loc>
-  </url>
-  
-  <url>
     <loc>https://docs.cibseven.de/7docs/manual/7.22/reference/rest/overview/</loc>
   </url>
   
@@ -451,10 +443,6 @@
   </url>
   
   <url>
-    <loc>https://docs.cibseven.de/7docs/manual/7.22/modeler/dmn/</loc>
-  </url>
-  
-  <url>
     <loc>https://docs.cibseven.de/7docs/manual/7.22/user-guide/quarkus-integration/cdi-integration/</loc>
   </url>
   
@@ -655,15 +643,7 @@
   </url>
   
   <url>
-    <loc>https://docs.cibseven.de/7docs/manual/7.22/modeler/forms/</loc>
-  </url>
-  
-  <url>
     <loc>https://docs.cibseven.de/7docs/manual/7.22/reference/dmn/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.cibseven.de/7docs/manual/7.22/modeler/element-templates/</loc>
   </url>
   
   <url>
@@ -1024,10 +1004,6 @@
   
   <url>
     <loc>https://docs.cibseven.de/7docs/manual/7.22/webapps/cockpit/auditing/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.cibseven.de/7docs/manual/7.22/modeler/</loc>
   </url>
   
   <url>
