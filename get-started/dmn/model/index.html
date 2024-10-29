@@ -524,14 +524,14 @@
 
       
 <div class="edit-on-github">
-  <a target="_blank" href="https://github.com/cibseven/cibseven-docs-static/tree/master/7docs/get-started/content/dmn%5cmodel.md"><i>Edit on Github</i> <span class="cam-docs-github"></span></a>
+  <a target="_blank" href="https://github.com/cibseven/cibseven-docs-static/tree/master/get-started/content/dmn%5cmodel.md"><i>Edit on Github</i> <span class="cam-docs-github"></span></a>
 </div>
 
       <h1 class="page-title">Create a DMN Decision Table</h1>
     </div>
 
     <div class="col-xs-12 content-text">
-      <p>In this section you learn how to create your first <a href="/manual/latest/reference/dmn11/decision-table/">DMN Decision Table</a> with the Camunda Modeler. The table will contain the decision logic about the desired dish for a given season and guest count.</p>
+      <p>In this section you learn how to create your first <a href="/7docs/manual/latest/reference/dmn11/decision-table/">DMN Decision Table</a> with the Camunda Modeler. The table will contain the decision logic about the desired dish for a given season and guest count.</p>
 <p>Now start up the Camunda Modeler.</p>
 <h1 id="create-a-new-decision-diagram">Create a new Decision Diagram</h1>
 <p>Create a new DMN diagram by clicking <em>File &gt; New File &gt; DMN Diagram</em>.</p>
@@ -542,14 +542,14 @@
 </figure>
 
 <h1 id="start-with-the-table-header">Start with the Table Header</h1>
-<p>Start by setting the name and the id of the decision. Select the decision, open the Properties Panel on the right side and change the text to &ldquo;dish&rdquo; as the technical <a href="/manual/latest/reference/dmn11/decision-table/#decision-id">id of the decision</a> which is used to reference the decision inside the process application.</p>
+<p>Start by setting the name and the id of the decision. Select the decision, open the Properties Panel on the right side and change the text to &ldquo;dish&rdquo; as the technical <a href="/7docs/manual/latest/reference/dmn11/decision-table/#decision-id">id of the decision</a> which is used to reference the decision inside the process application.</p>
 <figure class="image">
   <span><img
       src="../img/modeler-step1.png"
        /></span>
 </figure>
 
-<p>Next, click on the field below and set the <a href="/manual/latest/reference/dmn11/decision-table/#decision-name">name of the decision</a> to &ldquo;Dish&rdquo;.</p>
+<p>Next, click on the field below and set the <a href="/7docs/manual/latest/reference/dmn11/decision-table/#decision-name">name of the decision</a> to &ldquo;Dish&rdquo;.</p>
 <p>Now drill down into the decision table of the newly created decision by clicking the table icon on top of the decision.</p>
 <figure class="image">
   <span><img
@@ -557,7 +557,7 @@
        /></span>
 </figure>
 
-<p>To set the <a href="/manual/latest/reference/dmn11/decision-table/input/#input-label">label of the input</a> double-click on the field under &ldquo;When&rdquo; and type &ldquo;Season&rdquo; in the uppermost field. Same for the <a href="/manual/latest/reference/dmn11/decision-table/output/#output-label">output label</a>, double-click on the field under &ldquo;Then&rdquo; and type &ldquo;Dish&rdquo; in the uppermost field.</p>
+<p>To set the <a href="/7docs/manual/latest/reference/dmn11/decision-table/input/#input-label">label of the input</a> double-click on the field under &ldquo;When&rdquo; and type &ldquo;Season&rdquo; in the uppermost field. Same for the <a href="/7docs/manual/latest/reference/dmn11/decision-table/output/#output-label">output label</a>, double-click on the field under &ldquo;Then&rdquo; and type &ldquo;Dish&rdquo; in the uppermost field.</p>
 <figure class="image">
   <span><img
       src="../img/modeler-step2b.png"
@@ -565,7 +565,7 @@
 </figure>
 
 <h1 id="configure-the-input-expression-and-the-output-name">Configure the Input Expression and the Output Name</h1>
-<p>Assuming that the input value for &ldquo;Season&rdquo; is provided by a variable with name &ldquo;season&rdquo;, the <a href="/manual/latest/reference/dmn11/decision-table/input/#input-expression">input expression</a> should be &ldquo;season&rdquo;.</p>
+<p>Assuming that the input value for &ldquo;Season&rdquo; is provided by a variable with name &ldquo;season&rdquo;, the <a href="/7docs/manual/latest/reference/dmn11/decision-table/input/#input-expression">input expression</a> should be &ldquo;season&rdquo;.</p>
 <p>Double-click on the &ldquo;Season&rdquo; field. In the modal menu that pops up, set &ldquo;season&rdquo; as expression and close it.</p>
 <figure class="image">
   <span><img
@@ -573,9 +573,9 @@
        /></span>
 </figure>
 
-<p>Next, double-click on the &ldquo;Dish&rdquo; field and set &ldquo;desiredDish&rdquo; as <a href="/manual/latest/reference/dmn11/decision-table/output/#output-name">output name</a>.</p>
+<p>Next, double-click on the &ldquo;Dish&rdquo; field and set &ldquo;desiredDish&rdquo; as <a href="/7docs/manual/latest/reference/dmn11/decision-table/output/#output-name">output name</a>.</p>
 <h1 id="configure-the-type-of-the-input-and-output">Configure the Type of the Input and Output</h1>
-<p>Assuming that the input value for &ldquo;Season&rdquo; is provided as String, the <a href="/manual/latest/reference/dmn11/decision-table/input/#input-type-definition">type of the input value</a> should be &ldquo;string&rdquo;.</p>
+<p>Assuming that the input value for &ldquo;Season&rdquo; is provided as String, the <a href="/7docs/manual/latest/reference/dmn11/decision-table/input/#input-type-definition">type of the input value</a> should be &ldquo;string&rdquo;.</p>
 <p>Double-click on the &ldquo;Season&rdquo; column header. Open the &ldquo;Type&rdquo; dropdown-menu in the modal menu and select &ldquo;string&rdquo;.</p>
 <figure class="image">
   <span><img
@@ -583,9 +583,9 @@
        /></span>
 </figure>
 
-<p>Same for the <a href="/manual/latest/reference/dmn11/decision-table/output/#output-type-definition">output type</a>, double-click on the &ldquo;Dish&rdquo; column header and choose &ldquo;string&rdquo; as type.</p>
+<p>Same for the <a href="/7docs/manual/latest/reference/dmn11/decision-table/output/#output-type-definition">output type</a>, double-click on the &ldquo;Dish&rdquo; column header and choose &ldquo;string&rdquo; as type.</p>
 <h1 id="add-rules">Add Rules</h1>
-<p>Now, add the first <a href="/manual/latest/reference/dmn11/decision-table/rule/">rule</a> that specifies that the desired dish for season &ldquo;Fall&rdquo; is &ldquo;Spareribs&rdquo;.</p>
+<p>Now, add the first <a href="/7docs/manual/latest/reference/dmn11/decision-table/rule/">rule</a> that specifies that the desired dish for season &ldquo;Fall&rdquo; is &ldquo;Spareribs&rdquo;.</p>
 <p>Click on the &ldquo;+&rdquo; button at the bottom of the table or just click anywhere on the last row. In the row that was added, type &ldquo;Fall&rdquo; in the input column and &ldquo;Spareribs&rdquo; in the output column.</p>
 <figure class="image">
   <span><img
@@ -593,8 +593,8 @@
        /></span>
 </figure>
 
-<p>&ldquo;Fall&rdquo; is the condition (i.e., <a href="/manual/latest/reference/dmn11/decision-table/rule/#input-entry-condition">input entry</a>) of the rule. It is an expression in <a href="/manual/latest/reference/dmn11/feel/">FEEL</a> which is applied and then checks if the input value (i.e., the variable &ldquo;season&rdquo;) is equal to &ldquo;Fall&rdquo;.</p>
-<p>&ldquo;Spareribs&rdquo; is the conclusion (i.e., <a href="/manual/latest/reference/dmn11/decision-table/rule/#output-entry-conclusion">output entry</a>) of the rule. It is a simple expression in JUEL and returns the String &ldquo;Spareribs&rdquo;.</p>
+<p>&ldquo;Fall&rdquo; is the condition (i.e., <a href="/7docs/manual/latest/reference/dmn11/decision-table/rule/#input-entry-condition">input entry</a>) of the rule. It is an expression in <a href="/7docs/manual/latest/reference/dmn11/feel/">FEEL</a> which is applied and then checks if the input value (i.e., the variable &ldquo;season&rdquo;) is equal to &ldquo;Fall&rdquo;.</p>
+<p>&ldquo;Spareribs&rdquo; is the conclusion (i.e., <a href="/7docs/manual/latest/reference/dmn11/decision-table/rule/#output-entry-conclusion">output entry</a>) of the rule. It is a simple expression in JUEL and returns the String &ldquo;Spareribs&rdquo;.</p>
 <p>Next, add a second input &ldquo;How many guests&rdquo; with the input expression &ldquo;guestCount&rdquo; and type &ldquo;integer&rdquo;. Fill the table with additional rules for the remaining seasons.</p>
 <figure class="image">
   <span><img
@@ -603,7 +603,7 @@
 </figure>
 
 <h1 id="configure-the-hit-policy">Configure the Hit Policy</h1>
-<p>Set the <a href="/manual/latest/reference/dmn11/decision-table/hit-policy/">hit policy</a> to &ldquo;UNIQUE&rdquo;, which specifies that only one rule can match. Verify that the decision table contains only one rule that can match the inputs.</p>
+<p>Set the <a href="/7docs/manual/latest/reference/dmn11/decision-table/hit-policy/">hit policy</a> to &ldquo;UNIQUE&rdquo;, which specifies that only one rule can match. Verify that the decision table contains only one rule that can match the inputs.</p>
 <p>Click on the &ldquo;Hit Policy&rdquo; dropdown and choose the hit policy &ldquo;UNIQUE&rdquo;.</p>
 <figure class="image">
   <span><img
@@ -626,7 +626,7 @@
 </figure>
 
 <p>Return to Eclipse. Right-click the project folder and click <em>Refresh</em>. This synchronizes the new DMN file with Eclipse.</p>
-<p>For Eclipse to automatically synchronize the workspace with the filesystem, consider <a href="/manual/latest/modeler/tips/#eclipse-project-synchronization">configuring auto-sync in eclipse</a>.</p>
+<p>For Eclipse to automatically synchronize the workspace with the filesystem, consider <a href="/7docs/manual/latest/modeler/tips/#eclipse-project-synchronization">configuring auto-sync in eclipse</a>.</p>
 
 <div class="panel-group gs-download-step-panel" id="gitStep-3">
   <div class="panel panel-success">
@@ -690,9 +690,9 @@
           </p>
 
           <p>
-            <a href="http://camunda.org">cibseven.de</a> and <a href="/7docs/get-started/">docs.cibseven.de</a> are part of CIB seven and Camunda 7
+            <a href="http://camunda.org">cibseven.de</a> and <a href="/7docs/get-started/">docs.cibseven.de</a> are part of CIB seven project
             <span class="splitter">|</span>
-            Built by <a href="http://www.cib.de">CIB</a>, <a href="http://www.camunda.com">camunda</a> and contributors &mdash; <a href="https://www.cib.de/en/privacy-policy/">Privacy Statement</a> &mdash; CIB software GmbH &copy;, 28283; <a href="https://camunda.com/legal/privacy/">Privacy Statement</a> &mdash; camunda Services GmbH &copy; 2024
+            Built by <a href="http://www.cib.de">CIB</a>, <a href="http://www.camunda.com">camunda</a> and contributors &mdash; <a href="https://www.cib.de/en/privacy-policy/">Privacy Statement</a> &mdash; CIB software GmbH &copy;, 2024
           </p>
           <p>
             <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/3.0/80x15.png" /></a> The content on this site is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>.
