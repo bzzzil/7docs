@@ -4489,7 +4489,54 @@ the syntax of expressions.</p>
 <p>Within CIB seven, EL can be used in many circumstances to evaluate small script-like
 expressions. The following table provides an overview of the BPMN elements which support
 usage of EL.</p>
-<!-- raw HTML omitted -->
+<table class="table desc-table">
+  <tr>
+    <th>BPMN element</th>
+    <th>EL support</th>
+  </tr>
+  <tr>
+    <td>
+      <a href="#delegation-code">
+        Service Task, Business Rule Task, Send Task,
+        Message Intermediate Throwing Event, Message End Event, Execution Listener and
+        Task Listener
+      </a>
+    </td>
+    <td>Expression language as delegation code</td>
+  </tr>
+  <tr>
+    <td>
+      <a href="#conditions">
+        Sequence Flows, Conditional Events
+      </a>
+    </td>
+    <td>Expression language as condition expression</td>
+  </tr>
+  <tr>
+    <td>
+        <a href="#inputoutput-parameters">
+          All Tasks, All Events, Transaction, Subprocess and Connector
+        </a>
+    </td>
+    <td>Expression language inside an inputOutput parameter mapping</td>
+  </tr>
+  <tr>
+    <td>
+        <a href="#value">
+          Different Elements
+        </a>
+    </td>
+    <td>Expression language as the value of an attribute or element</td>
+  </tr>
+  <tr>
+    <td>
+      <a href="/7docs/manual/latest/user-guide/process-engine/the-job-executor/#specifying-priorities-in-bpmn-xml">
+        All Flow Nodes, Process Definition
+      </a>
+    </td>
+    <td>Expression language to determine the priority of a job</td>
+  </tr>
+</table>
 <h1 id="usage-of-expression-language">Usage of Expression Language</h1>
 <h2 id="delegation-code">Delegation Code</h2>
 <p>Besides Java code, CIB seven also supports the evaluation of expressions as delegation code. For
@@ -4606,7 +4653,53 @@ conditional sequence flow can directly check a variable value:</p>
 </span></span></code></pre></div><h2 id="internal-context-variables">Internal Context Variables</h2>
 <p>Depending on the current execution context, special built-in context variables are available while
 evaluating expressions:</p>
-<!-- raw HTML omitted -->
+<table class="table">
+  <thead>
+    <tr>
+      <th>Variable</th>
+      <th>Java Type</th>
+      <th>Context</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>execution</code></td>
+      <td><code><a href="/7docs/manual/latest/reference/javadoc/org/camunda/bpm/engine/delegate/DelegateExecution.html">DelegateExecution</a>
+</code></td>
+      <td>
+        Available in a BPMN execution context like a service task, execution listener or sequence
+        flow.
+      </td>
+    </tr>
+    <tr>
+      <td><code>task</code></td>
+      <td><code><a href="/7docs/manual/latest/reference/javadoc/org/camunda/bpm/engine/delegate/DelegateTask.html">DelegateTask</a>
+</code></td>
+      <td>Available in a task context like a task listener.</td>
+    </tr>
+    <tr>
+      <td><code>externalTask</code></td>
+      <td><code><a href="/7docs/manual/latest/reference/javadoc/org/camunda/bpm/engine/externaltask/ExternalTask.html">ExternalTask</a>
+</code></td>
+      <td>Available during an external task context activity (e.g. in <a href="/7docs/manual/latest/reference/bpmn20/custom-extensions/extension-elements/#erroreventdefinition">camunda:errorEventDefinition</a> expressions).</td>
+    </tr>
+    <tr>
+      <td><code>caseExecution</code></td>
+      <td><code><a href="/7docs/manual/latest/reference/javadoc/org/camunda/bpm/engine/delegate/DelegateCaseExecution.html">DelegateCaseExecution</a>
+</code></td>
+      <td>Available in a CMMN execution context.</td>
+    </tr>
+    <tr>
+      <td><code>authenticatedUserId</code></td>
+      <td><code>String</code></td>
+      <td>
+        The id of the currently authenticated user. Only returns a value if the id of the currently
+        authenticated user has been set through the corresponding methods of the
+        <code>IdentityService</code>. Otherwise it returns <code>null</code>.
+      </td>
+    </tr>
+  </tbody>
+</table>
 <p>The following example shows an expression which sets the variable <code>test</code> to the current
 event name of an execution listener.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span>  <span style="color:#f92672">&lt;camunda:executionListener</span> <span style="color:#a6e22e">event=</span><span style="color:#e6db74">&#34;start&#34;</span>
@@ -4621,7 +4714,45 @@ for more information. The following example shows the usage of a bean which impl
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span>  <span style="color:#f92672">&lt;serviceTask</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;task2&#34;</span> <span style="color:#a6e22e">camunda:expression=</span><span style="color:#e6db74">&#34;${myBean.myMethod(execution)}&#34;</span> <span style="color:#f92672">/&gt;</span>
 </span></span></code></pre></div><h2 id="internal-context-functions">Internal Context Functions</h2>
 <p>Special built-in context functions are available while evaluating expressions:</p>
-<!-- raw HTML omitted -->
+<table class="table">
+  <thead>
+    <tr>
+      <th>Function</th>
+      <th>Return Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>currentUser()</code></td>
+      <td><code>String</code></td>
+      <td>
+        Returns the user id of the currently authenticated user or <code>null</code> no user is authenticated at the moment.
+      </td>
+    </tr>
+    <tr>
+      <td><code>currentUserGroups()</code></td>
+      <td><code>List of Strings</code></td>
+      <td>
+        Returns a list of the group ids of the currently authenticated user or <code>null</code> if no user is authorized at the moment.
+      </td>
+    </tr>
+    <tr>
+      <td><code>now()</code></td>
+      <td><code>Date</code></td>
+      <td>Returns the current date as a Java Date object.</td>
+    </tr>
+    <tr>
+      <td><code>dateTime()</code></td>
+      <td><code>DateTime</code></td>
+      <td>
+        Returns a Joda-Time DateTime object of the current date. Please see the
+        <a href="http://joda-time.sourceforge.net/api-release/org/joda/time/DateTime.html">Joda-Time</a>
+        documentation for all available functions.
+      </td>
+    </tr>
+  </tbody>
+</table>
 <p>The following example sets the due date of a user task to the date 3 days after the creation
 of the task.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;userTask</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;theTask&#34;</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;Important task&#34;</span> <span style="color:#a6e22e">camunda:dueDate=</span><span style="color:#e6db74">&#34;${dateTime().plusDays(3).toDate()}&#34;</span><span style="color:#f92672">/&gt;</span>

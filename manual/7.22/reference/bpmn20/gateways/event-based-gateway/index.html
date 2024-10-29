@@ -4475,7 +4475,7 @@
 <li>An intermediateCatchEvent connected to an event-based Gateway must have a single incoming sequence flow.</li>
 </ul>
 <p>The following process is an example of a process with an event-based Gateway. When the execution arrives at the event-based Gateway, process execution is suspended. Additionally, the process instance subscribes to the alert signal event and creates a timer which fires after 10 minutes. This effectively causes the process engine to wait for ten minutes for a signal event. If the signal event occurs within 10 minutes, the timer is canceled and execution continues after the signal. If the signal is not fired, execution continues after the timer and the signal subscription is canceled.</p>
-<!-- raw HTML omitted -->
+<div data-bpmn-diagram="../bpmn/event-based-gateway"></div>
 <p>The corresponding xml looks like this:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;definitions&gt;</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;signal</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;alertSignal&#34;</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;alert&#34;</span> <span style="color:#f92672">/&gt;</span>
@@ -4513,7 +4513,30 @@
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/process&gt;</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/definitions&gt;</span>
 </span></span></code></pre></div><h1 id="camunda-extensions">Camunda Extensions</h1>
-<!-- raw HTML omitted -->
+<table class="table table-striped">
+  <tr>
+    <th>Attributes</th>
+    <td>
+      <a href="/7docs/manual/7.22/reference/bpmn20/custom-extensions/extension-attributes/#asyncbefore">camunda:asyncBefore</a>,
+      <a href="/7docs/manual/7.22/reference/bpmn20/custom-extensions/extension-attributes/#exclusive">camunda:exclusive</a>,
+      <a href="/7docs/manual/7.22/reference/bpmn20/custom-extensions/extension-attributes/#jobpriority">camunda:jobPriority</a>
+    </td>
+  </tr>
+  <tr>
+    <th>Extension Elements</th>
+    <td>
+      <a href="/7docs/manual/7.22/reference/bpmn20/custom-extensions/extension-elements/#failedjobretrytimecycle">camunda:failedJobRetryTimeCycle</a>,
+      <a href="/7docs/manual/7.22/reference/bpmn20/custom-extensions/extension-elements/#executionlistener">camunda:executionListener</a>
+    </td>
+  </tr>
+  <tr>
+    <th>Constraints</th>
+    <td>
+      The <code>camunda:exclusive</code> attribute is only evaluated if the attribute
+      <code>camunda:asyncBefore</code> is set to <code>true</code>
+    </td>
+  </tr>
+</table>
 <h1 id="additional-resources">Additional Resources</h1>
 <ul>
 <li><a href="http://camunda.org/bpmn/reference.html#gateways-event-based-gateways">Event-based Gateways</a> in the <a href="http://camunda.org/bpmn/reference.html">BPMN 2.0 Modeling Reference</a></li>

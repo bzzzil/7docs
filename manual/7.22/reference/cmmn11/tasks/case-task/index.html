@@ -4569,7 +4569,32 @@ If the calling case definition has a tenant id, a case definition with the provi
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/extensionElements&gt;</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/caseTask&gt;</span>
 </span></span></code></pre></div><h1 id="camunda-extensions">Camunda Extensions</h1>
-<!-- raw HTML omitted -->
+<table class="table table-striped">
+  <tr>
+    <th>Attributes</th>
+    <td>
+      <a href="/7docs/manual/7.22/reference/cmmn11/custom-extensions/camunda-attributes/#casebinding">camunda:caseBinding</a>,
+      <a href="/7docs/manual/7.22/reference/cmmn11/custom-extensions/camunda-attributes/#casetenantid">camunda:caseTenantId</a>,
+      <a href="/7docs/manual/7.22/reference/cmmn11/custom-extensions/camunda-attributes/#caseversion">camunda:caseVersion</a>
+    </td>
+  </tr>
+  <tr>
+    <th>Extension Elements</th>
+    <td>
+      <a href="/7docs/manual/7.22/reference/cmmn11/custom-extensions/camunda-elements/#in">camunda:in</a>,
+      <a href="/7docs/manual/7.22/reference/cmmn11/custom-extensions/camunda-elements/#out">camunda:out</a>,
+      <a href="/7docs/manual/7.22/reference/cmmn11/custom-extensions/camunda-elements/#caseexecutionlistener">camunda:caseExecutionListener</a>,
+      <a href="/7docs/manual/7.22/reference/cmmn11/custom-extensions/camunda-elements/#variablelistener">camunda:variableListener</a>
+    </td>
+  </tr>
+  <tr>
+    <th>Constraints</th>
+    <td>
+      The attribute <code>camunda:caseVersion</code> should only be set if
+      the attribute <code>camunda:caseBinding</code> equals <code>version</code>
+    </td>
+  </tr>
+</table>
 
     </div>
   </div>

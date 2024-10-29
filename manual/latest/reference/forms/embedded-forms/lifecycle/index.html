@@ -4467,7 +4467,74 @@
 
     <div class="col-xs-12 content-text">
       <h1 id="events">Events</h1>
-<!-- raw HTML omitted -->
+<ol>
+  <li>
+    The form is parsed, and variable names are collected from the markup. This means that directives
+    like <code>cam-variable-name</code> are evaluated and the resulting variables are declared in the
+    <code>variableManager</code>.<br/>
+    <em>Events:</em>
+    <ul>
+      <li><code>form-loaded</code> is fired <strong>after</strong> the form has been parsed, and all form directives have been
+    evaluated.</li>
+    </ul>
+  </li>
+  <br/>
+  <li>
+    In the second phase, a request is made to the server to gather the values of the
+    variables declared in the variable manager.<br/>
+    <em>Events:</em>
+    <ul>
+      <li><code>variables-fetched</code> is fired <strong>after</strong> the request returns and the values of the variables have
+     been merged into the variableManager.</li>
+    </ul>
+  </li>
+  <br/>
+  <li>
+    If a saved state of the form exists, the variable values are replaced with the saved state.<br/>
+    <em>Events:</em>
+    <ul>
+      <li><code>variables-restored</code> is fired <strong>after</strong> the saved values of the variables have been merged with
+     the values in the variableManager.</li>
+    </ul>
+  </li>
+  <br/>
+  <li>
+    Next, the variables are applied to the form controls. This means that HTML input fields and
+    select boxes are populated with the variable values present in the variableManager.<br/>
+    <em>Events:</em>
+    <ul>
+      <li><code>variables-applied</code> is fired <strong>after</strong> the values of the variables have been applied to the
+     form controls.</li>
+    </ul>
+  </li>
+  <br/>
+  <li>
+    The user interacts with the form. In this phase no events are fired.
+  </li>
+  <br/>
+  <li>
+    The user can save the form, which causes the current values of the variables to be stored in the
+    localStorage. If the user comes back to the form later, the values are restored.<br/>
+    <em>Events:</em>
+    <ul>
+      <li><code>store</code> is fired <strong>before</strong> the values of the variables are written to the localStorage. An
+      event handler may prevent the values from being stored.</li>
+      <li><code>variables-stored</code> is fired <strong>after</strong> the values are written to the localStorage.</li>
+    </ul>
+  </li>
+  <br/>
+  <li>
+    Finally, the form is completed. Triggering an [BPMN error or escalation event](/7docs/manual/latest/reference/bpmn20/tasks/user-task/#reporting-bpmn-error) will submit the form .<br/>
+    <em>Events:</em>
+    <ul>
+      <li><code>submit</code>, <code>error</code> or <code>escalation</code> is fired <strong>before</strong> the submit request is sent to the server. An event handler may
+      prevent the form from being submitted by setting the property `submitPrevented`, `errorPrevented` or `escalationPrevented` to true.</li>
+      <li><code>submit-success</code>, <code>error-success</code> or <code>escalation-success</code> is fired <strong>after</strong> the server successfully treated the submission.</li>
+      <li><code>submit-failed</code>, <code>error-failed</code> or <code>escalation-failed</code> is fired <strong>after</strong> the server failed at treating the submission
+      or when a network error happened.</li>
+    </ul>
+  </li>
+  <br/>
 <h1 id="event-listeners">Event Listeners</h1>
 <p>Event listeners can be registered from <a href="/7docs/manual/latest/reference/forms/embedded-forms/javascript/">custom JavaScript</a>:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">form</span> <span style="color:#a6e22e">role</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;form&#34;</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;form&#34;</span>&gt;

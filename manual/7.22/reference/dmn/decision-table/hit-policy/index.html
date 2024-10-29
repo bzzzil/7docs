@@ -4487,7 +4487,32 @@ element. If no hit policy is set, then the default hit policy <code>UNIQUE</code
 </span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/definitions&gt;</span>
 </span></span></code></pre></div><p>The following hit policies are
 supported by the Camunda DMN engine:</p>
-<!-- raw HTML omitted -->
+<table class="table table-striped">
+  <tr>
+    <th>Hit Policy</th>
+    <th>XML representation</th>
+  </tr>
+  <tr>
+    <td>Unique</td>
+    <td>UNIQUE</td>
+  </tr>
+  <tr>
+    <td>Any</td>
+    <td>ANY</td>
+  </tr>
+  <tr>
+    <td>First</td>
+    <td>FIRST</td>
+  </tr>
+  <tr>
+    <td>Rule order</td>
+    <td>RULE ORDER</td>
+  </tr>
+  <tr>
+    <td>Collect</td>
+    <td>COLLECT</td>
+  </tr>
+</table>
 <h1 id="the-role-of-a-hit-policy">The Role of a Hit Policy</h1>
 <p>A hit policy specifies how many rules of a decision table can be satisfied and
 which of the satisfied rules are included in the <a href="/7docs/manual/7.22/user-guide/dmn-engine/evaluate-decisions/#interpret-the-dmndecisiontableresult">decision table result</a>. The
@@ -4581,7 +4606,33 @@ XML element.</p>
 </span></span></code></pre></div><h3 id="aggregators-for-collect-hit-policy">Aggregators for Collect Hit Policy</h3>
 <p>In the visual representation of the decision table an aggregator can be selected in addition to the <code>COLLECT</code> hit policy. The following aggregators are supported by
 the Camunda DMN engine:</p>
-<!-- raw HTML omitted -->
+<table class="table table-striped">
+  <tr>
+    <th>Visual representation</th>
+    <th>XML representation</th>
+    <th>Result of the aggregation</th>
+  </tr>
+  <tr>
+    <td>Collect (Sum)</td>
+    <td>SUM</td>
+    <td>the sum of all output values</td>
+  </tr>
+  <tr>
+    <td>Collect (Min)</td>
+    <td>MIN</td>
+    <td>the smallest value of all output values</td>
+  </tr>
+  <tr>
+    <td>Collect (Max)</td>
+    <td>MAX</td>
+    <td>the largest value of all output values</td>
+  </tr>
+  <tr>
+    <td>Collect (Count)</td>
+    <td>COUNT</td>
+    <td>the number of output values</td>
+  </tr>
+</table>
 <h4 id="sum-aggregator">SUM aggregator</h4>
 <p>The SUM aggregator sums up all outputs from the satisfied rules.
 <figure class="image no-lightbox">

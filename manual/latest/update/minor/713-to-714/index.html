@@ -4631,18 +4631,18 @@ for this change of behavior.</p>
 <p>To continue using AngularJS plugins, you have to change your plugin to use the new interface and bootstrap an AngularJS application. You will also have to bundle AngularJS into your plugins. This is explained in detail in more detail in the <a href="https://github.com/camunda/camunda-bpm-examples/tree/7.14/cockpit/cockpit-angularjs-search-processes">AngularJS example plugin</a>.</p>
 <p>As your plugin is now displayed in your own AngularJS app and is decoupled from the Cockpit application, Camunda directives and services are no longer available. If you use one of the following in your plugin, you will have to migrate it.</p>
 <h3 id="directives">Directives</h3>
-<!-- raw HTML omitted -->
+<!-- If you used directives prefixed with CAM- -->
 <p>Camunda directives, such as search widgets (<code>cam-widget-search</code>) or variable tables (<code>cam-variable-table</code>) can no longer be used. You can still include and use UI frameworks such as <a href="https://angular-ui.github.io/bootstrap/">UI Bootstrap</a>, if you also bundle them with your plugin. As a rule of thumb, all widgets prefixed with <code>cam-</code> will be unavailable.</p>
 <h3 id="services">Services</h3>
-<!-- raw HTML omitted -->
+<!-- If you used Angular services -->
 <p>As with directives, services you could inject into your AngularJS component are no longer available. Only the services included in documented in the <a href="https://docs.angularjs.org/api">AngularJS documentation</a> are available by default. Services such as <code>camAPI</code> and <code>Uri</code> can no longer be injected. You can still make requests against the REST API using the <a href="https://docs.angularjs.org/api/ng/service/$http">$http service</a> and the API Urls that get passed into the render function.</p>
 <p>If you changed the CSRF-cookie name or use other HTTP-clients such as the <code>fetch</code> API, you&rsquo;ll also need to set the headers appropriately. The current CSRF token is always passed into the render function in the second argument as <code>api.CSRFToken</code>. The <code>api.engineApi</code> corresponds to the root of our <a href="https://docs.camunda.org/manual/develop/reference/rest/">REST API</a>. Check out the <a href="/7docs/manual/latest/webapps/cockpit/extend/plugins/#attributes-in-detail">documentation</a> for more details on the render function.</p>
 <h3 id="diagram-interaction">Diagram Interaction</h3>
-<!-- raw HTML omitted -->
+<!-- If you used `DataDepend` for your diagram Interactions -->
 <p>Previously, there was no documented way to create interactions with the diagram. We recommend to use 2 plugins to achieve diagram interaction - one <a href="/7docs/manual/latest/webapps/cockpit/extend/plugins/#process-definition-diagram-overlay">diagram overlay</a> to capture click events and highlight tasks and one <a href="/7docs/manual/latest/webapps/cockpit/extend/plugins/#process-definition-runtime-tab">tab plugin</a> which displays information related to the selection.</p>
 <p>Diagram plugin points are available for all views with a BPMN viewer. We created an <a href="https://github.com/camunda/camunda-bpm-examples/tree/7.14/cockpit/cockpit-diagram-interactions">example</a> to show you how the interaction can look like.</p>
 <h3 id="new-routes">New Routes</h3>
-<!-- raw HTML omitted -->
+<!-- If you used the `routeProvider` -->
 <p>If you used the <code>routeProvider</code> to create new routes, you can simply use the new <a href="/7docs/manual/latest/webapps/cockpit/extend/plugins/#route"><code>Route</code> plugin point</a>. The same principles for migrating plugins also apply to migrating routes.</p>
 <h1 id="end-of-spring-3-support">End of Spring 3 Support</h1>
 <p>Spring Framework version 3 has been end of life as of December 31st, 2016. The <a href="https://github.com/spring-projects/spring-framework/wiki/Spring-Framework-Versions#supported-versions">official guide</a> recommends to upgrade to versions 4 or 5 of the framework respectively. With version <code>7.14.0</code>, official support for Spring 3 ends as well. Applications using this version of Spring might still work as expected but are recommended to be upgraded to versions 4 or 5, which the engine is tested against and can be safely used with.</p>

@@ -4481,7 +4481,57 @@
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;startEvent</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;startEvent&#34;</span> <span style="color:#a6e22e">camunda:asyncBefore=</span><span style="color:#e6db74">&#34;true&#34;</span> <span style="color:#f92672">/&gt;</span>
 </span></span></code></pre></div><p>This will ensure that the process engine creates a process instance when the process is instantiated, but the execution of the initial activities is not done synchronously. Instead, a job is created and asynchronously processed by the <a href="/7docs/manual/7.22/user-guide/process-engine/the-job-executor/">job executor</a>. See the <a href="/7docs/manual/7.22/user-guide/process-engine/transactions-in-processes/#asynchronous-continuations">Asynchronous Continuations</a> section of the <a href="/7docs/manual/7.22/user-guide/">User Guide</a> for some background information.</p>
 <h1 id="camunda-extensions">Camunda Extensions</h1>
-<!-- raw HTML omitted -->
+<table class="table table-striped">
+  <tr>
+    <th>Attributes</th>
+    <td>
+      <a href="/7docs/manual/7.22/reference/bpmn20/custom-extensions/extension-attributes/#asyncbefore">camunda:asyncBefore</a>,
+      <a href="/7docs/manual/7.22/reference/bpmn20/custom-extensions/extension-attributes/#asyncafter">camunda:asyncAfter</a>,
+      <a href="/7docs/manual/7.22/reference/bpmn20/custom-extensions/extension-attributes/#exclusive">camunda:exclusive</a>,
+      <a href="/7docs/manual/7.22/reference/bpmn20/custom-extensions/extension-attributes/#formhandlerclass">camunda:formHandlerClass</a>,
+      <a href="/7docs/manual/7.22/reference/bpmn20/custom-extensions/extension-attributes/#formkey">camunda:formKey</a>,
+      <a href="/7docs/manual/7.22/reference/bpmn20/custom-extensions/extension-attributes/#formref">camunda:formRef</a>,
+      <a href="/7docs/manual/7.22/reference/bpmn20/custom-extensions/extension-attributes/#formrefbinding">camunda:formRefBinding</a>,
+      <a href="/7docs/manual/7.22/reference/bpmn20/custom-extensions/extension-attributes/#formrefversion">camunda:formRefVersion</a>,
+      <a href="/7docs/manual/7.22/reference/bpmn20/custom-extensions/extension-attributes/#initiator">camunda:initiator</a>,
+      <a href="/7docs/manual/7.22/reference/bpmn20/custom-extensions/extension-attributes/#jobpriority">camunda:jobPriority</a>
+    </td>
+  </tr>
+  <tr>
+    <th>Extension Elements</th>
+    <td>
+      <a href="/7docs/manual/7.22/reference/bpmn20/custom-extensions/extension-elements/#failedjobretrytimecycle">camunda:failedJobRetryTimeCycle</a>,
+      <a href="/7docs/manual/7.22/reference/bpmn20/custom-extensions/extension-elements/#formdata">camunda:formData</a>,
+      <a href="/7docs/manual/7.22/reference/bpmn20/custom-extensions/extension-elements/#formproperty">camunda:formProperty</a>,
+    </td>
+  </tr>
+  <tr>
+    <th>Constraints</th>
+    <td>
+      The <code>camunda:exclusive</code> attribute is only evaluated if the attribute
+      <code>camunda:asyncBefore</code> or <code>camunda:asyncAfter</code> is set to <code>true</code>
+    </td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>
+      The attributes <code>camunda:asyncBefore</code> and <code>camunda:initiator</code> are only available for start events of a Process
+    </td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>
+      Only one <code>camunda:formData</code> extension element is allowed
+    </td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>
+      The attributes <code>camunda:formHandlerClass</code> and <code>camunda:formKey</code>
+      are only available for the intital start event of a Process
+    </td>
+  </tr>
+</table>
 
     </div>
   </div>

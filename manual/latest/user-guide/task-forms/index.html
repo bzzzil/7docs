@@ -4476,7 +4476,29 @@
 <p>If no form key is present, a <a href="#generic-task-forms">Generic Task Form</a> will be shown.</p>
 <h1 id="form-key-details">Form Key details</h1>
 <p>Form keys that are used in Tasklist have the structure <code>FORM-TYPE:LOCATION:FORM.NAME</code>.</p>
-<!-- raw HTML omitted -->
+<table class="table table-striped">
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>FORM-TYPE</td>
+    <td>Can be <code>embedded</code> or <code>camunda-forms</code> depending on the form type. If no type is set, the form will be shown as an <a href="#external-task-forms">External Task Form</a>.</td>
+  </tr>
+  <tr>
+    <td>LOCATION</td>
+    <td>Can be either <code>deployment</code> or <code>app</code>:
+    <ul>
+      <li><em>deployment</em>: The file is part of your deployment (e.g., <a href="/7docs/manual/latest/reference/deployment-descriptors/tags/process-archive/">by adding it to your process archive</a> or <a href="https://docs.camunda.org/get-started/quick-start/deploy/#use-the-camunda-modeler-to-deploy-the-process">by deploying from the Camunda Modeler</a>), which means that it is stored in the Camunda database. It can then be loaded from there. Note that this allows versioning of your form alongside the process model.</li>
+      <li><em>app</em>: Add the file to your development project in a folder <code>src/main/webapp/forms</code>. The form file will be packaged into your deployment artifact (typically a WAR archive). During runtime it will be loaded from there.</li>
+    </ul>
+  </td>
+  </tr>
+  <tr>
+  <td>FORM.NAME</td>
+  <td>The file name and path in the deployment, e.g. <code>forms/startFrom.html</code></td>
+  </tr>
+</table>
 <p>To configure the form in your process, open the process with the <a href="http://camunda.org/bpmn/tool/">Camunda Modeler</a> and select the desired <a href="/7docs/manual/latest/reference/bpmn20/tasks/user-task/">UserTask</a> or <a href="/7docs/manual/latest/reference/bpmn20/events/start-events/">StartEvent</a>. Open the properties panel and enter the Form Key. The relevant XML tag looks like this:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;userTask</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;theTask&#34;</span> <span style="color:#a6e22e">camunda:formKey=</span><span style="color:#e6db74">&#34;camunda-forms:deployment:forms/userTask.form&#34;</span>
 </span></span><span style="display:flex;"><span>          <span style="color:#a6e22e">camunda:candidateUsers=</span><span style="color:#e6db74">&#34;John, Mary&#34;</span>
@@ -4508,7 +4530,7 @@
   <h3>Process variables access</h3>
   <p>Defining forms does not introduce any permissions on process variables.
 Users can still submit any variables via APIs for form completion like the
-<!-- raw HTML omitted -->Submit Task Form<!-- raw HTML omitted --> REST API.
+<a href="/7docs/manual/latest/reference/rest/specification/#tag/Task/operation/submit">Submit Task Form</a> REST API.
 Forms can be used on top of the task completion API to render form fields and validate submitted values.</p>
 </div>
 
@@ -4686,19 +4708,62 @@ After hitting the <em>Complete</em> button, the process instance contains the en
 
 <p>As you can see, the <code>&lt;camunda:formData ... /&gt;</code> element is provided as a child element of the BPMN <code>&lt;extensionElements&gt;</code> element. Form metadata consists of multiple form fields which represent individual input fields where a user has to provide some value or selection.</p>
 <p>A form data can have following attributes:</p>
-<!-- raw HTML omitted -->
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Attribute</th><th>Explanation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>businessKey</td>
+      <td>Id of a form field that will be marked as <code>cam-business-key</code></td>
+    </tr>
+  </tbody>
+</table>
 <h3 id="form-fields">Form Fields</h3>
 
 <div class="note bg-warning docs-warning">
   <h3>Process variables access</h3>
   <p>Defining form fields does not introduce any permissions on process variables.
 Users can still submit any variables via APIs for form completion like the
-<!-- raw HTML omitted -->Submit Task Form<!-- raw HTML omitted --> REST API.
+<a href="/7docs/manual/latest/reference/rest/specification/#tag/Task/operation/submit">Submit Task Form</a> REST API.
 Form fields can be used on top of the task completion API to render forms and validate submitted values.</p>
 </div>
 
 <p>A form field can have the following attributes:</p>
-<!-- raw HTML omitted -->
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Attribute</th><th>Explanation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>id</td><td>Unique id of the form field, corresponding to the name of the process variable to which the value of the form field is added when the form is submitted.</td>
+    </tr>
+    <tr>
+      <td>label</td><td>The label to be displayed next to the form field.</td>
+    </tr>
+    <tr>
+      <td>type</td>
+      <td>The data type of the form field. The following types are supported out of the box:
+        <ul>
+          <code>
+          <li>string</li>
+          <li>long</li>
+          <li>date</li>
+          <li>boolean</li>
+          <li>enum</li>
+          </code>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>defaultValue</td><td>Value to be used as a default (pre-selection) for the field.</td>
+    </tr>
+  </tbody>
+</table>
 <h3 id="form-field-validation">Form Field Validation</h3>
 <p>Validation can be used for specifying frontend and backend validation of form fields. CIB seven provides a set of built-in form field validators and an extension point for plugging in custom validators.</p>
 <p>Validation can be configured for each form field in the BPMN 2.0 XML:</p>
@@ -4711,7 +4776,81 @@ Form fields can be used on top of the task completion API to render forms and va
 </span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/camunda:formField&gt;</span>
 </span></span></code></pre></div><p>As you can see, you can provide a list of validation constraints for each form field.</p>
 <p>The following built-in validators are supported out of the box:</p>
-<!-- raw HTML omitted -->
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Validator</th><th>Explanation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>required</td>
+      <td>
+        <p>Applicable to all types. Validates that a value is provided for the form field. Rejects 'null' values and empty strings.</p>
+        <p>
+          <code>
+            &lt;camunda:constraint name=&quot;required&quot; /&gt;
+          </code>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td>minlength</td>
+      <td>
+        <p>Applicable to <code>string</code> fields. Validates the minimum length of text content. Accepts 'null' values.</p>
+        <p>
+          <code>
+            &lt;camunda:constraint name=&quot;minlength&quot; config=&quot;4&quot; /&gt;
+          </code>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td>maxlength</td>
+      <td>
+        <p>Applicable to <code>string</code> fields. Validates the maximum length of text content. Accepts 'null' values.</p>
+        <p>
+          <code>
+            &lt;camunda:constraint name=&quot;maxlength&quot; config=&quot;25&quot; /&gt;
+          </code>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td>min</td>
+      <td>
+        <p>Applicable to numeric fields. Validates the minimum value of a number. Accepts 'null' values.</p>
+        <p>
+          <code>
+            &lt;camunda:constraint name=&quot;min&quot; config=&quot;1000&quot; /&gt;
+          </code>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td>max</td>
+      <td>
+        <p>Applicable to numeric fields. Validates the maximum value of a number. Accepts 'null' values.</p>
+        <p>
+          <code>
+            &lt;camunda:constraint name=&quot;max&quot; config=&quot;10000&quot; /&gt;
+          </code>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td>readonly</td>
+      <td>
+        <p>Applicable to all types. Makes sure no input is submitted for the given form field.</p>
+        <p>
+          <code>
+            &lt;camunda:constraint name=&quot;readonly&quot; /&gt;
+          </code>
+        </p>
+      </td>
+    </tr>
+  </tbody>
+</table>
 <p>CIB seven supports custom validators. Custom validators are referenced using their fully qualified classname or an expression. Expressions can be used for resolving Spring or CDI @Named beans:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;camunda:formField</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;firstname&#34;</span> <span style="color:#a6e22e">label=</span><span style="color:#e6db74">&#34;First Name&#34;</span> <span style="color:#a6e22e">type=</span><span style="color:#e6db74">&#34;string&#34;</span><span style="color:#f92672">&gt;</span>

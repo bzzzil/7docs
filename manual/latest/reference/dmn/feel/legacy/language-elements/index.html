@@ -4470,7 +4470,7 @@
 <div class="note bg-info docs-info">
   <h3>Heads Up!</h3>
   <p>This page provides information on the legacy FEEL Engine, that was used before the
-current <!-- raw HTML omitted -->Scala-based FEEL Engine<!-- raw HTML omitted -->
+current <a href="/7docs/manual/latest/user-guide/dmn-engine/feel/">Scala-based FEEL Engine</a>
 was integrated into CIB seven.</p>
 </div>
 
@@ -4483,12 +4483,92 @@ elements which are described in this sections.</p>
 <p>FEEL simple unary tests support the following comparison operators. Please
 note that the equals operator is empty and <em>not</em> <code>=</code>. Also, a non equal operator such as <code>!=</code>
 does <em>not</em> exist. To express this, <a href="#negation">negation</a> has to be used.</p>
-<!-- raw HTML omitted -->
+<table class="table table-striped">
+  <tr>
+    <th>Name</th>
+    <th>Operator</th>
+    <th>Example</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>Equal</td>
+    <td><code></code></td>
+    <td><code>"Steak"</code></td>
+    <td>Test that the input value is equal to the given value.</td>
+  </tr>
+  <tr>
+    <td>Less</td>
+    <td><code><</code></td>
+    <td><code>< 10</code></td>
+    <td>Test that the input value is less than the given value.</td>
+  </tr>
+  <tr>
+    <td>Less or Equal</td>
+    <td><code><=</code></td>
+    <td><code><= 10</code></td>
+    <td>Test that the input value is less than or equal to the given value.</td>
+  </tr>
+  <tr>
+    <td>Greater</td>
+    <td><code>></code></td>
+    <td><code>> 10</code></td>
+    <td>Test that the input value is greater than the given value.</td>
+  </tr>
+  <tr>
+    <td>Greater or Equal</td>
+    <td><code>>=</code></td>
+    <td><code>>= 10</code></td>
+    <td>Test that the input value is greater than or equal to the given value.</td>
+  </tr>
+</table>
 <h1 id="range">Range</h1>
 <p>Some <a href="/7docs/manual/latest/reference/dmn/feel/legacy/data-types/">FEEL data types</a>, such as numeric types and date types, can be tested against
 a range of values. These ranges consist of a start value and an end value. The
 range specifies if the start and end value is included in the range.</p>
-<!-- raw HTML omitted -->
+<table class="table table-striped">
+  <tr>
+    <th>Start</th>
+    <th>End</th>
+    <th>Example</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>include</td>
+    <td>include</td>
+    <td><code>[1..10]</code></td>
+    <td>
+      Test that the input value is greater than or equal to the start value and
+      less than or equal to the end value.
+    </td>
+  </tr>
+  <tr>
+    <td>exclude</td>
+    <td>include</td>
+    <td><code>]1..10]</code> or <code>(1..10]</code></td>
+    <td>
+      Test that the input value is greater than the start value and less than
+      or equal to the end value.
+    </td>
+  </tr>
+  <tr>
+    <td>include</td>
+    <td>exclude</td>
+    <td><code>[1..10[</code> or <code>[1..10)</code></td>
+    <td>
+      Test that the input value is greater than or equal to the start value and
+      less than the end value.
+    </td>
+  </tr>
+  <tr>
+    <td>exclude</td>
+    <td>exclude</td>
+    <td><code>]1..10[</code> or <code>(1..10)</code></td>
+    <td>
+      Test that the input value is greater than the start value and less than
+      the end value.
+    </td>
+  </tr>
+</table>
 <h1 id="disjunction">Disjunction</h1>
 <p>A FEEL simple unary test can be specified as conjunction of expressions. These
 expressions have to either have <a href="#comparison">comparisons</a> or <a href="#range">ranges</a>. The test is <code>true</code> if

@@ -4519,7 +4519,7 @@ result, Open Liberty is not supported by CIB seven.</p>
 required to run CIB seven correctly.</p>
 <p>We recommend using Java EE 8 Liberty features to run CIB seven on WebSphere Liberty.</p>
 <p>If you decide to mix Liberty features from different Java EE versions, check the
-<!-- raw HTML omitted -->Java EE feature combinations page<!-- raw HTML omitted -->
+<a href="https://www.ibm.com/docs/en/was-liberty/base?topic=architecture-supported-java-ee-7-8-feature-combinations" >Java EE feature combinations page</a>
 to ensure that the all the features are inter-compatible.</p>
 </p>
 </div>
@@ -4836,10 +4836,62 @@ elements in the <code>server.xml</code> file:</p>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/server&gt;</span>
 </span></span></code></pre></div><h3 id="concurrency-policy-attributes">Concurrency policy attributes</h3>
 <p>You can use the following attributes of the <code>concurrencyPolicy</code> element to configure the CommonJ Work manager:</p>
-<!-- raw HTML omitted -->
+<table class="table">
+  <tbody>
+    <tr>
+      <th>Property</th>
+      <th>Default Value</th>
+      <th>Explanation</th>
+    </tr>
+    <tr>
+      <td>max</td>
+      <td>4</td>
+      <td>Specifies the maximum number of threads that are available in this work manager used by the JobExecutor.</td>
+    </tr>
+    <tr>
+      <td>maxQueueSize</td>
+      <td>5</td>
+      <td>Specifies the size of the work request queue. The work request queue is a buffer that holds scheduled work 
+          objects and may be a value of 1 or greater. The thread pool pulls work from this queue. If you do not specify a 
+          value or the value is 0, the queue size is managed automatically. Large values can consume significant system 
+          resources.
+      </td>
+    </tr>
+    <tr>
+      <td>runIfQueueFull</td>
+      <td>false</td>
+      <td>Specifies the action that is taken when the thread pool is exhausted, and the work request queue is full. This 
+          action starts when you submit non-daemon work to the work manager. The value should be set to <code>false</code>.
+      </td>
+    </tr>
+  </tbody>
+</table>
 <h3 id="required-values">Required values</h3>
 <p>The following JNDI names and IDs are mandatory, and shouldn&rsquo;t be changed:</p>
-<!-- raw HTML omitted -->
+<table class="table">
+  <tbody>
+    <tr>
+      <th>Configuration element</th>
+      <th>Required Value</th>
+      <th>Explanation</th>
+    </tr>
+    <tr>
+      <td><code>managedExecutorService#jndiName</code></td>
+      <td><code>wm/camunda-bpm-workmanager</code></td>
+      <td>The JNDI name of the Work Manager.</td>
+    </tr>
+    <tr>
+      <td><code>connectionFactory#jndiName</code></td>
+      <td><code>eis/JcaExecutorServiceConnectionFactory</code></td>
+      <td>The JNDI name of the JCA ConnectionFactory used by the JobExecutor service.</td>
+    </tr>
+    <tr>
+      <td><code>activationSpec#id</code></td>
+      <td><code>eis/PlatformJobExecutorActivation</code></td>
+      <td>The ID of the MDB activationSpec used for passing Jobs to the JobExecutor.</td>
+    </tr>
+  </tbody>
+</table>
 <p>Furthermore, to correctly activate, the <code>connectionFactory</code> and <code>activationSpec</code> elements must contain the
 following empty XML sub-element:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;properties.camunda-bpm-platform.camunda-ibm-websphere-rar</span> <span style="color:#f92672">/&gt;</span>

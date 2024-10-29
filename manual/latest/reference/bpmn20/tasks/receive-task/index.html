@@ -4502,7 +4502,31 @@
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>runtimeService.<span style="color:#a6e22e">signal</span>(execution.<span style="color:#a6e22e">getId</span>());
 </span></span></code></pre></div><h1 id="camunda-extensions">Camunda Extensions</h1>
-<!-- raw HTML omitted -->
+<table class="table table-striped">
+  <tr>
+    <th>Attributes</th>
+    <td>
+      <a href="/7docs/manual/latest/reference/bpmn20/custom-extensions/extension-attributes/#asyncbefore">camunda:asyncBefore</a>,
+      <a href="/7docs/manual/latest/reference/bpmn20/custom-extensions/extension-attributes/#asyncafter">camunda:asyncAfter</a>,
+      <a href="/7docs/manual/latest/reference/bpmn20/custom-extensions/extension-attributes/#exclusive">camunda:exclusive</a>,
+      <a href="/7docs/manual/latest/reference/bpmn20/custom-extensions/extension-attributes/#jobpriority">camunda:jobPriority</a>
+    </td>
+  </tr>
+  <tr>
+    <th>Extension Elements</th>
+    <td>
+      <a href="/7docs/manual/latest/reference/bpmn20/custom-extensions/extension-elements/#failedjobretrytimecycle">camunda:failedJobRetryTimeCycle</a>,
+      <a href="/7docs/manual/latest/reference/bpmn20/custom-extensions/extension-elements/#inputoutput">camunda:inputOutput</a>
+    </td>
+  </tr>
+  <tr>
+    <th>Constraints</th>
+    <td>
+      The <code>camunda:exclusive</code> attribute is only evaluated if the attribute
+      <code>camunda:asyncBefore</code> or <code>camunda:asyncAfter</code> is set to <code>true</code>
+    </td>
+  </tr>
+</table>
 <h1 id="additional-resources">Additional Resources</h1>
 <ul>
 <li><a href="http://camunda.org/bpmn/reference.html#activities-task">Tasks</a> in the <a href="http://camunda.org/bpmn/reference.html">BPMN 2.0 Modeling Reference</a></li>

@@ -4492,9 +4492,9 @@ we recommend combining migration with the <a href="/7docs/manual/latest/user-gui
 canceling an activity instance before migration and starting a new instance after migration.</p>
 <p>In the remainder of this section, the following process models are used to illustrate the API and effects of migration unless otherwise noted:</p>
 <p>Process <code>exampleProcess:1</code>:</p>
-<!-- raw HTML omitted -->
+<div data-bpmn-diagram="../bpmn/process-instance-migration/example1"></div>
 <p>Process <code>exampleProcess:2</code>:</p>
-<!-- raw HTML omitted -->
+<div data-bpmn-diagram="../bpmn/process-instance-migration/example2"></div>
 <div class="note enterprise-feature">
   <h3>Enterprise Feature</h3>
 
@@ -4832,9 +4832,9 @@ This behavior can be specified by calling <code>migrationBuilder.mapActivities(&
 In consequence, the event trigger is reset according to the target event.</p>
 <p>Consider the following two processes where the configuration of the boundary event changes:</p>
 <p>Process <code>timerBoundary:1</code>:</p>
-<!-- raw HTML omitted -->
+  <div data-bpmn-diagram="../bpmn/process-instance-migration/example-boundary-timer1"></div>
 <p>Process <code>timerBoundary:2</code>:</p>
-<!-- raw HTML omitted -->
+  <div data-bpmn-diagram="../bpmn/process-instance-migration/example-boundary-timer2"></div>
 <p>Specifying the instruction <code>migrationBuilder.mapActivities(&quot;timer&quot;, &quot;timer&quot;).updateEventTrigger()</code> is going to reinitialize the timer job.
 In effect, the boundary event fires ten days after migration. In contrast, if <code>updateEventTrigger</code> is not used, then the
 timer job configuration is preserved. In effect, it is going to trigger five days after the activity was started regardless of when the migration is performed.</p>
@@ -4874,9 +4874,9 @@ timer job configuration is preserved. In effect, it is going to trigger five day
 <p>Process instances with active compensation subscriptions can be migrated by mapping the corresponding catching compensation events.
 This tells the migration API which compensation handler of the source process model corresponds to which handler in the target process model.</p>
 <p>Consider this source process:</p>
-<!-- raw HTML omitted -->
+<div data-bpmn-diagram="../bpmn/process-instance-migration/example-compensation5"></div>
 <p>And this target process:</p>
-<!-- raw HTML omitted -->
+<div data-bpmn-diagram="../bpmn/process-instance-migration/example-compensation6"></div>
 <p>Assume a process instance in the following state:</p>
 <pre tabindex="0"><code>ProcessInstance
 └── Assess Credit Worthiness
@@ -4889,9 +4889,9 @@ therefore contain a mapping for the compensation boundary event. For example:</p
 </span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">build</span>();
 </span></span></code></pre></div><p>After migration, compensation can be triggered from the same scope as before migration (or in case that scope is removed, the closest ancestor scope that migrates).
 For illustration, consider the following source process:</p>
-<!-- raw HTML omitted -->
+<div data-bpmn-diagram="../bpmn/process-instance-migration/example-compensation3"></div>
 <p>And this target process:</p>
-<!-- raw HTML omitted -->
+<div data-bpmn-diagram="../bpmn/process-instance-migration/example-compensation4"></div>
 <p>When migrating the same process instance state as in the above example, the inner compensation event is <strong>not</strong> going to
 trigger compensation of the <em>Archive Application</em> activity but only the outer compensation event.</p>
 
@@ -4904,9 +4904,9 @@ trigger compensation of the <em>Archive Application</em> activity but only the o
 <p>New compensation boundary events contained in the target process definition only take effect for activity instances that are not started or not finished yet.
 For example, consider the following two processes:</p>
 <p>Process <code>compensation:1</code>:</p>
-<!-- raw HTML omitted -->
+<div data-bpmn-diagram="../bpmn/process-instance-migration/example-compensation1"></div>
 <p>Process <code>compensation:2</code>:</p>
-<!-- raw HTML omitted -->
+<div data-bpmn-diagram="../bpmn/process-instance-migration/example-compensation2"></div>
 <p>Furthermore, assume that before migration a process instance is in the following state:</p>
 <pre tabindex="0"><code>ProcessInstance
 └── Assess Credit Worthiness

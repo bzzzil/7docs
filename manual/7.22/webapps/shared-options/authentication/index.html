@@ -4492,7 +4492,7 @@ given it didn&rsquo;t change.</p>
 they recreate it and query for the authentication information again from the database.</p>
 <p>You can change the <code>cacheTimeToLive</code> configuration property with the following allowed values:</p>
 <ul>
-<li>Set the parameter value to a time duration in milliseconds between <code>1</code> and <!-- raw HTML omitted -->2<!-- raw HTML omitted -->63<!-- raw HTML omitted -->-1<!-- raw HTML omitted -->.</li>
+<li>Set the parameter value to a time duration in milliseconds between <code>1</code> and <code>2<sup>63</sup>-1</code>.</li>
 <li>Set the parameter value to <code>0</code>, effectively leading to querying for the authentication information on each REST API request.</li>
 <li>Remove the <code>&lt;init-param&gt;...&lt;/init-param&gt;</code> entirely or change the parameter value to <code>&lt;param-value/&gt;</code> to keep the cache for the lifetime of the HTTP session.</li>
 </ul>

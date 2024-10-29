@@ -4478,7 +4478,25 @@ default object mapper. Refer to the <a href="http://docs.oracle.com/javase/8/doc
 configuration can be applied.</p>
 <h2 id="safe-xml-processing">Safe XML processing</h2>
 <p>The Spin XML data format provides the following configuration properties to enable secure parsing of XML documents:</p>
-<!-- raw HTML omitted -->
+<table class="table table-striped">
+  <tr>
+    <th>Property</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td><code>xxe-processing</code></td>
+    <td>Toggle the processing of External XML Entities (XXE) in an XML document. Disable to prevent 
+        <a href="https://en.wikipedia.org/wiki/XML_external_entity_attack">XXE attacks</a>. Default value: 
+        <code>false</code>
+    </td>
+  </tr>
+  <tr>
+    <td><code>secure-processing</code></td>
+    <td>Toggle the <a href="https://docs.oracle.com/en/java/javase/13/security/java-api-xml-processing-jaxp-security-guide.html">secure processing of an XML document</a>. 
+        Default value: <code>true</code>
+    </td>
+  </tr>
+</table>
 <p>To provide a custom configuration, you can pass these properties in a <code>Map</code>, to the <code>DataFormats.loadDataFormats(...)</code>
 method, similar to the example below:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>  Map<span style="color:#f92672">&lt;</span>String, Object<span style="color:#f92672">&gt;</span> configurationOptions <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> HashMap<span style="color:#f92672">&lt;&gt;</span>();

@@ -4593,7 +4593,131 @@ topic subscription can be opened or closed:</p>
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">username</span>: <span style="color:#ae81ff">admin</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">password</span>: <span style="color:#ae81ff">admin</span>
 </span></span></code></pre></div><p>Available properties:</p>
-<!-- raw HTML omitted -->
+<table class="table desc-table">
+  <thead>
+    <tr>
+      <th style="width: 20%;">Property name</th>
+      <th style="width: 60%;">Description</th>
+      <th style="width: 20%;">Default value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>base-url</code></td>
+      <td>
+        <strong>Mandatory:</strong> Base url of the CIB seven Runtime
+        REST API.
+      </td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><code>worker-id</code></td>
+      <td>
+        A custom worker id the Workflow Engine is aware of. <br>
+        <strong>Note:</strong> make sure to choose a unique worker id.
+      </td>
+      <td>hostname + 128 bit UUID</td>
+    </tr>
+    <tr>
+      <td><code>max-tasks</code></td>
+      <td>
+        Specifies the maximum number of tasks that can be fetched within one
+        request.
+      </td>
+      <td><code>10</code></td>
+    </tr>
+    <tr>
+      <td><code>use-priority</code></td>
+      <td>
+        Specifies whether tasks should be fetched based on their priority or
+        arbitrarily.
+      </td>
+      <td><code>true</code></td>
+    </tr>
+    <tr>
+      <td><code>use-create-time</code></td>
+      <td>
+        Specifies whether tasks should be fetched based on their create time in descending order. Use this property in disjunction with order-by-create-time property or a SpringExternalTaskClientException will be thrown.
+      </td>
+      <td><code>false</code></td>
+    </tr>
+    <tr>
+      <td><code>order-by-create-time</code></td>
+      <td>
+        Specifies whether tasks should be fetched based on their createTime with the given configured order. It can be either "asc" or "desc". Use this property in disjunction with use-create-time property or a SpringExternalTaskClientException will be thrown.
+      </td>
+      <td><code>null</code></td>
+    </tr>
+    <tr>
+      <td><code>async-response-timeout</code></td>
+      <td>
+        Asynchronous response (long polling) is enabled if a timeout is given.
+        Specifies the maximum waiting time for the response of fetched and
+        locked External Tasks. The response is performed immediately if
+        External Tasks are available at the moment of the request.
+      </td>
+      <td>
+        <code>null</code>
+      </td>
+    </tr>
+    <tr>
+      <td><code>disable-auto-fetching</code></td>
+      <td>
+        Disables immediate fetching for external tasks after bootstrapping the
+        Client. To start fetching <code>ExternalTaskClient#start()</code> must
+        be called.
+      </td>
+      <td><code>false</code></td>
+    </tr>
+    <tr>
+      <td><code>disable-backoff-strategy</code></td>
+      <td>
+        Disables the client-side backoff strategy. When set to
+        <code>true</code>, a <code>BackoffStrategy</code> bean is ignored.<br /><br />
+        <strong>Heads-up:</strong> Please bear in mind that disabling the
+        client-side backoff can lead to heavy load situations on the engine side. To
+        avoid this, please specify an appropriate <code>async-response-timeout</code>.
+      </td>
+      <td><code>false</code></td>
+    </tr>
+    <tr>
+      <td><code>lock-duration</code></td>
+      <td>
+        Specifies for how many milliseconds an External Task is locked. Must be
+        greater than zero. It is overridden by the lock duration configured on a
+        topic subscription
+      </td>
+      <td><code>20,000</code></td>
+    </tr>
+    <tr>
+      <td><code>date-format</code></td>
+      <td>Specifies the date format to de-/serialize date variables.</td>
+      <td><code>yyyy-MM-dd'T'HH:mm:ss.SSSZ</code></td>
+    </tr>
+    <tr>
+      <td><code>default-serialization-format</code></td>
+      <td>
+        Specifies the serialization format that is used to serialize objects
+        when no specific format is requested.
+      </td>
+      <td><code>application/json</code></td>
+    </tr>
+    <tr>
+      <td><code>basic-auth.username</code></td>
+      <td>
+        Specifies the username credential of the REST API to be authenticated with. 
+      </td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><code>basic-auth.password</code></td>
+      <td>
+        Specifies the password credential of the REST API to be authenticated with.
+      </td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
 <h4 id="topic-subscription-1">Topic Subscription</h4>
 <p>The properties for topic subscriptions go under: <code>camunda.bpm.client.subscriptions</code></p>
 <p>The configuration properties can be applied for each topic name as follows:</p>
@@ -4607,7 +4731,145 @@ topic subscription can be opened or closed:</p>
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">loanGranter</span>:
 </span></span><span style="display:flex;"><span>        <span style="color:#f92672">process-definition-key</span>: <span style="color:#ae81ff">loan_process</span>
 </span></span></code></pre></div><p>Available properties:</p>
-<!-- raw HTML omitted -->
+<table class="table desc-table">
+  <thead>
+    <tr>
+      <th style="width: 20%;">Property name</th>
+      <th style="width: 60%;">Description</th>
+      <th style="width: 20%;">Default value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>${TOPIC_NAME}</code></td>
+      <td>
+        The Service Task's topic name in the BPMN process model the Client
+        subscribes to.
+      </td>
+      <td></td>
+    </tr>
+    <tr id="auto-open">
+      <td><code>auto-open</code></td>
+      <td>
+        When <code>false</code>, topic subscription can be opened after
+        the application starts calling
+        <code>SpringTopicSubscription#open()</code>. Otherwise, the Client
+        immediately starts to fetch for External Tasks.
+      </td>
+      <td><code>true</code></td>
+    </tr>
+    <tr>
+      <td><code>lock-duration</code></td>
+      <td>
+        Specifies for how many milliseconds an External Task is locked. Must be
+        greater than zero. Overrides the lock duration configured on
+        bootstrapping the Client.
+      </td>
+      <td><code>20,000</code></td>
+    </tr>
+    <tr>
+      <td><code>variable-names</code></td>
+      <td>
+        Variable names of variables that are supposed to be retrieved. 
+        All variables are retrieved by default.
+      </td>
+      <td><code>null</code></td>
+    </tr>
+    <tr>
+      <td><code>local-variables</code></td>
+      <td>
+        Whether or not variables from greater scope than the External Task
+        should be fetched. When <code>false</code>, all variables visible in the
+        scope will be fetched. When <code>true</code>, only local variables to
+        the scope of the External Task will be fetched.
+      </td>
+      <td><code>false</code></td>
+    </tr>
+    <tr>
+      <td><code>include-extension-properties</code></td>
+      <td>
+        Whether or not to include custom extension properties for fetched
+        External Tasks. When <code>true</code>, all
+        <code>extensionProperties</code> defined in the External Service Task
+        will be provided. When <code>false</code>,
+        <code>extensionProperties</code> defined in the External Service Task
+        will be ignored.
+      </td>
+      <td><code>false</code></td>
+    </tr>
+    <tr>
+      <td><code>business-key</code></td>
+      <td>
+        Only External Tasks related to the specified business key are fetched.
+      </td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><code>process-definition-id</code></td>
+      <td>
+        Only External Tasks related to the specified process definition id are
+        fetched.
+      </td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><code>process-definition-id-in</code></td>
+      <td>
+        Only External Tasks related to the specified list of process definition
+        ids are fetched. List of ids have logical OR semantic.
+      </td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><code>process-definition-key</code></td>
+      <td>
+        Only External Tasks related to the specified process definition key are
+        fetched.
+      </td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><code>process-definition-key-in</code></td>
+      <td>
+        Only External Tasks related to the specified list of process definition
+        keys are fetched. List of keys have logical OR semantic.
+      </td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><code>process-definition-version-tag</code></td>
+      <td>
+        Only External Tasks related to the specified process definition version
+        tag are fetched.
+      </td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><code>process-variables</code></td>
+      <td>
+        Only External Tasks related to the specified map of process variables
+        (key: variable name, value: variable value) are fetched. Map of
+        variables have logical OR semantic.
+      </td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><code>without-tenant-id</code></td>
+      <td>
+        Only External Tasks without a tenant id are fetched.
+      </td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><code>tenant-id-in</code></td>
+      <td>
+        Only External Tasks related to the specified list of tenant ids are
+        fetched. List of ids have logical OR semantic.
+      </td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
 <h4 id="logging">Logging</h4>
 <p>To log the Client&rsquo;s internal workings, you can set the level of the logger <code>org.camunda.bpm.client.spring</code> to <code>DEBUG</code>.</p>
 <p>You can set the log level in your <code>application.yml</code> file as follows:</p>

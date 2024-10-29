@@ -4474,14 +4474,66 @@ Camunda Process Engine Configuration properties.</p>
 <h2 id="process-engine-configuration">Process Engine Configuration</h2>
 <p>An instance of the <code>QuarkusProcessEngineConfiguration</code> class configures the process engine in a Quarkus application.
 A <code>QuarkusProcessEngineConfiguration</code> instance provides the following defaults:</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
+<table class="table desc-table">
+  <tr>
+    <th>Property name</th>
+    <th>Description</th>
+    <th>Default value</th>
+  </tr>
+  <tr>
+    <td><code>jobExecutorActivate</code></td>
+    <td>
+      The job executor is activated.
+    </td>
+    <td><code>true</code></td>
+  </tr>
+  <tr>
+    <td><code>transactionsExternallyManaged</code></td>
+    <td>
+      Transactions are externally managed.
+    </td>
+    <td><code>true</code></td>
+  </tr>
+  <tr>
+    <td><code>databaseSchemaUpdate</code></td>
+    <td>
+      The <a href="/7docs/manual/7.22/user-guide/process-engine/database/database-configuration/#example-database-configuration">Database Configuration</a> 
+      section goes into more details on this propery and the resulting behavior.
+    </td>
+    <td><code>true</code></td>
+  </tr>
+  <tr>
+    <td><code>idGenerator</code></td>
+    <td>
+      An instance of <a href="/7docs/manual/7.22/reference/javadoc/org/camunda/bpm/engine/impl/persistence/StrongUuidGenerator.html">StrongUuidGenerator</a>
+
+      is used.
+    </td>
+    <td><code>StrongUuidGenerator</code></td>
+  </tr>
+  <tr>
+    <td>
+      <code>jdbcUrl</code>,<br> 
+      <code>jdbcUsername</code>,<br>
+      <code>jdbcPassword</code>,<br>
+      <code>jdbcDriver</code>
+    </td>
+    <td>
+      No JDBC configuration is present since a Quarkus datasource should be configured and used.
+    </td>
+    <td><code>null</code></td>
+  </tr>
+  <tr>
+    <td>
+      <code>history</code>
+    </td>
+    <td>
+      Camunda Cockpit works best with history level 
+      <a href="/7docs/manual/7.22/user-guide/process-engine/history/history-configuration/#choose-a-history-level">FULL</a>.
+    </td>
+    <td><code>full</code></td>
+  </tr>
+</table>
 <p>Quarkus allows to configure a Quarkus application via a <a href="https://www.eclipse.org/community/eclipse_newsletter/2017/september/article3.php">MicroProfile Config</a> source. You can read more about
 configuring a Quarkus application in the <a href="https://quarkus.io/guides/config-reference">Quarkus configuration</a> page. The Camunda Quarkus extension
 docs use the <code>application.properties</code> format in the examples, but you can use any supported Quarkus config source.</p>
@@ -4522,12 +4574,37 @@ page documents all the available properties. Convert any property names you inte
 sections, the Camunda Quarkus extension provides some Quarkus-specific configuration properties. They can be set
 through a Quarkus config source, but not through the <code>QuarkusProcessEngineConfiguration</code> class. You can find all
 the Quarkus-specific properties in the following table:</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
+<table class="table desc-table">
+  <tr>
+    <th>Prefix</th>
+    <th>Property name</th>
+    <th>Description</th>
+    <th>Default value</th>
+  </tr>
+  <tr><td colspan="4"><b>Data Source</b></td></tr>
+  <tr>
+    <td rowspan="1"><code>quarkus.camunda</code></td>
+    <td><code>.datasource</code></td>
+    <td>
+      Specifies which Quarkus datasource to use. If not defined, the primary Quarkus datasource will be used. 
+      For configuring a Quarkus Datasource, have a look on the 
+      <a href="https://quarkus.io/guides/datasource">Quarkus Datasource</a> page.
+    </td>
+    <td><code>&#60;default&#62;</code></td>
+  </tr>
+  <tr><td colspan="4"><b>Job Executor</b></td></tr>
+  <tr>
+    <td rowspan="2"><code>quarkus.camunda.job-executor.thread-pool</code></td>
+    <td><code>.max-pool-size</code></td>
+    <td>Sets the maximum number of threads that can be present in the thread pool.</td>
+    <td><code>10</code></td>
+  </tr>
+  <tr>
+    <td><code>.queue-size</code></td>
+    <td>Sets the size of the queue which is used for holding tasks to be executed.</td>
+    <td><code>3</code></td>
+  </tr>
+</table>
 <h2 id="persistence">Persistence</h2>
 <p>The Engine Extension integrates with a JDBC Connection Pool and a Jakarta Transaction Manager provided
 by <a href="https://quarkus.io/guides/datasource">Quarkus</a>. The latter allows you to integrate your business logic into database

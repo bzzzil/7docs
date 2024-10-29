@@ -4469,7 +4469,7 @@
       <p>A terminate event ends the complete scope it is raised in and all contained inner scopes.</p>
 <p>It is useful if you have a parallel token flow in a process and you want to consume all tokens available in the same scope immediately.</p>
 <p>A terminate event on process instance level terminates the complete instance. On subprocess level the current scope and all contained processes instances will be terminated.</p>
-<!-- raw HTML omitted -->
+<div data-bpmn-diagram="../bpmn/event-terminate"></div>
 <h1 id="terminate-event-definition">Terminate Event Definition</h1>
 <p>A terminate event is modeled as an end event with an additional definition element to mark the termination:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;process</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;someProcess&#34;</span><span style="color:#f92672">&gt;</span>
@@ -4480,7 +4480,28 @@
 </span></span><span style="display:flex;"><span>  <span style="color:#75715e">&lt;!-- ... --&gt;</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/process&gt;</span>
 </span></span></code></pre></div><h1 id="camunda-extensions">Camunda Extensions</h1>
-<!-- raw HTML omitted -->
+<table class="table table-striped">
+  <tr>
+    <th>Attributes</th>
+    <td>
+      <a href="/7docs/manual/7.22/reference/bpmn20/custom-extensions/extension-attributes/#asyncbefore">camunda:asyncBefore</a>,
+      <a href="/7docs/manual/7.22/reference/bpmn20/custom-extensions/extension-attributes/#asyncafter">camunda:asyncAfter</a>,
+      <a href="/7docs/manual/7.22/reference/bpmn20/custom-extensions/extension-attributes/#exclusive">camunda:exclusive</a>,
+      <a href="/7docs/manual/7.22/reference/bpmn20/custom-extensions/extension-attributes/#jobpriority">camunda:jobPriority</a>
+    </td>
+  </tr>
+  <tr>
+    <th>Extension Elements</th>
+    <td>
+      <a href="/7docs/manual/7.22/reference/bpmn20/custom-extensions/extension-elements/#inputoutput">
+        camunda:inputOutput</a>
+    </td>
+  </tr>
+  <tr>
+    <th>Constraints</th>
+    <td>&ndash;</td>
+  </tr>
+</table>
 <h2 id="additional-resources">Additional Resources</h2>
 <ul>
 <li><a href="http://camunda.org/bpmn/reference.html#events-termination">Terminate Events</a> in the <a href="http://camunda.org/bpmn/reference.html">BPMN 2.0 Modeling Reference</a></li>

@@ -4467,7 +4467,7 @@
 
     <div class="col-xs-12 content-text">
       <p>Gateways can also be used to model concurrency in a process. The most straightforward gateway to introduce concurrency in a process model is the Parallel Gateway, which allows forking into multiple paths of execution or joining multiple incoming paths of execution.</p>
-<!-- raw HTML omitted -->
+<div data-bpmn-diagram="../bpmn/parallel-gateway"></div>
 <p>The functionality of the parallel gateway is based on the incoming and outgoing sequence flow(s):</p>
 <ul>
 <li>fork: all outgoing sequence flows are followed in parallel, creating one concurrent execution for each sequence flow.</li>
@@ -4521,9 +4521,33 @@
 </span></span><span style="display:flex;"><span>assertEquals(<span style="color:#e6db74">&#34;Ship Order&#34;</span>, task2.<span style="color:#a6e22e">getName</span>());
 </span></span></code></pre></div><p>When these two tasks are completed, the second parallel gateway joins the two executions and, as there is only one outgoing sequence flow, no concurrent paths of execution are created and only the Archive Order task is active.</p>
 <p>Note that a parallel gateway does not need to be &lsquo;balanced&rsquo; (i.e., a matching number of incoming/outgoing sequence flows for corresponding parallel gateways). A parallel gateway will simply wait for all incoming sequence flows and create a concurrent path of execution for each outgoing sequence flow, not influenced by other constructs in the process model. So, the following process is legal in BPMN 2.0:</p>
-<!-- raw HTML omitted -->
+<div data-bpmn-diagram="../bpmn/parallel-gateway-unbalanced"></div>
 <h1 id="camunda-extensions">Camunda Extensions</h1>
-<!-- raw HTML omitted -->
+<table class="table table-striped">
+  <tr>
+    <th>Attributes</th>
+    <td>
+      <a href="/7docs/manual/7.22/reference/bpmn20/custom-extensions/extension-attributes/#asyncbefore">camunda:asyncBefore</a>,
+      <a href="/7docs/manual/7.22/reference/bpmn20/custom-extensions/extension-attributes/#asyncafter">camunda:asyncAfter</a>,
+      <a href="/7docs/manual/7.22/reference/bpmn20/custom-extensions/extension-attributes/#exclusive">camunda:exclusive</a>,
+      <a href="/7docs/manual/7.22/reference/bpmn20/custom-extensions/extension-attributes/#jobpriority">camunda:jobPriority</a>
+   </td>
+  </tr>
+  <tr>
+    <th>Extension Elements</th>
+    <td>
+      <a href="/7docs/manual/7.22/reference/bpmn20/custom-extensions/extension-elements/#failedjobretrytimecycle">camunda:failedJobRetryTimeCycle</a>,
+      <a href="/7docs/manual/7.22/reference/bpmn20/custom-extensions/extension-elements/#executionlistener">camunda:executionListener</a>
+    </td>
+  </tr>
+  <tr>
+    <th>Constraints</th>
+    <td>
+      The <code>camunda:exclusive</code> attribute is only evaluated if the attribute
+      <code>camunda:asyncBefore</code> or <code>camunda:asyncAfter</code> is set to <code>true</code>
+    </td>
+  </tr>
+</table>
 <h1 id="additional-resources">Additional Resources</h1>
 <ul>
 <li><a href="http://camunda.org/bpmn/reference.html#gateways-parallel-gateways">Parallel Gateways</a> in the <a href="http://camunda.org/bpmn/reference.html">BPMN 2.0 Modeling Reference</a></li>

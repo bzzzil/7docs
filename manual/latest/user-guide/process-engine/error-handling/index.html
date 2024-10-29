@@ -4575,10 +4575,10 @@ You can either define custom codes from delegation code or by <a href="#register
 <h2 id="configuration">Configuration</h2>
 <p>You can configure the exception error codes feature in your <a href="/7docs/manual/latest/reference/deployment-descriptors/tags/process-engine/#exception-codes">process engine configuration</a>:</p>
 <ul>
-<li>To disable the exception codes feature entirely, set the flag <!-- raw HTML omitted -->disableExceptionCode<!-- raw HTML omitted -->
-in your process engine configuration to <!-- raw HTML omitted -->true<!-- raw HTML omitted -->.</li>
-<li>To disable the built-in exception code provider, set the flag <!-- raw HTML omitted -->disableBuiltinExceptionCodeProvider<!-- raw HTML omitted -->
-in your process engine configuration to <!-- raw HTML omitted -->true<!-- raw HTML omitted -->. Disabling the built-in exception code
+<li>To disable the exception codes feature entirely, set the flag <code>disableExceptionCode</code>
+in your process engine configuration to <code>true</code>.</li>
+<li>To disable the built-in exception code provider, set the flag <code>disableBuiltinExceptionCodeProvider</code>
+in your process engine configuration to <code>true</code>. Disabling the built-in exception code
 provider allows overriding the <a href="#reserved-code-range">reserved code range</a> with your custom exception codes.</li>
 </ul>
 <h3 id="register-a-custom-code-provider">Register a Custom Code Provider</h3>
@@ -4609,7 +4609,61 @@ provider allows overriding the <a href="#reserved-code-range">reserved code rang
 
 <h2 id="categories-ranges-and-codes">Categories, ranges, and codes</h2>
 <p>In the table below, you will find an overview of all categories, ranges, and codes:</p>
-<!-- raw HTML omitted -->
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Category</th>
+      <th>Range</th>
+      <th>Code</th>
+      <th>Description</th>
+      <th>Safe to retry</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Fallback</td>
+      <td></td>
+      <td>0</td>
+      <td>All errors with no code assigned.</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Engine</td>
+      <td>[1, 9999]</td>
+      <td>1</td>
+      <td><code>OptimisticLockingException</code></td>
+      <td>X</td>
+    </tr>
+    <tr>
+      <td>Persistence</td>
+      <td>[10000, 19999]</td>
+      <td>10,000</td>
+      <td>Deadlock situation occurred.</td>
+      <td>X</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td>10,001</td>
+      <td>A foreign key constraint was violated.</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td>10,002</td>
+      <td>The column size is too small.</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Custom</td>
+      <td>[20000, 39999]</td>
+      <td><i>E.g., 22,222</i></td>
+      <td><i>E.g., custom <code>JavaDelegate</code> validation error.</i></td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
 <h3 id="reserved-code-range">Reserved code range</h3>
 <p>The codes &lt;= 19,999 and &gt;= 40,000 are reserved for built-in codes. If you disable the built-in code provider,
 you can also use the reserved code range for your custom codes.</p>

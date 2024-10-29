@@ -4473,7 +4473,66 @@
 <p>Read more about <a href="/7docs/manual/latest/webapps/cockpit/extend/plugins/#dashboard">cockpit dashboard plugins</a>.</p>
 <h1 id="available-modules">Available modules</h1>
 <p>Since 7.5, the availability of modules in plugins has been changed. The following matrix shows availability of modules for plugins in the Camunda web applications:</p>
-<!-- raw HTML omitted -->
+<table class="table table-bordered">
+  <thead>
+  <tr>
+    <th>Module</th>
+    <th>Cockpit</th>
+    <th>Tasklist</th>
+    <th>Admin</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>angular</td>
+    <td><span class="glyphicon glyphicon-ok"></span></td>
+    <td><span class="glyphicon glyphicon-ok"></span></td>
+    <td><span class="glyphicon glyphicon-ok"></span></td>
+  </tr>
+  <tr>
+    <td>jquery</td>
+    <td><span class="glyphicon glyphicon-ok"></span></td>
+    <td><span class="glyphicon glyphicon-ok"></span></td>
+    <td><span class="glyphicon glyphicon-ok"></span></td>
+  </tr>
+  <tr>
+    <td>camunda-commons-ui</td>
+    <td><span class="glyphicon glyphicon-ok"></span></td>
+    <td><span class="glyphicon glyphicon-ok"></span></td>
+    <td><span class="glyphicon glyphicon-ok"></span></td>
+  </tr>
+  <tr>
+    <td>camunda-bpm-sdk-js</td>
+    <td><span class="glyphicon glyphicon-ok"></span></td>
+    <td><span class="glyphicon glyphicon-ok"></span></td>
+    <td><span class="glyphicon glyphicon-ok"></span></td>
+  </tr>
+  <tr>
+    <td>ngDefine</td>
+    <td><span class="glyphicon glyphicon-ok"></span></td>
+    <td><span class="glyphicon glyphicon-ok"></span></td>
+    <td><span class="glyphicon glyphicon-ok"></span></td>
+  </tr>
+  <tr>
+    <td>angular-data-depend</td>
+    <td><span class="glyphicon glyphicon-ok"></span></td>
+    <td><span class="glyphicon glyphicon-ok"></span></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>moment</td>
+    <td><span class="glyphicon glyphicon-ok"></span></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>events</td>
+    <td><span class="glyphicon glyphicon-ok"></span></td>
+    <td></td>
+    <td></td>
+  </tr>
+  </tbody>
+</table>
 <p>You can use these modules by including them in the define call of your plugin:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#a6e22e">define</span>([<span style="color:#e6db74">&#39;angular&#39;</span>, <span style="color:#e6db74">&#39;jquery&#39;</span>, <span style="color:#e6db74">&#39;moment&#39;</span>], <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">angular</span>, <span style="color:#a6e22e">$</span>, <span style="color:#a6e22e">moment</span>) {
 </span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">ngModule</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">angular</span>.<span style="color:#a6e22e">module</span>(<span style="color:#e6db74">&#39;cockpit.plugin.sample-plugin&#39;</span>, []);
@@ -4482,7 +4541,37 @@
 </span></span><span style="display:flex;"><span>});
 </span></span></code></pre></div><h1 id="version-changes">Version changes</h1>
 <p>The following modules have been updated to a newer version:</p>
-<!-- raw HTML omitted -->
+<table class="table table-bordered">
+  <thead>
+  <tr>
+    <th>Module</th>
+    <th>Old Version</th>
+    <th>New Version</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>angular</td>
+    <td>1.2.16</td>
+    <td>1.2.29</td>
+  </tr>
+  <tr>
+    <td>bootstrap</td>
+    <td>3.3.1</td>
+    <td>3.3.6</td>
+  </tr>
+  <tr>
+    <td>bpmn-js</td>
+    <td>0.9.2</td>
+    <td>0.14.1</td>
+  </tr>
+  <tr>
+    <td>dmn-js</td>
+    <td>0.3.1</td>
+    <td>0.5.0</td>
+  </tr>
+  </tbody>
+</table>
 <h1 id="maven-dependency">Maven Dependency</h1>
 <p>The dependency to the Camunda webapp core with the maven coordinates <code>org.camunda.bpm.webapp:camunda-webapp-core</code> has been renamed. Please use the following snippet in your <code>pom.xml</code>:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;dependency&gt;</span>

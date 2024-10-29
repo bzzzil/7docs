@@ -4483,7 +4483,7 @@
 <li><code>jdbcStatementTimeout</code>: The amount of time in seconds the JDBC driver will wait for a response from the database. Default is null which means that there is no timeout. This setting is not supported for the H2 database.</li>
 </ul>
 <h2 id="jdbc-batch-processing">Jdbc Batch Processing</h2>
-<p><!-- raw HTML omitted --><!-- raw HTML omitted -->Another configuration - <code>jdbcBatchProcessing</code> - sets if batch processing mode must be used when sending SQL statements to the database. When switched off, statements are executed one by one.
+<p><a name="jdbcBatchProcessing"></a>Another configuration - <code>jdbcBatchProcessing</code> - sets if batch processing mode must be used when sending SQL statements to the database. When switched off, statements are executed one by one.
 Values: <code>true</code> (default), <code>false</code>.</p>
 <p>Known issues with batch processing:</p>
 <ul>
@@ -4511,7 +4511,7 @@ Values: <code>true</code> (default), <code>false</code>.</p>
 </span></span></code></pre></div><p>Note that Camunda does not ship with a library that allows to define such a data source. So you have to make sure that the libraries (e.g., from DBCP) are on your classpath.</p>
 <p>The following properties can be set, regardless of whether you are using the JDBC or data source approach:</p>
 <ul>
-<li><code>databaseType</code>: It&rsquo;s normally not necessary to specify this property as it is automatically analyzed from the database connection meta data. Should only be specified in case automatic detection fails. Possible values: {h2, mysql, oracle, postgres, mssql, db2, mariadb}. This setting will determine which create/drop scripts and queries will be used. See the &lsquo;supported databases&rsquo; section for an overview of which types are supported.<!-- raw HTML omitted --></li>
+<li><code>databaseType</code>: It&rsquo;s normally not necessary to specify this property as it is automatically analyzed from the database connection meta data. Should only be specified in case automatic detection fails. Possible values: {h2, mysql, oracle, postgres, mssql, db2, mariadb}. This setting will determine which create/drop scripts and queries will be used. See the &lsquo;supported databases&rsquo; section for an overview of which types are supported.</li></li>
 <li><code>databaseSchemaUpdate</code>: Allows to set the strategy to handle the database schema on process engine boot and shutdown.
 <ul>
 <li><code>true</code> (default): Upon building the process engine, a check is performed whether the Camunda tables exist in the database. If they don&rsquo;t exist, they are created. It must be ensured that the version of the DB schema matches the version of the process engine library, unless performing a <a href="/7docs/manual/7.22/update/rolling-update/">Rolling Update</a>. Updates of the database schema have to be done manually as described in the <a href="/7docs/manual/7.22/update/">Update and Migration Guide</a>.</li>

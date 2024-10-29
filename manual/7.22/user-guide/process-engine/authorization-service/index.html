@@ -4518,11 +4518,143 @@ Additionally, the <strong>All</strong> permission will vanish from a user if a s
 </span></span></code></pre></div><h2 id="resources">Resources</h2>
 <p>Resources are the entities the user interacts with.</p>
 <p>The following resources are available:</p>
-<!-- raw HTML omitted -->
+<table class="table matrix-table table-condensed table-hover table-bordered">
+  <tr>
+    <th>Resource Name</th>
+    <th>Integer representation</th>
+    <th>Resource Id</th>
+  </tr>
+  <tr>
+    <td>Application (Cockpit, Tasklist, ...)</td>
+    <td>0</td>
+    <td>admin/cockpit/tasklist/*</td>
+  </tr>
+  <tr>
+    <td>Authorization</td>
+    <td>4</td>
+    <td>Authorization Id</td>
+  </tr>
+  <tr>
+    <td>Batch</td>
+    <td>13</td>
+    <td>Batch Id</td>
+  </tr>
+  <tr>
+    <td>Decision Definition</td>
+    <td>10</td>
+    <td>Decision Definition Key</td>
+  </tr>
+  <tr>
+    <td>Decision Requirements Definition</td>
+    <td>14</td>
+    <td>Decision Requirements Definition Key</td>
+  </tr>
+  <tr>
+    <td>Deployment</td>
+    <td>9</td>
+    <td>Deployment Id</td>
+  </tr>
+  <tr>
+    <td>Filter</td>
+    <td>5</td>
+    <td>Filter Id</td>
+  </tr>
+  <tr>
+    <td>Group</td>
+    <td>2</td>
+    <td>Group Id</td>
+  </tr>
+  <tr>
+    <td>Group Membership</td>
+    <td>3</td>
+    <td>Group Id</td>
+  </tr>
+  <tr>
+    <td>Process Definition</td>
+    <td>6</td>
+    <td>Process Definition Key</td>
+  </tr>
+  <tr>
+    <td>Process Instance</td>
+    <td>8</td>
+    <td>Process Instance Id</td>
+  </tr>
+  <tr>
+    <td>Task</td>
+    <td>7</td>
+    <td>Task Id</td>
+  </tr>
+  <tr>
+    <td>Historic Task</td>
+    <td>19</td>
+    <td>Historic Task Id</td>
+  </tr>
+  <tr>
+    <td>Historic Process Instance</td>
+    <td>20</td>
+    <td>Historic Process Instance Id</td>
+  </tr>
+  <tr>
+    <td>Tenant</td>
+    <td>11</td>
+    <td>Tenant Id</td>
+  </tr>
+  <tr>
+    <td>Tenant Membership</td>
+    <td>12</td>
+    <td>Tenant Id</td>
+  </tr>
+  <tr>
+    <td>User</td>
+    <td>1</td>
+    <td>User Id</td>
+  </tr>
+  <tr>
+    <td>Report</td>
+    <td>15</td>
+    <td>Report Id</td>
+  </tr>
+  <tr>
+    <td>Dashboard</td>
+    <td>16</td>
+    <td>Dashboard Id</td>
+  </tr>
+  <tr>
+    <td>User Operation Log Category</td>
+    <td>17</td>
+    <td>User Operation Log Entry Category</td>
+  </tr>
+  <tr>
+    <td>System</td>
+    <td>21</td>
+    <td>*<br>System resources do not support individual resource ids. You have to use them with a wildcard id (*).</td>
+  </tr>
+</table>
 <p><strong>Note:</strong> The Resource Id should be &lsquo;*&rsquo; when you create new authorization with CREATE permissions only.</p>
 <h2 id="authorization-type">Authorization Type</h2>
 <p>There are three types of authorizations:</p>
-<!-- raw HTML omitted -->
+<table class="table matrix-table table-condensed table-hover table-bordered">
+  <tr>
+    <th>Authorization type</th>
+    <th>Description</th>
+    <th>Integer representation</th>
+  </tr>
+  <tr>
+    <td>Global Authorization (<code>AUTH_TYPE_GLOBAL</code>)</td>
+    <td>Ranges over all users and groups (<code>userId = ANY</code>) and are usually used for fixing the "base" permission for a resource.</td>
+    <td>0</td>
+  </tr>
+  <tr>
+    <td>Grant Authorization (<code>AUTH_TYPE_GRANT</code>)</td>
+    <td>Ranges over users and groups and grants a set of permissions. Grant authorizations are commonly used for adding permissions to a user or group that the global authorization revokes.</td>
+    <td>1</td>
+  </tr>
+  <tr>
+    <td>Revoke Authorization (<code>AUTH_TYPE_REVOKE</code>)</td>
+    <td>Ranges over users and groups and revokes a set of permissions. Revoke authorizations are commonly used for revoking permissions to a user or group that the global authorization grants.</td>
+    <td>2</td>
+  </tr>  
+</table>
 
 <div class="note bg-warning docs-warning">
   <h3>Performance of REVOKE Authorizations</h3>
@@ -4559,7 +4691,138 @@ When embedding the process engine into a custom application, the application nee
 <h2 id="read-update-create-delete">Read, Update, Create, Delete</h2>
 <p>The permissions <strong>Read</strong>, <strong>Update</strong>, <strong>Create</strong>, and <strong>Delete</strong> are available for most of the resources.
 The following table gives an overview for which resources they are available:</p>
-<!-- raw HTML omitted -->
+<table class="table matrix-table table-condensed table-hover table-bordered">
+<thead>
+  <tr>
+    <th></th>
+    <th>Read</th>
+    <th>Update</th>
+    <th>Create</th>
+    <th>Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Authorization</th>
+      <td>X</td>
+      <td>X</td>
+      <td>X</td>
+      <td>X</td>
+    </tr>
+    <tr>
+      <th>Batch</th>
+      <td>X</td>
+      <td>X</td>
+      <td>X</td>
+      <td>X</td>
+    </tr>
+    <tr>
+      <th>Decision Definition</th>
+      <td>X</td>
+      <td>X</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>Decision Requirements Definition</th>
+      <td>X</td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>Deployment</th>
+      <td>X</td>
+      <td></td>
+      <td>X</td>
+      <td>X</td>
+    </tr>
+    <tr>
+      <th>Filter</th>
+      <td>X</td>
+      <td>X</td>
+      <td>X</td>
+      <td>X</td>
+    </tr>
+    <tr>
+      <th>Group</th>
+      <td>X</td>
+      <td>X</td>
+      <td>X</td>
+      <td>X</td>
+    </tr>
+    <tr>
+      <th>Group Membership</th>
+      <td></td>
+      <td></td>
+      <td>X</td>
+      <td>X</td>
+    </tr>
+    <tr>
+      <th>Process Definition</th>
+      <td>X</td>
+      <td>X</td>
+      <td></td>
+      <td>X</td>
+    </tr>
+    <tr>
+      <th>Process Instance</th>
+      <td>X</td>
+      <td>X</td>
+      <td>X</td>
+      <td>X</td>
+    </tr>
+    <tr>
+      <th>Task</th>
+      <td>X</td>
+      <td>X</td>
+      <td>X</td>
+      <td>X</td>
+    </tr>
+    <tr>
+      <th>Historic Task</th>
+      <td>X</td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>Historic Process Instance</th>
+      <td>X</td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>Tenant</th>
+      <td>X</td>
+      <td>X</td>
+      <td>X</td>
+      <td>X</td>
+    </tr>
+    <tr>
+      <th>Tenant Membership</th>
+      <td></td>
+      <td></td>
+      <td>X</td>
+      <td>X</td>
+    </tr>
+    <tr>
+      <th>User</th>
+      <td>X</td>
+      <td>X</td>
+      <td>X</td>
+      <td>X</td>
+    </tr>
+    <tr>
+      <th>User Operation Log Category</th>
+      <td>X</td>
+      <td>X</td>
+      <td></td>
+      <td>X</td>
+    </tr>
+  </tbody>
+</table>
 <p>To execute an operation <a href="/7docs/manual/7.22/user-guide/process-engine/batch/">asynchronously</a>, only a <strong>Create</strong> permission on the Batch Resource is required. However, when executing the same operation synchronously, the specific permissions (e.g. <strong>Delete</strong> on <strong>Process Instance Resource</strong>) are checked.</p>
 <p>For example, a user without the <strong>Update</strong> permission on the <strong>Process Instance Resource</strong> and granted <strong>Create</strong> permission on the <strong>Batch Resource</strong> can modify multiple process instances asynchronously by creating a batch. However, the user can&rsquo;t execute this operation synchronously.</p>
 <h2 id="additional-task-permissions">Additional Task Permissions</h2>
@@ -4575,7 +4838,131 @@ If finer grained authorizations are required, the permissions <strong>Task Work<
 The intuition behind <strong>Task Work</strong> is that it only authorizes the user to <em>work</em> on a task (i.e., claim and complete it) but not assign it to another user or in another way &ldquo;distribute work&rdquo; to colleagues.</p>
 <p>If a user has <strong>Update Variable</strong> permission on a task (or <strong>Update Task Variable</strong> permission on the corresponding process definition) the user is authorized to perform set/remove task variable actions.</p>
 <p>The table below shows a detailed overview on which permissions authorize a user to perform which task actions:</p>
-<!-- raw HTML omitted -->
+<table class="table matrix-table table-condensed table-hover table-bordered">
+<thead>
+  <tr>
+    <th></th>
+    <th>Task Work</th>
+    <th>Task Assign</th>
+    <th>Update Variable</th>
+    <th>Update</th>
+    </tr>
+  </thead>
+  <tbody>
+     <tr>
+      <th>Claim</th>
+      <td>X</td>
+      <td></td>
+      <td></td>
+      <td>X</td>
+    </tr>
+    <tr>
+      <th>Complete</th>
+      <td>X</td>
+      <td></td>
+      <td></td>
+      <td>X</td>
+    </tr>
+    <tr>
+      <th>Add Candidate User</th>
+      <td></td>
+      <td>X</td>
+      <td></td>
+      <td>X</td>
+    </tr>
+    <tr>
+      <th>Delete Candidate User</th>
+      <td></td>
+      <td>X</td>
+      <td></td>
+      <td>X</td>
+    </tr>
+    <tr>
+      <th>Set Assignee</th>
+      <td></td>
+      <td>X</td>
+      <td></td>
+      <td>X</td>
+    </tr>
+    <tr>
+      <th>Set Owner</th>
+      <td></td>
+      <td>X</td>
+      <td></td>
+      <td>X</td>
+    </tr>
+    <tr>
+      <th>Add Candidate Group</th>
+      <td></td>
+      <td>X</td>
+      <td></td>
+      <td>X</td>
+    </tr>
+    <tr>
+      <th>Delete Candidate Group</th>
+      <td></td>
+      <td>X</td>
+      <td></td>
+      <td>X</td>
+    </tr>
+    <tr>
+      <th>Save</th>
+      <td></td>
+      <td>X</td>
+      <td></td>
+      <td>X</td>
+    </tr>
+    <tr>
+      <th>Set Priority</th>
+      <td></td>
+      <td>X</td>
+      <td></td>
+      <td>X</td>
+    </tr>
+    <tr>
+      <th>Set Name</th>
+      <td></td>
+      <td>X</td>
+      <td></td>
+      <td>X</td>
+    </tr>
+    <tr>
+      <th>Set Description</th>
+      <td></td>
+      <td>X</td>
+      <td></td>
+      <td>X</td>
+    </tr>
+    <tr>
+      <th>Set Due Date</th>
+      <td></td>
+      <td>X</td>
+      <td></td>
+      <td>X</td>
+    </tr>
+    <tr>
+      <th>Set Follow Up Date</th>
+      <td></td>
+      <td>X</td>
+      <td></td>
+      <td>X</td>
+    </tr>
+	<tr>
+      <th>Set Local Variable</th>
+      <td></td>
+      <td></td>
+      <td>X</td>
+      <td>X</td>
+    </tr>
+	<tr>
+      <th>Remove Local Variable</th>
+      <td></td>
+      <td></td>
+      <td>X</td>
+      <td>X</td>
+    </tr>
+  </tbody>
+</table>
 <p>GRANT and REVOKE authorizations with <strong>Task Work</strong>, <strong>Task Assign</strong>, and <strong>Update Variable</strong> permissions precede over <strong>Update</strong> and <strong>Update Task</strong>.</p>
 <h3 id="default-task-permissions">Default Task Permissions</h3>
 <p>When a user is related to a task as an assignee, a candidate user, a part of a candidate group, or an owner, these users
@@ -4724,9 +5111,152 @@ retrieve the entities related to the Historic Process Instance:</p>
 </ul>
 <h2 id="system-permissions">System permissions</h2>
 <p>Permissions for the system resource are usually granted to operations engineers who supervise processes and applications and ensure they run smoothly from a technical perspective.
-Typically, those people do not need full access to the system like an administrator does. They must be able to access and change system information, including system properties, metrics, database information, telemetry, and license key data. Administrators will not need to have system permissions because their role already grants them access to all features. See also the <!-- raw HTML omitted -->Administrators<!-- raw HTML omitted --> section.</p>
+Typically, those people do not need full access to the system like an administrator does. They must be able to access and change system information, including system properties, metrics, database information, telemetry, and license key data. Administrators will not need to have system permissions because their role already grants them access to all features. See also the <a href="#Administrators">Administrators</a> section.</p>
 <p>The following table gives an overview of the features that the system permissions grant access to.</p>
-<!-- raw HTML omitted -->
+<table class="table matrix-table table-condensed table-hover table-bordered">
+<thead>
+  <tr>
+    <th></th>
+    <th>Read</th>
+    <th>Set</th>
+    <th>Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+     <tr>
+      <th>Configure Telemetry (Deprecated)</th>
+      <td></td>
+      <td>X</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>Get Telemetry Data</th>
+      <td>X</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>Get Telemetry Status (Deprecated)</th>
+      <td>X</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>Get Database Table Count</th>
+      <td>X</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>Get Database Table Name</th>
+      <td>X</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>Get Database Table Meta Data</th>
+      <td>X</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>Get History Level</th>
+      <td>X</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>Get Property</th>
+      <td>X</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>Set Property</th>
+      <td></td>
+      <td>X</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>Delete Property</th>
+      <td></td>
+      <td></td>
+      <td>X</td>
+    </tr>
+    <tr>
+      <th>Get License Key</th>
+      <td>X</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>Set License Key</th>
+      <td></td>
+      <td>X</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>Delete License Key</th>
+      <td></td>
+      <td></td>
+      <td>X</td>
+    </tr>
+    <tr>
+      <th>Register Process Application</th>
+      <td></td>
+      <td>X</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>Unregister Process Application</th>
+      <td></td>
+      <td>X</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>Get Process Application for Deployment</th>
+      <td>X</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>Register Deployment</th>
+      <td></td>
+      <td>X</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>Unregister Deployment</th>
+      <td></td>
+      <td>X</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>Get Registered Deployment</th>
+      <td>X</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>Delete Metrics</th>
+      <td></td>
+      <td></td>
+      <td>X</td>
+    </tr>
+    <tr>
+      <th>Delete Task Metrics</th>
+      <td></td>
+      <td></td>
+      <td>X</td>
+    </tr>
+    <tr>
+      <th>Query Schema Log</th>
+      <td>X</td>
+      <td></td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
 <h1 id="administrators">Administrators</h1>
 <p>CIB seven has no explicit concept of &ldquo;administrator&rdquo; beyond it being a user who has been granted all authorizations on all resources.</p>
 <h2 id="the-camunda-admin-group">The &ldquo;camunda-admin&rdquo; Group</h2>
@@ -4761,7 +5291,20 @@ Typically, those people do not need full access to the system like an administra
 </div>
 
 <p>Complete list of configuration properties:</p>
-<!-- raw HTML omitted -->
+<table class="table table-striped">
+  <tr>
+    <th>Property</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td><code>administratorUserName</code></td>
+    <td>The name of the administrator user. If this name is set to a non-null and non-empty value, the plugin will create user-level Administrator authorizations on all built-in resources.</td>
+  </tr>
+  <tr>
+    <td><code>administratorGroupName</code></td>
+    <td>The name of the administrator group. If this name is set to a non-null and non-empty value, the plugin will create group-level Administrator authorizations on all built-in resources.</td>
+  </tr>
+</table>
 <h1 id="configuration-options">Configuration Options</h1>
 <p>This section explains available process engine configuration options related to authorization.</p>
 <h2 id="enable-authorization-checks">Enable Authorization Checks</h2>

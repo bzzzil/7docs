@@ -4480,7 +4480,48 @@ Consult <a href="#javascript-considerations">JavaScript Considerations</a> for f
 
 <p>The following table provides an overview of the BPMN elements which support the execution of
 scripts.</p>
-<!-- raw HTML omitted -->
+<table class="table desc-table">
+  <tr>
+    <th>BPMN element</th>
+    <th>Script support</th>
+  </tr>
+  <tr>
+    <td><a href="#use-script-tasks">Script Task</a></td>
+    <td>Script inside a script task</td>
+  </tr>
+  <tr>
+    <td>
+      <a href="#use-scripts-as-execution-listeners">
+        Processes, Activities, Sequence Flows, Gateways and Events
+      </a>
+    </td>
+    <td>Script as an execution listener</td>
+  </tr>
+  <tr>
+    <td>
+      <a href="#use-scripts-as-task-listeners">
+        User Tasks
+      </a>
+    </td>
+    <td>Script as a task listener</td>
+  </tr>
+  <tr>
+    <td>
+      <a href="#use-scripts-as-conditions">
+        Sequence Flows
+      </a>
+    </td>
+    <td>Script as condition expression of a sequence flow</td>
+  </tr>
+  <tr>
+    <td>
+        <a href="#use-scripts-as-inputoutput-parameters">
+          All Tasks, All Events, Transactions, Subprocesses and Connectors
+        </a>
+    </td>
+    <td>Script inside an inputOutput parameter mapping</td>
+  </tr>
+</table>
 <h1 id="use-script-tasks">Use Script Tasks</h1>
 <p>With a BPMN 2.0 script task you can add a script to your BPM process (for more information see the
 <a href="/7docs/manual/latest/reference/bpmn20/tasks/script-task/">BPMN 2.0 reference</a>.</p>
@@ -4673,7 +4714,23 @@ process engine is to check if a Script Engine supports the compile feature. If t
 </span></span></code></pre></div><h1 id="configure-script-engine">Configure Script Engine</h1>
 <p>Most script engines offer configuration options to adjust their script execution semantics.
 We provide the following default configurations for supported script engines before executing code on them:</p>
-<!-- raw HTML omitted -->
+<table class="table desc-table">
+  <tr>
+    <th>Script Engine</th>
+    <th>Default configuration</th>
+  </tr>
+  <tr>
+    <td>GraalVM JavaScript</td>
+    <td>
+      Configured to allow host acces and host class lookup by setting <code>polyglot.js.allowHostAccess</code> and 
+      <code>polyglot.js.allowHostClassLookup</code> to <code>true</code>.
+    </td>
+  </tr>
+  <tr>
+    <td>Groovy</td>
+    <td>Configured to only hold weak references to Java methods by setting <code>#jsr223.groovy.engine.keep.globals</code> to <code>weak</code>.</td>
+  </tr>
+</table>
 <p>Besides those default options, you can configure the script engines by any of the following:</p>
 <ul>
 <li>Set script engine-specific configuration flags in process engine configuration.</li>

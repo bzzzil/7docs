@@ -4482,7 +4482,7 @@
 
 <div class="note bg-info docs-info">
   <h3>Known Limitations in Tomcat 10</h3>
-  <p><p><strong><!-- raw HTML omitted -->Weld Class Loading Issues<!-- raw HTML omitted --></strong></p>
+  <p><p><strong><h4>Weld Class Loading Issues</h4></strong></p>
 <p>In deployment scenarios involving one or more process applications with managed beans, classloading issues may occur if the WELD library is directly embedded in the WAR&rsquo;s <code>/WEB-INF/lib</code> folder.
 To resolve this, move the weld library away from the war and place it into the <code>$CATALINA_HOME/lib</code> folder.</p>
 <p>The above workaround is not guaranteed to work for cases with bean references between WAR deployments (WAR A referencing a bean from WAR B).</p>

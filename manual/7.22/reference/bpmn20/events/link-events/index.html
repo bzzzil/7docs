@@ -4469,7 +4469,7 @@
       <p>Link events are a special case - it has no special execution semantics but serves as a &ldquo;GoTo&rdquo; to another point
 in the same process model (to be precise: in the same sub process). Hence you can use two matching links as an
 alternative to a sequence flow as shown in the following example.</p>
-<!-- raw HTML omitted -->
+<div data-bpmn-diagram="../bpmn/event-link"></div>
 <p>Note that you might have the same event source (throwing intermediate link event with the same event definition name) multiple times, but the event target (catching intermediate link event) has to be unique according to the BPMN 2.0 specification.</p>
 <h1 id="link-event-definition">Link Event Definition</h1>
 <p>The name of the link is set by a LinkEventDefinition within the XML. Please note that this should always correspond to the name
@@ -4486,7 +4486,28 @@ gives a warning as it is valid BPMN 2.0).</p>
 </span></span><span style="display:flex;"><span>  <span style="color:#75715e">&lt;!-- ... --&gt;</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/process&gt;</span>
 </span></span></code></pre></div><h1 id="camunda-extensions">Camunda Extensions</h1>
-<!-- raw HTML omitted -->
+<table class="table table-striped">
+  <tr>
+    <th>Attributes</th>
+    <td>
+      <a href="/7docs/manual/7.22/reference/bpmn20/custom-extensions/extension-attributes/#asyncbefore">camunda:asyncBefore</a>,
+      <a href="/7docs/manual/7.22/reference/bpmn20/custom-extensions/extension-attributes/#asyncafter">camunda:asyncAfter</a>,
+      <a href="/7docs/manual/7.22/reference/bpmn20/custom-extensions/extension-attributes/#exclusive">camunda:exclusive</a>,
+      <a href="/7docs/manual/7.22/reference/bpmn20/custom-extensions/extension-attributes/#jobpriority">camunda:jobPriority</a>
+    </td>
+  </tr>
+  <tr>
+    <th>Extension Elements</th>
+    <td>
+      <a href="/7docs/manual/7.22/reference/bpmn20/custom-extensions/extension-elements/#inputoutput">
+        camunda:inputOutput</a>
+    </td>
+  </tr>
+  <tr>
+    <th>Constraints</th>
+    <td>&ndash;</td>
+  </tr>
+</table>
 
     </div>
   </div>

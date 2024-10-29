@@ -4489,7 +4489,7 @@ information on the possible ways of providing the script source code please see 
 
 <div class="note bg-info docs-info">
   <h3>Supported Script Languages</h3>
-  <p>CIB seven should work with most of the JSR-223 compatible script engine implementations. We test integration for Groovy, JavaScript, JRuby and Jython. See the <!-- raw HTML omitted -->Third Party Dependencies<!-- raw HTML omitted --> section of the <!-- raw HTML omitted -->User Guide<!-- raw HTML omitted --> for more details.</p>
+  <p>CIB seven should work with most of the JSR-223 compatible script engine implementations. We test integration for Groovy, JavaScript, JRuby and Jython. See the <a href="/7docs/manual/7.22/introduction/third-party-libraries/#process-engine">Third Party Dependencies</a> section of the <a href="/7docs/manual/7.22/user-guide/">User Guide</a> for more details.</p>
 </div>
 
 <h1 id="variables-in-scripts">Variables in Scripts</h1>
@@ -4518,7 +4518,7 @@ information on the possible ways of providing the script source code please see 
 
 <div class="note bg-info docs-info">
   <h3>Groovy-Support only</h3>
-  <p>The configuration flag <!-- raw HTML omitted -->autoStoreScriptVariables<!-- raw HTML omitted --> is only supported for Groovy Script Tasks. If enabled for other script languages,
+  <p>The configuration flag <code>autoStoreScriptVariables</code> is only supported for Groovy Script Tasks. If enabled for other script languages,
 it is not guaranteed which variables will be exported by the script engine. For
 example, Ruby will not export any of the script variables at all.</p>
 </div>
@@ -4534,11 +4534,37 @@ example, Ruby will not export any of the script variables at all.</p>
 
 <div class="note bg-warning docs-warning">
   <h3>Result variables and multi-instance</h3>
-  <p>Note that when you use <!-- raw HTML omitted -->camunda:resultVariable<!-- raw HTML omitted --> in a multi-instance construct, for example in a multi-instance subprocess, the result variable is overwritten every time the task completes, which may appear as random behavior. See <!-- raw HTML omitted -->camunda:resultVariable<!-- raw HTML omitted --> for details.</p>
+  <p>Note that when you use <code>camunda:resultVariable</code> in a multi-instance construct, for example in a multi-instance subprocess, the result variable is overwritten every time the task completes, which may appear as random behavior. See <a href="/7docs/manual/7.22/reference/bpmn20/custom-extensions/extension-attributes/#resultvariable">camunda:resultVariable</a> for details.</p>
 </div>
 
 <h1 id="camunda-extensions">Camunda Extensions</h1>
-<!-- raw HTML omitted -->
+<table class="table table-striped">
+  <tr>
+    <th>Attributes</th>
+    <td>
+      <a href="/7docs/manual/7.22/reference/bpmn20/custom-extensions/extension-attributes/#asyncbefore">camunda:asyncBefore</a>,
+      <a href="/7docs/manual/7.22/reference/bpmn20/custom-extensions/extension-attributes/#asyncafter">camunda:asyncAfter</a>,
+      <a href="/7docs/manual/7.22/reference/bpmn20/custom-extensions/extension-attributes/#exclusive">camunda:exclusive</a>,
+      <a href="/7docs/manual/7.22/reference/bpmn20/custom-extensions/extension-attributes/#jobpriority">camunda:jobPriority</a>,
+      <a href="/7docs/manual/7.22/reference/bpmn20/custom-extensions/extension-attributes/#resultvariable">camunda:resultVariable</a>,
+      <a href="/7docs/manual/7.22/reference/bpmn20/custom-extensions/extension-attributes/#resource">camunda:resource</a>
+    </td>
+  </tr>
+  <tr>
+    <th>Extension Elements</th>
+    <td>
+      <a href="/7docs/manual/7.22/reference/bpmn20/custom-extensions/extension-elements/#failedjobretrytimecycle">camunda:failedJobRetryTimeCycle</a>,
+      <a href="/7docs/manual/7.22/reference/bpmn20/custom-extensions/extension-elements/#inputoutput">camunda:inputOutput</a>
+    </td>
+  </tr>
+  <tr>
+    <th>Constraints</th>
+    <td>
+      The <code>camunda:exclusive</code> attribute is only evaluated if the attribute
+      <code>camunda:asyncBefore</code> or <code>camunda:asyncAfter</code> is set to <code>true</code>
+    </td>
+  </tr>
+</table>
 
     </div>
   </div>

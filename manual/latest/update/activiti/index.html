@@ -4513,7 +4513,92 @@ A CIB seven namespace will be introduced soon but backwards compatibility will b
 Your IDE should figure out the rest for you.
 For Eclipse this can be done by clicking on the project and hitting <code>Ctrl-Shift-O</code>.</p>
 <h2 id="which-activiti-class-names-have-changed">Which Activiti Class Names Have Changed?</h2>
-<!-- raw HTML omitted -->
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>component</th>
+      <th>Activiti class name</th>
+      <th>Camunda class name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>engine</td>
+      <td>ActivitiException</td>
+      <td>ProcessEngineException</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>ActivitiClassLoadingException</td>
+      <td>ClassLoadingException</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>ActivitiOptimisticLockingException</td>
+      <td>OptimisticLockingException</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>ActivitiTaskAlreadyClaimedException</td>
+      <td>TaskAlreadyClaimedException</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>ActivitiWrongDbException</td>
+      <td>WrongDbException</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>ActivitRule</td>
+      <td>ProcessEngineRule</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>ActivitiTestCase</td>
+      <td>ProcessEngineTestCase</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>PluggableActivitiTestCase</td>
+      <td>PluggableProcessEngineTestCase</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>AbstractActivitiTestCase</td>
+      <td>AbstractProcessEngineTestCase</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>ResourceActivitiTestCase</td>
+      <td>ResourceProcessEngineTestCase</td>
+    </tr>
+    <tr>
+      <td>spring</td>
+      <td>ActivitiComponent</td>
+      <td>ProcessEngineComponent</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>SpringActivitiTestCase</td>
+      <td>SpringProcessEngineTestCase</td>
+    </tr>
+    <tr>
+      <td>cdi</td>
+      <td>ActivitiCdiException</td>
+      <td>ProcessEngineCdiException</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>ActivitiExtension</td>
+      <td>ProcessEngineExtension</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>CdiActivitiTestCase</td>
+      <td>CdiProcessEngineTestCase</td>
+    </tr>
+  </tbody>
+</table>
 <p>That&rsquo;s it - now your application should run again.</p>
 
     </div>

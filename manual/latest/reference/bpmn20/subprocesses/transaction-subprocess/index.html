@@ -4470,7 +4470,7 @@
 <p>A transaction can have three possible outcomes:</p>
 <ul>
 <li>
-<p>A transaction is successful if it is neither canceled nor terminated by a hazard. If a transaction subprocess is successful, it is left using the outgoing sequenceflow(s). A successful transaction might be compensated if a compensation event is thrown later in the process.<!-- raw HTML omitted --></p>
+<p>A transaction is successful if it is neither canceled nor terminated by a hazard. If a transaction subprocess is successful, it is left using the outgoing sequenceflow(s). A successful transaction might be compensated if a compensation event is thrown later in the process.<br/></p>
 <p>Note: just as &ldquo;ordinary&rdquo; embedded subprocesses, a transaction subprocess may be compensated after successful completion using an intermediate throwing compensation event.</p>
 </li>
 <li>
@@ -4481,7 +4481,7 @@
 </li>
 </ul>
 <p>The following diagram illustrates the three different outcomes:</p>
-<!-- raw HTML omitted -->
+<div data-bpmn-diagram="../bpmn/business-transaction"></div>
 <p>A transaction subprocess is represented in xml using the transaction element:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;transaction</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;myTransaction&#34;</span> <span style="color:#f92672">&gt;</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#75715e">&lt;!-- ... --&gt;</span>
@@ -4489,7 +4489,7 @@
 </span></span></code></pre></div>
 <div class="note bg-warning docs-warning">
   <h3>Relation to ACID Transactions</h3>
-  <p>It is important not to confuse the BPMN transaction subprocess with technical (ACID) transactions. The BPMN transaction subprocess is not a way to scope technical transactions. To understand transaction management in CIB seven, read the <!-- raw HTML omitted -->Transactions in Processes<!-- raw HTML omitted --> section of the <!-- raw HTML omitted -->User Guide<!-- raw HTML omitted -->.</p>
+  <p>It is important not to confuse the BPMN transaction subprocess with technical (ACID) transactions. The BPMN transaction subprocess is not a way to scope technical transactions. To understand transaction management in CIB seven, read the <a href="/7docs/manual/latest/user-guide/process-engine/transactions-in-processes/">Transactions in Processes</a> section of the <a href="/7docs/manual/latest/user-guide/">User Guide</a>.</p>
 </div>
 
 <p>A BPMN transaction differs from a technical transaction in the following ways:</p>
@@ -4522,7 +4522,31 @@
 
 <p>Consistency on top of ACID transactions and optimistic concurrency: A BPMN transaction guarantees consistency in the sense that either all activities compete successfully, or, if some activity cannot be performed, the effects of all other successful activities are compensated. So either way, we end up in a consistent state. However, it is important to recognize that in CIB seven, the consistency model for BPMN transactions is superposed on top of the consistency model for process execution. The Camunda engine executes processes in a transactional way. Concurrency is addressed using optimistic locking. In the engine BPMN error, cancel and compensation events are built on top of the same ACID transactions and optimistic locking. For example, a cancel end event can only trigger compensation if it is actually reached. It is not reached if some undeclared exception is thrown by a service task before. The effects of a compensation handler can not be committed if some other participant in the underlying ACID transaction sets the transaction to the state rollback-only. Also, when two concurrent executions reach a cancel end event, compensation might be triggered twice and fail with an optimistic locking exception. All of this is to say that when implementing BPMN transactions in the core engine, the same set of rules apply as when implementing &ldquo;ordinary&rdquo; processes and subprocesses. So, to effectively guarantee consistency, it is important to implement processes in a way that takes the optimistic, transactional execution model into consideration. For further information, see the documentation on <a href="/7docs/manual/latest/user-guide/process-engine/transactions-in-processes/#optimistic-locking">optimistic locking</a>.</p>
 <h1 id="camunda-extensions">Camunda Extensions</h1>
-<!-- raw HTML omitted -->
+<table class="table table-striped">
+  <tr>
+    <th>Attributes</th>
+    <td>
+      <a href="/7docs/manual/latest/reference/bpmn20/custom-extensions/extension-attributes/#asyncbefore">camunda:asyncBefore</a>,
+      <a href="/7docs/manual/latest/reference/bpmn20/custom-extensions/extension-attributes/#asyncafter">camunda:asyncAfter</a>,
+      <a href="/7docs/manual/latest/reference/bpmn20/custom-extensions/extension-attributes/#exclusive">camunda:exclusive</a>,
+      <a href="/7docs/manual/latest/reference/bpmn20/custom-extensions/extension-attributes/#jobpriority">camunda:jobPriority</a>
+    </td>
+  </tr>
+  <tr>
+    <th>Extension Elements</th>
+    <td>
+      <a href="/7docs/manual/latest/reference/bpmn20/custom-extensions/extension-elements/#failedjobretrytimecycle">camunda:failedJobRetryTimeCycle</a>,
+      <a href="/7docs/manual/latest/reference/bpmn20/custom-extensions/extension-elements/#inputoutput">camunda:inputOutput</a>
+    </td>
+  </tr>
+  <tr>
+    <th>Constraints</th>
+    <td>
+      The <code>camunda:exclusive</code> attribute is only evaluated if the attribute
+      <code>camunda:asyncBefore</code> or <code>camunda:asyncAfter</code> is set to <code>true</code>
+    </td>
+  </tr>
+</table>
 <h1 id="additional-resources">Additional Resources</h1>
 <ul>
 <li><a href="/7docs/manual/latest/user-guide/process-engine/transactions-in-processes/">Transactions in Processes</a></li>

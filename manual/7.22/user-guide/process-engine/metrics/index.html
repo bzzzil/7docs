@@ -4476,7 +4476,105 @@
   <p>If you are an enterprise customer, your license agreement might require you to report some metrics annually. Please store <code>root-process-instance-start</code>, <code>activity-instance-start</code>, <code>executed-decision-instances</code> and <code>executed-decision-elements</code> metrics from <code>ACT_RU_METER_LOG</code> as well as task metrics from <code>ACT_RU_TASK_METER_LOG</code> for at least 18 months until they were reported.</p>
 </div>
 </p>
-<!-- raw HTML omitted -->
+<table class="table table-striped">
+  <tr>
+    <th>Category</th>
+    <th>Identifier</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td><b>BPMN Execution</b></td>
+    <td>root-process-instance-start*</td>
+    <td>The number of root process instance executions started. This is also known as <b>Process Instances (PI)</b>.
+    A root process instance has no parent process instance, i.e. it is a top-level execution.
+    </td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>activity-instance-start*</td>
+    <td>The number of flow node instances (activity instances) started (FNI).</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>activity-instance-end</td>
+    <td>The number of flow node instances (activity instances) ended.</td>
+  </tr>
+  <tr>
+    <td><b>DMN Execution</b></td>
+    <td>executed-decision-instances*</td>
+    <td>The number of evaluated decision instances (DI). A decision instance is a DMN decision table or a DMN Literal Expression.</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>executed-decision-elements*</td>
+    <td>The number of decision elements executed during evaluation of DMN decision tables. For one table, this is calculated as the number of clauses multiplied by the number of rules.</td>
+  </tr>
+  <tr>
+    <td><b>Job Executor</b></td>
+    <td>job-successful</td>
+    <td>The number of jobs successfully executed.</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>job-failed</td>
+    <td>The number of jobs that failed to execute and that were submitted for retry. Every failed attempt to execute a job is counted.</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>job-acquisition-attempt</td>
+    <td>The number of job acquisition cycles performed.</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>job-acquired-success</td>
+    <td>The number of jobs that were acquired and successfully locked for execution.</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>job-acquired-failure</td>
+    <td>The number of jobs that were acquired but could not be locked for execution due to another job executor locking/executing the jobs in parallel.</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>job-execution-rejected</td>
+    <td>The number of successfully acquired jobs submitted for execution that were rejected due to saturated execution resources. This is an indicator that the execution thread pool's job queue is full.</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>job-locked-exclusive</td>
+    <td>The number of exclusive jobs that are immediately locked and executed.</td>
+  </tr>
+  <tr>
+    <td><b>Task Metrics</b></td>
+    <td>unique-task-workers*</td>
+    <td>The number of task users (TU) that have served as assignees.</td>
+  </tr>
+  <tr>
+    <td><b>History Clean up</b></td>
+    <td>history-cleanup-removed-process-instances</td>
+    <td>The number of process instances removed by history clean up.</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>history-cleanup-removed-case-instances</td>
+    <td>The number of case instances removed by history clean up.</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>history-cleanup-removed-decision-instances</td>
+    <td>The number of decision instances removed by history clean up.</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>history-cleanup-removed-batch-operations</td>
+    <td>The number of batch operations removed by history clean up.</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>history-cleanup-removed-task-metrics</td>
+    <td>The number of task metrics removed by history clean up.</td>
+  </tr>
+</table>
 <p>*Some enterprise agreements require annual reports of some metrics. Please store those metrics for at least 18 months.</p>
 <h1 id="querying">Querying</h1>
 <p>Metrics can be queried by making a <a href="/7docs/manual/7.22/reference/javadoc/org/camunda/bpm/engine/management/MetricsQuery.html">MetricsQuery</a>
@@ -4526,7 +4624,7 @@ and setting the engine property <code>hostnameProvider</code> to an instance of 
 <div class="note bg-info docs-info">
   <h3>Heads Up!</h3>
   <p><p>The
-<!-- raw HTML omitted -->org.camunda.bpm.engine.impl.metrics.MetricsReporterIdProvider<!-- raw HTML omitted --></p>
+<a href="/7docs/manual/7.22/reference/javadoc/org/camunda/bpm/engine/impl/metrics/MetricsReporterIdProvider.html">org.camunda.bpm.engine.impl.metrics.MetricsReporterIdProvider</a></p>
 <p>interface and the corresponding <code>metricsReporterIdProvider</code> engine property have been deprecated.</p>
 </p>
 </div>

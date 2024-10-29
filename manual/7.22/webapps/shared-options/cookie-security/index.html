@@ -4469,12 +4469,12 @@
       <p>Camundas Web applications use cookies to preserve user sessions and to prevent CSRF attacks. This page explains how these cookies should be configured to increase the security.</p>
 <p>The Web applications set the following cookies:</p>
 <ul>
-<li><strong>Session Cookie</strong> (<!-- raw HTML omitted -->JSESSIONID<!-- raw HTML omitted -->)
+<li><strong>Session Cookie</strong> (<code>JSESSIONID</code>)
 <ul>
 <li>Supposed to remember the authenticated user after the login</li>
 </ul>
 </li>
-<li><strong>CSRF Prevention Cookie</strong> (<!-- raw HTML omitted -->XSRF-TOKEN<!-- raw HTML omitted -->)
+<li><strong>CSRF Prevention Cookie</strong> (<code>XSRF-TOKEN</code>)
 <ul>
 <li>Supposed to prevent Cross-Site Request Forgery (CSRF) by sending a newly generated token along with each modifying request</li>
 </ul>
@@ -4487,48 +4487,69 @@ as well as
 <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies#samesite_attribute">SameSite cookies</a>
 in Mozilla’s Developer Guide.</p>
 <h3 id="secure">Secure</h3>
-<p>When enabling the <!-- raw HTML omitted -->Secure<!-- raw HTML omitted --> flag, the browser does not send the cookie via a plain (insecure) HTTP connection.</p>
-<p>To provide a seamless getting started experience, we disabled the <!-- raw HTML omitted -->Secure<!-- raw HTML omitted --> flag by default for all cookies. However, you can easily enable the <!-- raw HTML omitted -->Secure<!-- raw HTML omitted --> flag. When the Secure flag is present, some browsers prevent cookies from being sent via a plain (insecure) HTTP connection.</p>
+<p>When enabling the <code>Secure</code> flag, the browser does not send the cookie via a plain (insecure) HTTP connection.</p>
+<p>To provide a seamless getting started experience, we disabled the <code>Secure</code> flag by default for all cookies. However, you can easily enable the <code>Secure</code> flag. When the Secure flag is present, some browsers prevent cookies from being sent via a plain (insecure) HTTP connection.</p>
 
 <div class="note bg-info docs-info">
   <h3>Heads-up!</h3>
-  <p>It is highly recommended to use an HTTPS connection and enable the <!-- raw HTML omitted -->Secure<!-- raw HTML omitted --> flag.</p>
+  <p>It is highly recommended to use an HTTPS connection and enable the <code>Secure</code> flag.</p>
 </div>
 
 <h3 id="httponly">HttpOnly</h3>
-<p>When enabling the <!-- raw HTML omitted -->HttpOnly<!-- raw HTML omitted --> flag, the cookie cannot be read via JavaScript to mitigate cross-site scripting (XSS) attacks.</p>
+<p>When enabling the <code>HttpOnly</code> flag, the cookie cannot be read via JavaScript to mitigate cross-site scripting (XSS) attacks.</p>
 <h3 id="samesite">SameSite</h3>
-<p>When enabling the <!-- raw HTML omitted -->SameSite<!-- raw HTML omitted --> flag, the browser only sends the cookie if the client performs the request from the same domain that initially set the cookie. In case of a cross-site request, the browser will not send the cookie.</p>
+<p>When enabling the <code>SameSite</code> flag, the browser only sends the cookie if the client performs the request from the same domain that initially set the cookie. In case of a cross-site request, the browser will not send the cookie.</p>
 
 <div class="note bg-info docs-info">
   <h3>Heads-up!</h3>
-  <p>The standard related to <!-- raw HTML omitted -->SameSite<!-- raw HTML omitted --> recently changed. Most current browser versions treat cookies without <!-- raw HTML omitted -->SameSite<!-- raw HTML omitted --> attributes as &lsquo;SameSite=Lax&rsquo;.
+  <p>The standard related to <code>SameSite</code> recently changed. Most current browser versions treat cookies without <code>SameSite</code> attributes as &lsquo;SameSite=Lax&rsquo;.
 Have a look at <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies#samesite_attribute">SameSite cookies</a> in Mozilla’s Developer Guide.</p>
 </div>
 
 <h2 id="what-are-the-limitations">What are the limitations?</h2>
 <p>The following section lists the limitations of the cookie security settings.</p>
 <h3 id="absence-of-httponly-for-the-csrf-cookie">Absence of HttpOnly for the CSRF Cookie</h3>
-<p>For the CSRF Cookie, the <!-- raw HTML omitted -->HttpOnly<!-- raw HTML omitted --> flag is absent and not configurable to ensure the functionality of the Web applications. Aforementioned is due to the reason that the CSRF cookie must be readable by the JavaScript HTTP Client to guarantee that the browser sends the token along with every modifying request.</p>
+<p>For the CSRF Cookie, the <code>HttpOnly</code> flag is absent and not configurable to ensure the functionality of the Web applications. Aforementioned is due to the reason that the CSRF cookie must be readable by the JavaScript HTTP Client to guarantee that the browser sends the token along with every modifying request.</p>
 <h3 id="absence-of-samesite-for-the-session-cookie">Absence of SameSite for the Session Cookie</h3>
-<p>In the following <a href="/7docs/manual/7.22/installation/full/">pre-packaged distributions</a>, the <!-- raw HTML omitted -->SameSite<!-- raw HTML omitted --> property is absent by default since the Java Container manages the cookie and the latest Servlet specification does currently not support the <!-- raw HTML omitted -->SameSite<!-- raw HTML omitted --> property:</p>
+<p>In the following <a href="/7docs/manual/7.22/installation/full/">pre-packaged distributions</a>, the <code>SameSite</code> property is absent by default since the Java Container manages the cookie and the latest Servlet specification does currently not support the <code>SameSite</code> property:</p>
 <ul>
 <li>JBoss EAP/WildFly</li>
 <li>IBM WebSphere</li>
 <li>Oracle Weblogic</li>
 </ul>
-<p>For all other distributions, the <!-- raw HTML omitted -->SameSite<!-- raw HTML omitted --> flag is enabled by default.</p>
+<p>For all other distributions, the <code>SameSite</code> flag is enabled by default.</p>
 
 <div class="note bg-info docs-info">
   <h3>Heads-up!</h3>
-  <p>The absence of the <!-- raw HTML omitted -->SameSite<!-- raw HTML omitted --> property does not have any negative impact on the security of the Web applications: The <!-- raw HTML omitted -->SameSite<!-- raw HTML omitted --> property is supposed to ensure protection from CSRF attacks. With the CSRF Protection Filter, there already exists a dedicated protection mechanism for such scenarios.</p>
+  <p>The absence of the <code>SameSite</code> property does not have any negative impact on the security of the Web applications: The <code>SameSite</code> property is supposed to ensure protection from CSRF attacks. With the CSRF Protection Filter, there already exists a dedicated protection mechanism for such scenarios.</p>
 </div>
 
 <h2 id="what-are-the-defaults">What are the defaults?</h2>
 <p>The following table shows the default configuration of the Web applications.</p>
-<!-- raw HTML omitted -->
-<p>* The <!-- raw HTML omitted -->SameSite<!-- raw HTML omitted --> property is not supported for IBM WebSphere and disabled by default for both cookies.
-The Session Cookie also has no <!-- raw HTML omitted -->SameSite<!-- raw HTML omitted --> attribute by default on JBoss EAP/WildFly and Oracle Weblogic.</p>
+<table class="table table-striped">
+  <tr>
+    <th>Property Name</th>
+    <th>Session Cookie</th>
+    <th>CSRF Cookie</th>
+  </tr>
+  <tr>
+    <td><code>HttpOnly</code></td>
+    <td><code>true</code></td>
+    <td>–</td>
+  </tr>
+  <tr>
+    <td><code>Secure</code></td>
+    <td><code>false</code></td>
+    <td><code>false</code></td>
+  </tr>
+  <tr>
+    <td><code>SameSite</code></td>
+    <td><code>Lax *</code></td>
+    <td><code>Lax *</code></td>
+  </tr>
+</table>
+<p>* The <code>SameSite</code> property is not supported for IBM WebSphere and disabled by default for both cookies.
+The Session Cookie also has no <code>SameSite</code> attribute by default on JBoss EAP/WildFly and Oracle Weblogic.</p>
 
 <div class="note bg-info docs-info">
   <h3>SameSite &amp; Firefox</h3>

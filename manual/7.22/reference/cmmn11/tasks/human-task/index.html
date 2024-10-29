@@ -4543,7 +4543,36 @@ if the form keys need to be retrieved for a complete list of tasks:</p>
 </span></span></code></pre></div><p>Note that it is required to call the <code>.initializeFormKeys()</code> method on the <code>TaskQuery</code> object to
 make sure the form keys are initialized.</p>
 <h1 id="camunda-extensions">Camunda Extensions</h1>
-<!-- raw HTML omitted -->
+<table class="table table-striped">
+  <tr>
+    <th>Attributes</th>
+    <td>
+      <a href="/7docs/manual/7.22/reference/cmmn11/custom-extensions/camunda-attributes/#assignee">camunda:assignee</a>,
+      <a href="/7docs/manual/7.22/reference/cmmn11/custom-extensions/camunda-attributes/#candidategroups">camunda:candidateGroups</a>,
+      <a href="/7docs/manual/7.22/reference/cmmn11/custom-extensions/camunda-attributes/#candidateusers">camunda:candidateUsers</a>,
+      <a href="/7docs/manual/7.22/reference/cmmn11/custom-extensions/camunda-attributes/#duedate">camunda:dueDate</a>,
+      <a href="/7docs/manual/7.22/reference/cmmn11/custom-extensions/camunda-attributes/#formkey">camunda:formKey</a>,
+      <a href="/7docs/manual/7.22/reference/cmmn11/custom-extensions/camunda-attributes/#priority">camunda:priority</a>
+    </td>
+  </tr>
+  <tr>
+    <th>Extension Elements</th>
+    <td>
+      <a href="/7docs/manual/7.22/reference/cmmn11/custom-extensions/camunda-elements/#in">camunda:in</a>,
+      <a href="/7docs/manual/7.22/reference/cmmn11/custom-extensions/camunda-elements/#out">camunda:out</a>,
+      <a href="/7docs/manual/7.22/reference/cmmn11/custom-extensions/camunda-elements/#caseexecutionlistener">camunda:caseExecutionListener</a>,
+      <a href="/7docs/manual/7.22/reference/cmmn11/custom-extensions/camunda-elements/#tasklistener">camunda:taskListener</a>,
+      <a href="/7docs/manual/7.22/reference/cmmn11/custom-extensions/camunda-elements/#variablelistener">camunda:variableListener</a>
+    </td>
+  </tr>
+  <tr>
+    <th>Constraints</th>
+    <td>
+      The attribute <code>camunda:assignee</code> cannot be used simultaneously with the <code>perfomerRef</code>
+      attribute on a human task element.
+    </td>
+  </tr>
+</table>
 
     </div>
   </div>

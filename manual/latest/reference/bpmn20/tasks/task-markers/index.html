@@ -4483,8 +4483,8 @@
 <li>Transaction Subprocess</li>
 </ul>
 <p>A Gateway or Event can not become multi-instance.</p>
-<p>If an activity is multi-instance, this is indicated by three short lines at the bottom of the activity. Three vertical lines indicate that the instances will be executed in <!-- raw HTML omitted -->parallel<!-- raw HTML omitted -->, while three horizontal lines indicate <strong>sequential</strong> execution.</p>
-<!-- raw HTML omitted -->
+<p>If an activity is multi-instance, this is indicated by three short lines at the bottom of the activity. Three vertical lines indicate that the instances will be executed in <strong>parallel</strong>, while three horizontal lines indicate <strong>sequential</strong> execution.</p>
+<div data-bpmn-diagram="../bpmn//multiple-instance"></div>
 <p>As required by the specification, each parent execution of the created executions for each instance will have the following variables:</p>
 <ul>
 <li><strong>nrOfInstances</strong>: the total number of instances</li>
@@ -4532,15 +4532,38 @@
 </span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/userTask&gt;</span>
 </span></span></code></pre></div><p>In this example, parallel instances will be created for each element of the assigneeList collection. However, when 60% of the tasks are completed, the other tasks are deleted and the process continues.</p>
 <h2 id="camunda-extensions">Camunda Extensions</h2>
-<!-- raw HTML omitted -->
+<table class="table table-striped">
+  <tr>
+    <th>Attributes</th>
+    <td>
+      <a href="/7docs/manual/latest/reference/bpmn20/custom-extensions/extension-attributes/#collection">camunda:collection</a>,
+      <a href="/7docs/manual/latest/reference/bpmn20/custom-extensions/extension-attributes/#elementvariable">camunda:elementVariable</a>,
+      <a href="/7docs/manual/latest/reference/bpmn20/custom-extensions/extension-attributes/#asyncbefore">camunda:asyncBefore</a>,
+      <a href="/7docs/manual/latest/reference/bpmn20/custom-extensions/extension-attributes/#asyncafter">camunda:asyncAfter</a>,
+      <a href="/7docs/manual/latest/reference/bpmn20/custom-extensions/extension-attributes/#exclusive">camunda:exclusive</a>,
+      <a href="/7docs/manual/latest/reference/bpmn20/custom-extensions/extension-attributes/#jobpriority">camunda:jobPriority</a>
+    </td>
+  </tr>
+  <tr>
+    <th>Extension Elements</th>
+    <td>&ndash;</td>
+  </tr>
+  <tr>
+    <th>Constraints</th>
+    <td>
+      The <code>camunda:exclusive</code> attribute is only evaluated if the attribute
+      <code>camunda:asyncBefore</code> or <code>camunda:asyncAfter</code> is set to <code>true</code>
+    </td>
+  </tr>
+</table>
 <h2 id="boundary-events-and-multi-instance">Boundary Events and Multi-Instance</h2>
 <p>Since a multi-instance is a regular activity, it is possible to define a boundary event on its boundary. In case of an interrupting boundary event, when the event is caught, all instances that are still active will be destroyed. For example, take the following multi-instance subprocess:</p>
-<!-- raw HTML omitted -->
+<div data-bpmn-diagram="../bpmn/multiple-instance-boundary"></div>
 <p>Here all instances of the subprocess will be destroyed when the timer fires, regardless of how many instances there are or which inner activities are currently not completed yet.</p>
 <h2 id="loops">Loops</h2>
 <p>The loop marker is not natively supported yet by the engine. For Multiple Instance, the number of repetitions is known in advance - which makes it a bad candidate for loops anyway, as it defines a completion condition that may already be sufficient in some cases.</p>
 <p>To get around this limitation, the solution is to explicitly model the loop in your BPMN process:</p>
-<!-- raw HTML omitted -->
+<div data-bpmn-diagram="../bpmn/loop-alternative"></div>
 <p>Be assured that we have the loop marker in our backlog to be added to the engine.</p>
 <h2 id="json-collections-with-multi-instance-collections">JSON Collections with Multi-Instance Collections</h2>
 <p>JSON Arrays created with <a href="/7docs/manual/latest/reference/spin/">Camunda SPIN</a> can be used as a collection for multi-instance activities.
@@ -4556,7 +4579,7 @@ Consider the following JavaScript example that initializes execution variable <c
 will contain the array item. To access the value of the element, you can use <code>.value()</code> in your element variable.</p>
 <h1 id="compensation">Compensation</h1>
 <p>If an activity is used for compensating the effects of another activity, it can be declared to be a compensation handler. Compensation handlers are not contained in the regular flow and are only executed when a compensation event is thrown.</p>
-<!-- raw HTML omitted -->
+<div data-bpmn-diagram="../bpmn/compensation-marker"></div>
 <p>Notice the compensation handler icon in the bottom center area of the &ldquo;cancel hotel reservation&rdquo; service task.</p>
 <p>Compensation handlers may not have incoming or outgoing sequence flows.</p>
 <p>A compensation handler must be associated with a compensation boundary event using a directed association.</p>

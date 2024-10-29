@@ -4553,17 +4553,17 @@ This section describes what our default policy contains:</p>
 <li><code>form-action 'self'</code>
 <ul>
 <li>A form must not be submitted against a cross-origin.</li>
-<li>JavaScript in the <!-- raw HTML omitted -->action<!-- raw HTML omitted --> attribute of a form is not executed.</li>
+<li>JavaScript in the <code>action</code> attribute of a form is not executed.</li>
 </ul>
 </li>
 <li><code>frame-ancestors 'none'</code>
 <ul>
-<li>Embedding the web applications via an <!-- raw HTML omitted -->iframe<!-- raw HTML omitted --> is forbidden; mitigates clickjacking attacks.</li>
+<li>Embedding the web applications via an <code>iframe</code> is forbidden; mitigates clickjacking attacks.</li>
 </ul>
 </li>
 <li><code>object-src 'none'</code>
 <ul>
-<li>Resources embedded via <!-- raw HTML omitted -->object<!-- raw HTML omitted -->, <!-- raw HTML omitted -->embed<!-- raw HTML omitted --> or <!-- raw HTML omitted -->applet<!-- raw HTML omitted --> tags are not loaded.</li>
+<li>Resources embedded via <code>object</code>, <code>embed</code> or <code>applet</code> tags are not loaded.</li>
 <li>Mitigates the exploitation of bugs that are included in third-party plugins (e.g. Adobe Flash, Java Applets, etc.)</li>
 </ul>
 </li>
@@ -4581,7 +4581,7 @@ This section describes what our default policy contains:</p>
 </div>
 
 <h3 id="content-type-options">Content-Type Options</h3>
-<p>If the <strong>Content-Type Options</strong> header is enabled, the browser uses the mime type declared in the <!-- raw HTML omitted -->Content-Type<!-- raw HTML omitted -->
+<p>If the <strong>Content-Type Options</strong> header is enabled, the browser uses the mime type declared in the <code>Content-Type</code>
 header to render a resource and prevents trying to guess the mime type by inspecting the actual content of the byte stream (sniffing).</p>
 <h3 id="strict-transport-security">Strict Transport Security</h3>
 <p>When enabled, the browser remembers that the Webapps must be accessed via HTTPS. After the initial
@@ -4621,7 +4621,7 @@ prone to be exploited by attackers.</p>
 <a href="https://hstspreload.org/">Preload List Service</a> maintained by Google and set the
 <strong>Strict Transport Security</strong> header according to the
 <a href="https://hstspreload.org/#submission-requirements">Submission Requirements</a> with the help of
-the config property <!-- raw HTML omitted -->hstsValue<!-- raw HTML omitted -->.</p>
+the config property <code>hstsValue</code>.</p>
 <h2 id="where-to-configure">Where to Configure?</h2>
 <p>Choose a container from the list and learn where to configure the HTTP Security Headers:</p>
 <ul>
@@ -4633,7 +4633,140 @@ the config property <!-- raw HTML omitted -->hstsValue<!-- raw HTML omitted -->.
 </ul>
 <h2 id="how-to-configure">How to Configure?</h2>
 <p>The following table shows the possible configuration settings and the default behavior:</p>
-<!-- raw HTML omitted -->
+<table class="table table-striped">
+  <tr>
+    <th>Name</th>
+    <th>Attribute</th>
+    <th>Configuration</th>
+    <th>Default</th>
+  </tr>
+  <tr>
+    <td><code>X-XSS-Protection</code></td>
+    <td><code>xssProtectionDisabled</code></td>
+    <td>
+      The header can be entirely disabled if set to <code>true</code>. <br>
+      Allowed set of values is <code>true</code> and <code>false</code>. 
+    </td>
+    <td><code>false</code></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td><code>xssProtectionOption</code></td>
+    <td>
+      The allowed set of values:
+      <ul>
+        <li><code>BLOCK</code>: If the browser detects a cross-site scripting attack, the page is blocked completely</li>
+        <li><code>SANITIZE</code>: If the browser detects a cross-site scripting attack, the page is sanitized from suspicious parts (value <code>0</code>)</li>
+      </ul><br>
+      <strong>Note:</strong>
+      <ul>
+        <li>Is ignored when <code>xssProtectionDisabled</code> is set to <code>true</code></li>
+        <li>Cannot be set in conjunction with <code>xssProtectionValue</code></li>
+      </ul>
+    </td>
+    <td><code>BLOCK</code></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td><code>xssProtectionValue</code></td>
+    <td>
+      A custom value for the header can be specified.<br><br>
+      <strong>Note:</strong>
+      <ul>
+        <li>Is ignored when <code>xssProtectionDisabled</code> is set to <code>true</code></li>
+        <li>Cannot be set in conjunction with <code>xssProtectionOption</code></li>
+      </ul>
+    </td>
+    <td><code>1; mode=block</code></td>
+  </tr>
+  <tr>
+    <td><code>Content-Security-Policy</code></td>
+    <td><code>contentSecurityPolicyDisabled</code></td>
+    <td>
+      The header can be entirely disabled if set to <code>true</code>. <br>
+      Allowed set of values is <code>true</code> and <code>false</code>. 
+    </td>
+    <td><code>false</code></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td><code>contentSecurityPolicyValue</code></td>
+    <td>
+      A custom value for the header can be specified.<br><br>
+      <strong>Note:</strong> Property is ignored when <code>contentSecurityPolicyDisabled</code> is set to <code>true</code>
+    </td>
+    <td><code>base-uri 'self'</code></td>
+  </tr>
+  <tr>
+    <td><code>X-Content-Type-Options</code></td>
+    <td><code>contentTypeOptionsDisabled</code></td>
+    <td>
+      The header can be entirely disabled if set to <code>true</code>. <br>
+      Allowed set of values is <code>true</code> and <code>false</code>. 
+    </td>
+    <td><code>false</code></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td><code>contentTypeOptionsValue</code></td>
+    <td>
+      A custom value for the header can be specified.<br><br>
+      <strong>Note:</strong> Property is ignored when <code>contentSecurityPolicyDisabled</code> is set to <code>true</code>
+    </td>
+    <td><code>nosniff</code></td>
+  </tr>
+  <tr>
+    <td id="hsts-config"><code>Strict-Transport-Security</code></td>
+    <td><code>hstsDisabled</code></td>
+    <td>
+      Set to <code>false</code> to enable the header. The header is disabled by default. <br>
+      Allowed set of values is <code>true</code> and <code>false</code>. 
+    </td>
+    <td><code>true</code></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td><code>hstsMaxAge</code></td>
+    <td>
+      Amount of seconds, the browser should remember to access the webapp via HTTPS.<br><br>
+      <strong>Note:</strong>
+      <ul>
+        <li>Corresponds by default to one year</li>
+        <li>Is ignored when <code>hstsDisabled</code> is <code>true</code></li>
+        <li>Cannot be set in conjunction with <code>hstsValue</code></li>
+        <li>Allows a maximum value of 2<sup>31</sup>-1</li>
+      </ul>
+    </td>
+    <td><code>31536000</code></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td><code>hstsIncludeSubdomainsDisabled</code></td>
+    <td>
+      HSTS is additionally to the domain of the webapp enabled for all its subdomains.<br><br>
+      <strong>Note:</strong>
+      <ul>
+        <li>Is ignored when <code>hstsDisabled</code> is <code>true</code></li>
+        <li>Cannot be set in conjunction with <code>hstsValue</code></li>
+      </ul>
+    </td>
+    <td><code>true</code></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td><code>hstsValue</code></td>
+    <td>
+      A custom value for the header can be specified.<br><br>
+      <strong>Note:</strong>
+      <ul>
+        <li>Is ignored when <code>hstsDisabled</code> is <code>true</code></li>
+        <li>Cannot be set in conjunction with <code>hstsMaxAge</code> or 
+        <code>hstsIncludeSubdomainsDisabled</code></li>
+      </ul>
+    </td>
+    <td><code>max-age=31536000</code></td>
+  </tr>
+</table>
 
     </div>
   </div>

@@ -4468,9 +4468,9 @@
     <div class="col-xs-12 content-text">
       <p>Signal events are events which reference a named signal. A signal is an event of global scope (broadcast semantics) and is delivered to all active handlers.</p>
 <p>The following is an example of two separate processes communicating using signals. The first process is started if an insurance policy is updated or changed. After the changes have been reviewed by a human participant, a signal event is thrown, signaling that a policy has changed:</p>
-<!-- raw HTML omitted -->
+<div data-bpmn-diagram="../bpmn/event-signal-throwing"></div>
 <p>This event can now be caught by all process instances which are interested. The following is an example of a process subscribing to the event.</p>
-<!-- raw HTML omitted -->
+<div data-bpmn-diagram="../bpmn/event-signal-catching"></div>
 <p>Note: It is important to understand that a signal event is broadcast to all active handlers. In the example given above this means that all instances of the process catching the signal would receive the event.</p>
 <h1 id="signal-event-definition">Signal Event Definition</h1>
 <p>A signal event definition is declared using the signalEventDefinition element. The attribute <code>signalRef</code> references a signal element declared as a child element of the definitions root element. The following is an excerpt of a process in which a signal event is thrown and caught by intermediate events. The signalEventDefinitions reference the &lsquo;global&rsquo; signal element.</p>
@@ -4550,7 +4550,23 @@
 </span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/intermediateCatchEvent&gt;</span>
 </span></span></code></pre></div><h2 id="camunda-extensions">Camunda Extensions</h2>
 <p>The following extensions are supported for the Signal Intermediate Catching Event:</p>
-<!-- raw HTML omitted -->
+<table class="table table-striped">
+  <tr>
+    <th>Attributes</th>
+    <td>&ndash;</td>
+  </tr>
+  <tr>
+    <th>Extension Elements</th>
+    <td>
+      <a href="/7docs/manual/7.22/reference/bpmn20/custom-extensions/extension-elements/#inputoutput">
+        camunda:inputOutput</a>
+    </td>
+  </tr>
+  <tr>
+    <th>Constraints</th>
+    <td>&ndash;</td>
+  </tr>
+</table>
 <h2 id="signal-boundary-event">Signal Boundary Event</h2>
 <p>When an execution arrives in the activity to which the signal boundary event is attached, the signal boundary event catches signals with the proper name.</p>
 <p>Note: Contrary to other events, such as the error boundary event, a signal boundary event does not only catch signal events thrown from the scope it is attached to. A signal event has a global scope (broadcast semantics), meaning that the signal can be thrown from any place, even from a different process instance.</p>
@@ -4565,7 +4581,7 @@
 <p>The signal is broadcast to all active handlers (i.e., all catching signal events). Signals can be published synchronously or asynchronously.</p>
 <ul>
 <li>In the default configuration, the signal is delivered synchronously. This means that the throwing process instance waits until the signal is delivered to all catching process instances. The catching process instances are also notified in the same transaction as the throwing process instance, which means that if one of the notified instances produces a technical error (throws an exception), all involved instances fail.</li>
-<li>A signal can also be delivered asynchronously. In that case it is determined which handlers are active at the time the throwing signal event is reached. For each active handler, an asynchronous notification message (<code>Job</code>) is stored and delivered by the <code>JobExecutor</code>.<!-- raw HTML omitted --></li>
+<li>A signal can also be delivered asynchronously. In that case it is determined which handlers are active at the time the throwing signal event is reached. For each active handler, an asynchronous notification message (<code>Job</code>) is stored and delivered by the <code>JobExecutor</code>.</li></li>
 </ul>
 <p>A signal intermediate event is defined as an intermediate throwing event. In this case, the specific type sub-element is a signalEventDefinition element.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;intermediateThrowEvent</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;signal&#34;</span><span style="color:#f92672">&gt;</span>
@@ -4627,7 +4643,26 @@
 </span></span></code></pre></div><p>The business key &ldquo;camunda:in&rdquo; element can be used in combination with the process variable passing &ldquo;camunda:in&rdquo; elements.</p>
 <h2 id="camunda-extensions-1">Camunda Extensions</h2>
 <p>The following extensions are supported for the Signal Intermediate and End Throwing Events:</p>
-<!-- raw HTML omitted -->
+<table class="table table-striped">
+  <tr>
+    <th>Attributes</th>
+    <td>&ndash;</td>
+  </tr>
+  <tr>
+    <th>Extension Elements</th>
+    <td>
+      <a href="/7docs/manual/7.22/reference/bpmn20/custom-extensions/extension-elements/#in">camunda:in</a>,
+      <a href="/7docs/manual/7.22/reference/bpmn20/custom-extensions/extension-elements/#failedjobretrytimecycle">
+        camunda:failedJobRetryTimeCycle</a>,
+      <a href="/7docs/manual/7.22/reference/bpmn20/custom-extensions/extension-elements/#inputoutput">
+        camunda:inputOutput</a>
+    </td>
+  </tr>
+  <tr>
+    <th>Constraints</th>
+    <td>&ndash;</td>
+  </tr>
+</table>
 <h1 id="additional-resources">Additional Resources</h1>
 <ul>
 <li><a href="http://camunda.org/bpmn/reference.html#events-signal">Signal Events</a> in the <a href="http://camunda.org/bpmn/reference.html">BPMN 2.0 Modeling Reference</a></li>

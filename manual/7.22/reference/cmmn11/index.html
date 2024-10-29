@@ -4469,11 +4469,253 @@
       <p>This page provides an overview of the CMMN 1.1 elements and the current coverage of the process engine.</p>
 <p>The CMMN editor is disabled in recent versions of Camunda Modeler but can be enabled with a feature flag. For more context and information on how to enable this feature flag in Camunda Modeler, please see <a href="https://forum.camunda.org/t/how-to-access-cmmn-in-the-modeler/25127">this forum post</a>.</p>
 <h1 id="coverage">Coverage</h1>
-<p>The elements marked in <!-- raw HTML omitted -->orange<!-- raw HTML omitted --> are supported.</p>
+<p>The elements marked in <span class="label label-warning">orange</span> are supported.</p>
 <h2 id="definitions">Definitions</h2>
-<!-- raw HTML omitted -->
+<div class="cmmn-symbols">
+  <div class="row">
+    <div class="col-md-12">
+      <h3>Grouping</h3>
+      <div class="bpmn-symbol-container implemented">
+        <a href="/7docs/manual/7.22/reference/cmmn11/grouping-tasks/stage/"><span class="glyphicon glyphicon-eye-open"></span></a>
+        <div class="cmmn-symbol"><img src="/7docs/manual/7.22//img/short-codes/cmmn-case-plan-model-colored.png" /></div>
+
+      </div>
+      <div class="bpmn-symbol-container implemented">
+        <a href="/7docs/manual/7.22/reference/cmmn11/grouping-tasks/stage/"><span class="glyphicon glyphicon-eye-open"></span></a>
+        <div class="cmmn-symbol"><img src="/7docs/manual/7.22//img/short-codes/cmmn-stage-collapsed-colored.png" /></div>
+            
+      </div>
+      <div class="bpmn-symbol-container">
+        <div class="cmmn-symbol"><img src="/7docs/manual/7.22//img/short-codes/cmmn-plan-fragment.png" /></div>
+
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <h3>Tasks</h3>
+      <div class="bpmn-symbol-container implemented">
+        <a href="/7docs/manual/7.22/reference/cmmn11/tasks/human-task/"><span class="glyphicon glyphicon-eye-open"></span></a>
+        <div class="cmmn-symbol"><img src="/7docs/manual/7.22//img/short-codes/cmmn-human-task-colored.png" /></div>
+ 
+      </div>
+      <div class="bpmn-symbol-container">
+        <div class="cmmn-symbol"><img src="/7docs/manual/7.22//img/short-codes/cmmn-manual-task.png" /></div>
+
+      </div>
+      <div class="bpmn-symbol-container implemented">
+        <a href="/7docs/manual/7.22/reference/cmmn11/tasks/process-task/"><span class="glyphicon glyphicon-eye-open"></span></a>
+        <div class="cmmn-symbol"><img src="/7docs/manual/7.22//img/short-codes/cmmn-process-task-colored.png" /></div>
+
+      </div>
+      <div class="bpmn-symbol-container implemented">
+        <a href="/7docs/manual/7.22/reference/cmmn11/tasks/case-task/"><span class="glyphicon glyphicon-eye-open"></span></a>
+        <div class="cmmn-symbol"><img src="/7docs/manual/7.22//img/short-codes/cmmn-case-task-colored.png" /></div>
+
+      </div>
+      <div class="bpmn-symbol-container implemented">
+        <a href="/7docs/manual/7.22/reference/cmmn11/tasks/decision-task/"><span class="glyphicon glyphicon-eye-open"></span></a>
+        <div class="cmmn-symbol"><img src="/7docs/manual/7.22//img/short-codes/cmmn-decision-task-colored.png" /></div>
+
+      </div>
+      <div class="bpmn-symbol-container">
+        <div class="cmmn-symbol"><img src="/7docs/manual/7.22//img/short-codes/cmmn-task.png" /></div>
+
+      </div>
+      <div class="bpmn-symbol-container">
+        <div class="cmmn-symbol"><img src="/7docs/manual/7.22//img/short-codes/cmmn-discretionary-task.png" /></div>
+
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-9">
+      <h3>Event-Triggered Elements</h3>
+      <div class="bpmn-symbol-container implemented">
+        <a href="/7docs/manual/7.22/reference/cmmn11/milestone/"><span class="glyphicon glyphicon-eye-open"></span></a>
+        <div class="cmmn-symbol"><img src="/7docs/manual/7.22//img/short-codes/cmmn-milestone-colored.png" /></div>
+
+      </div>
+      <div class="bpmn-symbol-container">
+        <div class="cmmn-symbol"><img src="/7docs/manual/7.22//img/short-codes/cmmn-event-listener.png" /></div>
+
+      </div>
+      <div class="bpmn-symbol-container">
+        <div class="cmmn-symbol"><img src="/7docs/manual/7.22//img/short-codes/cmmn-event-listener-timer.png" /></div>
+
+      </div>
+      <div class="bpmn-symbol-container">
+        <div class="cmmn-symbol"><img src="/7docs/manual/7.22//img/short-codes/cmmn-event-listener-user.png" /></div>
+
+      </div>
+    </div>
+    <div class="col-md-3">
+      <h3>CaseFileItem</h3>
+      <div class="bpmn-symbol-container">
+        <div class="cmmn-symbol"><img src="/7docs/manual/7.22//img/short-codes/cmmn-case-file-item.png" /></div>
+
+      </div>
+    </div>
+  </div>
+</div>
 <h2 id="markers">Markers</h2>
-<!-- raw HTML omitted -->
+<table class="table table-bordered table-responsive table-cmmn-events">
+  <thead>
+    <tr>
+      <td>Type</td>
+      <td colspan="7">Marker</td>
+    </tr>
+    <tr class="collapse-bottom">
+      <td></td>
+      <td>
+        <span class="text">Planning Table</span>
+        <div class="cmmn-symbol"><img src="/7docs/manual/7.22//img/short-codes/cmmn-marker-planning-table.png" /></div>
+
+      </td>
+      <td>
+        <a class="text" href="/7docs/manual/7.22/reference/cmmn11/sentry/">Entry Criterion</a>
+        <div class="cmmn-symbol"><img src="/7docs/manual/7.22//img/short-codes/cmmn-marker-entry-criterion.png" /></div>
+
+      </td>
+      <td>
+        <a class="text" href="/7docs/manual/7.22/reference/cmmn11/sentry/">Exit Criterion</a>
+        <div class="cmmn-symbol"><img src="/7docs/manual/7.22//img/short-codes/cmmn-marker-exit-criterion.png" /></div>
+
+      </td>
+      <td>
+        <a class="text" href="/7docs/manual/7.22/reference/cmmn11/markers/auto-complete/">AutoComplete</a>
+        <div class="cmmn-symbol"><img src="/7docs/manual/7.22//img/short-codes/cmmn-marker-auto-complete.png" /></div>
+
+      </td>
+      <td>
+        <a class="text" href="/7docs/manual/7.22/reference/cmmn11/markers/manual-activation-rule/">Manual Activation</a>
+        <div class="cmmn-symbol"><img src="/7docs/manual/7.22//img/short-codes/cmmn-marker-manual-activation.png" /></div>
+
+      </td>
+      <td>
+        <a class="text" href="/7docs/manual/7.22/reference/cmmn11/markers/required-rule/">Required</a>
+        <div class="cmmn-symbol"><img src="/7docs/manual/7.22//img/short-codes/cmmn-marker-required.png" /></div>
+
+      </td>
+      <td>
+        <a class="text" href="/7docs/manual/7.22/reference/cmmn11/markers/repetition-rule/">Repetition</a>
+        <div class="cmmn-symbol"><img src="/7docs/manual/7.22//img/short-codes/cmmn-marker-repetition.png" /></div>
+
+      </td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="/7docs/manual/7.22/reference/cmmn11/grouping-tasks/stage/">Case Plan Model</a></td>
+      <td>
+        <span class="glyphicon glyphicon-remove"></span>
+      </td>
+      <td>
+      </td>
+      <td>
+        <span class="glyphicon glyphicon-ok"></span>
+      </td>
+      <td>
+        <span class="glyphicon glyphicon-ok"></span>
+      </td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><a href="/7docs/manual/7.22/reference/cmmn11/grouping-tasks/stage/">Stage</a></td>
+      <td>
+        <span class="glyphicon glyphicon-remove"></span>
+      </td>
+      <td>
+        <span class="glyphicon glyphicon-ok"></span>
+      </td>
+      <td>
+        <span class="glyphicon glyphicon-ok"></span>
+      </td>
+      <td>
+        <span class="glyphicon glyphicon-ok"></span>
+      </td>
+      <td>
+        <span class="glyphicon glyphicon-ok"></span>
+      </td>
+      <td>
+        <span class="glyphicon glyphicon-ok"></span>
+      </td>
+      <td>
+        <span class="glyphicon glyphicon-ok"></span>
+      </td>
+    </tr>
+    <tr>
+      <td><a href="/7docs/manual/7.22/reference/cmmn11/tasks/">Task</a></td>
+      <td>
+        <span class="glyphicon glyphicon-remove"></span>
+      </td>
+      <td>
+        <span class="glyphicon glyphicon-ok"></span>
+      </td>
+      <td>
+        <span class="glyphicon glyphicon-ok"></span>
+      </td>
+      <td></td>
+      <td>
+        <span class="glyphicon glyphicon-ok"></span>
+      </td>
+      <td>
+        <span class="glyphicon glyphicon-ok"></span>
+      </td>
+      <td>
+        <span class="glyphicon glyphicon-ok"></span>
+      </td>
+    </tr>
+    <tr>
+      <td><a href="/7docs/manual/7.22/reference/cmmn11/milestone/">Milestone</a></td>
+      <td></td>
+      <td>
+        <span class="glyphicon glyphicon-ok"></span>
+      </td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>
+        <span class="glyphicon glyphicon-ok"></span>
+      </td>
+      <td>
+        <span class="glyphicon glyphicon-ok"></span>
+      </td>
+    </tr>
+    <tr>
+      <td>EventListener</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>CaseFileItem</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>PlanFragment</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
 
     </div>
   </div>

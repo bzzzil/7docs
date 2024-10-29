@@ -4466,8 +4466,13 @@
     </div>
 
     <div class="col-xs-12 content-text">
-      <!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
+      <style type="text/css">
+    blockquote.upgrade-guide-quote{
+      border-left: 2px solid #d2828d;
+      margin-left: 1.65em;
+      font-size: 0.9em;
+    }
+</style>
 <p>This document guides you through the update from Camunda <code>7.5.x</code> to <code>7.6.0</code>. It covers these use cases:</p>
 <ol>
 <li>For administrators and developers: <a href="#database-updates">Database Update</a></li>
@@ -4484,23 +4489,31 @@
 <li><a href="/7docs/manual/7.22/webapps/cockpit/batch/batch-operation/">Batch operations</a></li>
 <li>Rolling update support</li>
 </ul>
-<!-- raw HTML omitted -->
+<blockquote class="upgrade-guide-quote">
+  Rolling updates are supported starting at updates from version 7.5.x to 7.6.0. Please read the <a href="../../../update/rolling-update">detailed documentation</a> about the process and its limitations.
+</blockquote>
 <ul>
 <li>The isExecutable attribute is mandatory</li>
 </ul>
-<!-- raw HTML omitted -->
+<blockquote class="upgrade-guide-quote">
+ By default, the <i>isExecutable</i> attribute of a process is <i>false</i>. In CIB seven.6, process definitions without the <i>isExecutable</i> attribute or with the attribute set to <i>false</i> are not deployed to the engine. <b>So every process which should be executed needs this attribute in the process definition to be deployed</b>. Old processes which are deployed on an earlier version are also deployed without this attribute.
+</blockquote>
 <ul>
 <li>Manual activation rule defaults changed</li>
 </ul>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<p>Otherwise, if your case definitions do not have <!-- raw HTML omitted -->manualActivationRule<!-- raw HTML omitted --> elements, but use <!-- raw HTML omitted -->caseService.manuallyStartCaseExecution(caseExecutionId)<!-- raw HTML omitted --> to manually start executions and you would like your executions to start right away, please remove <!-- raw HTML omitted -->caseService.manuallyStartCaseExecution(caseExecutionId)<!-- raw HTML omitted --> from your code.</p>
-<!-- raw HTML omitted -->
+<blockquote class="upgrade-guide-quote">
+Default behavior of <a href="../../../reference/cmmn11/markers/manual-activation-rule">manual activation rules</a> in CMMN is changed. If your current case definitions are based on the fact of required manual activation and you would like to keep that behavior, please adjust your case diagrams to include manual activation rules.
+<pre style="margin-top:1em">
+&lt;manualActivationRule/&gt;
+</pre>
+<p>Otherwise, if your case definitions do not have <i>manualActivationRule</i> elements, but use <i>caseService.manuallyStartCaseExecution(caseExecutionId)</i> to manually start executions and you would like your executions to start right away, please remove <i>caseService.manuallyStartCaseExecution(caseExecutionId)</i> from your code.</p>
+</blockquote>
 <ul>
 <li>DMN namespace change</li>
 </ul>
-<!-- raw HTML omitted -->
+<blockquote class="upgrade-guide-quote">
+The namespace for DMN 1.1 was changed after our 7.4.0 Release. The official namespace is now: <a href="http://www.omg.org/spec/DMN/20151101/dmn.xsd">http://www.omg.org/spec/DMN/20151101/dmn.xsd</a>
+</blockquote>
 <h1 id="database-updates">Database Updates</h1>
 <p>Every Camunda installation requires a database schema update.</p>
 <h2 id="procedure">Procedure</h2>

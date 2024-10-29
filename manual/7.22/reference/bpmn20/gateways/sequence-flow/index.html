@@ -4466,13 +4466,28 @@
     </div>
 
     <div class="col-xs-12 content-text">
-      <p>A sequence flow is the connector between two elements of a process. After an element is visited during process execution, all outgoing sequence flows are followed. This means that the default nature of BPMN 2.0 is to be parallel: <!-- raw HTML omitted -->two outgoing sequence flows will create two separate, parallel paths of execution.<!-- raw HTML omitted --></p>
-<!-- raw HTML omitted -->
+      <p>A sequence flow is the connector between two elements of a process. After an element is visited during process execution, all outgoing sequence flows are followed. This means that the default nature of BPMN 2.0 is to be parallel: <strong>two outgoing sequence flows will create two separate, parallel paths of execution.</strong></p>
+<div data-bpmn-diagram="../bpmn/sequence-flow-parallel"></div>
 <h1 id="camunda-extensions">Camunda Extensions</h1>
-<!-- raw HTML omitted -->
+<table class="table table-striped">
+  <tr>
+    <th>Attributes</th>
+    <td>&ndash;</td>
+  </tr>
+  <tr>
+    <th>Extension Elements</th>
+    <td>
+      <a href="/7docs/manual/7.22/reference/bpmn20/custom-extensions/extension-elements/#executionlistener">camunda:executionListener</a>
+    </td>
+  </tr>
+  <tr>
+    <th>Constraints</th>
+    <td>&ndash;</td>
+  </tr>
+</table>
 <h1 id="conditional-sequence-flow">Conditional Sequence Flow</h1>
 <p>A sequence flow can have a condition defined on it. When a BPMN 2.0 activity is left, the default behavior is to evaluate the conditions on the outgoing sequence flows. When a condition evaluates to &rsquo;true&rsquo;, that outgoing sequence flow is selected. When multiple sequence flows are selected that way, multiple executions will be generated and the process is continued in a parallel way. Note: This is different for gateways. Gateways will handle sequence flows with conditions in specific ways, depending on the gateway type.</p>
-<!-- raw HTML omitted -->
+<div data-bpmn-diagram="../bpmn/sequence-flow-conditional"></div>
 <p>A conditional sequence flow is represented in XML as a regular sequence flow, containing a conditionExpression sub-element. Note that at the moment only tFormalExpressions are supported. Omitting the xsi:type=&quot;&quot; definition will simply default to this type of expression.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;sequenceFlow</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;flow&#34;</span> <span style="color:#a6e22e">sourceRef=</span><span style="color:#e6db74">&#34;theStart&#34;</span> <span style="color:#a6e22e">targetRef=</span><span style="color:#e6db74">&#34;theTask&#34;</span><span style="color:#f92672">&gt;</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;conditionExpression</span> <span style="color:#a6e22e">xsi:type=</span><span style="color:#e6db74">&#34;tFormalExpression&#34;</span><span style="color:#f92672">&gt;</span>
@@ -4498,11 +4513,26 @@ on <a href="/7docs/manual/7.22/user-guide/process-engine/scripting/#script-sourc
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;conditionExpression</span> <span style="color:#a6e22e">xsi:type=</span><span style="color:#e6db74">&#34;tFormalExpression&#34;</span> <span style="color:#a6e22e">language=</span><span style="color:#e6db74">&#34;groovy&#34;</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">camunda:resource=</span><span style="color:#e6db74">&#34;org/camunda/bpm/exampe/condition.groovy&#34;</span> <span style="color:#f92672">/&gt;</span>
 </span></span></code></pre></div><h1 id="extensions-for-conditionexpression">Extensions for conditionExpression</h1>
-<!-- raw HTML omitted -->
+<table class="table table-striped">
+  <tr>
+    <th>Attributes</th>
+    <td>
+      <a href="/7docs/manual/7.22/reference/bpmn20/custom-extensions/extension-attributes/#resource">camunda:resource</a>
+    </td>
+  </tr>
+  <tr>
+    <th>Extension Elements</th>
+    <td>&ndash;</td>
+  </tr>
+  <tr>
+    <th>Constraints</th>
+    <td>&ndash;</td>
+  </tr>
+</table>
 <h1 id="default-sequence-flow">Default Sequence Flow</h1>
-<p>All BPMN 2.0 tasks and gateways can have a default sequence flow. This sequence flow is <!-- raw HTML omitted -->only<!-- raw HTML omitted --> selected as the outgoing sequence flow for that activity <!-- raw HTML omitted -->if<!-- raw HTML omitted --> none of the other sequence flows could be selected. Conditions on a default sequence flow are always ignored.</p>
+<p>All BPMN 2.0 tasks and gateways can have a default sequence flow. This sequence flow is <strong>only</strong> selected as the outgoing sequence flow for that activity <strong>if</strong> none of the other sequence flows could be selected. Conditions on a default sequence flow are always ignored.</p>
 <p>A default sequence flow for a certain activity is defined by the default attribute on that activity. The following example shows an exclusive gateway with a default sequence flow. Only when x is neither 1 nor 2 it will be selected as outgoing sequence flow for the gateway.</p>
-<!-- raw HTML omitted -->
+<div data-bpmn-diagram="../bpmn/exclusive-gateway"></div>
 <p>Note the &lsquo;slash&rsquo; marker at the beginning of the default sequence flow. The corresponding XML snippet shows how flow4 is configured as a default sequence flow.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;exclusiveGateway</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;exclusiveGw&#34;</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;Exclusive Gateway&#34;</span> <span style="color:#a6e22e">default=</span><span style="color:#e6db74">&#34;flow4&#34;</span> <span style="color:#f92672">/&gt;</span>
 </span></span><span style="display:flex;"><span>

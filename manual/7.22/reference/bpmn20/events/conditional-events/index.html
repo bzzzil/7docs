@@ -4571,7 +4571,7 @@ The XML representation of a conditional start event is the normal start event de
 <p>When a BPMN scope is instantiated, the event conditions which are available in this scope
 are evaluated. This behavior is called <em>triggering on scope instantiation</em>.</p>
 <p>Consider the following process model:</p>
-<!-- raw HTML omitted -->
+<div data-bpmn-diagram="../bpmn/event-conditional2" ></div>
 <p>When a process instance is started, i.e., the process definition scope is instantiated, the condition of the sub process is evaluated before the none start
 event is executed. If fulfilled, it triggers immediately and the none start event never executes. The same applies to activities with conditional boundary events and intermediate conditional events.</p>
 <h2 id="triggering-via-variable-api">Triggering via Variable API</h2>
@@ -4612,7 +4612,7 @@ See the following example how to set a variable on the variable scope of the pro
 <p>A variable change causes condition evaluation and event triggering in a <em>top-down</em> fashion.
 That means the evaluation starts at the the conditional events of the BPMN scope in which the variable was changed. It then step by step descends into the instances of nested BPMN scopes (e.g., embedded sub processes). This is done until a conditional event is triggered that interrupts the current scope instance (thereby cancelling all children) or until there are no more deeper nested scopes.</p>
 <p>For example see the following BPMN process model:</p>
-<!-- raw HTML omitted -->
+<div data-bpmn-diagram="../bpmn/conditionalEventScopesHighestFirst" ></div>
 <p>If a variable is set in the context of the sub process instance, then the conditional boundary event of the sub process is evaluated first.
 If the condition is satisfied, then the execution is interrupted, otherwise the conditional boundary event of <code>UserTask B</code> is evaluated and
 triggered, if the condition is satisfied.</p>
@@ -4620,7 +4620,7 @@ triggered, if the condition is satisfied.</p>
 <p>Variable changes in the context of a scope instance can only trigger the conditional events to which the variable is <em>visible</em>, but do not interfere with unrelated scope instances.
 That means if a variable changes, only those conditional events are evaluated that listen in the context of that scope instance or its children.</p>
 <p>See the following BPMN process model:</p>
-<!-- raw HTML omitted -->
+<div data-bpmn-diagram="../bpmn/conditionalEventScopes" ></div>
 <p>If we have started the process above and <code>UserTask B</code> and <code>UserTask A</code> are active, then the <a href="/7docs/manual/7.22/user-guide/process-engine/process-engine-concepts/#activity-instances">activity instance</a> hierarchy is:</p>
 <pre><code>ProcessInstance
    UserTask A
@@ -4629,7 +4629,25 @@ That means if a variable changes, only those conditional events are evaluated th
 </code></pre>
 <p>If a variable is set in the context of the <code>SubProcess</code> instance, then only the conditional boundary event of <code>UserTask B</code> is evaluated. The boundary event of <code>UserTask A</code> cannot trigger as the variable is not <em>visible</em> in its context. The user guide section on <a href="/7docs/manual/7.22/user-guide/process-engine/variables/#variable-scopes-and-variable-visibility">variable scopes and variable visibility</a> provides details on the general concept.</p>
 <h1 id="camunda-extensions">Camunda Extensions</h1>
-<!-- raw HTML omitted -->
+<table class="table table-striped">
+  <tr>
+    <th>Attributes</th>
+    <td>
+      <a href="/7docs/manual/7.22/reference/bpmn20/custom-extensions/extension-attributes/#variablename">camunda:variableName</a>,
+      <a href="/7docs/manual/7.22/reference/bpmn20/custom-extensions/extension-attributes/#variableevents">camunda:variableEvents</a>,
+    </td>
+  </tr>
+  <tr>
+    <th>Extension Elements</th>
+    <td>
+    &ndash;
+    </td>
+  </tr>
+  <tr>
+    <th>Constraints</th>
+    <td>&ndash;</td>
+  </tr>
+</table>
 <h1 id="additional-resources">Additional Resources</h1>
 <ul>
 <li><a href="http://camunda.org/bpmn/reference.html#events-conditional">Conditional Events</a> in the <a href="http://camunda.org/bpmn/reference.html">BPMN 2.0 Modeling Reference</a></li>

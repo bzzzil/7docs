@@ -4496,7 +4496,7 @@
 <li>The intermediate throwing compensation event can be used to compensate transaction subprocesses which completed successfully.</li>
 </ul>
 <p>Note: If compensation is thrown within a scope which contains a subprocess and the subprocess contains activities with compensation handlers, compensation is only propagated to the subprocess if it has completed successfully when compensation is thrown. If some of the activities nested inside the subprocess have completed and have attached compensation handlers, the compensation handlers are not executed if the subprocess containing these activities is not completed yet. Consider the following example:</p>
-<!-- raw HTML omitted -->
+<div data-bpmn-diagram="../bpmn/compensation-intermediate-throw-event"></div>
 <p>In this process we have two concurrent executions, one executing the embedded subprocess and one executing the &ldquo;charge credit card&rdquo; activity. Lets assume both executions are started and the first concurrent execution is waiting for a user to complete the &ldquo;review bookings&rdquo; task. The second execution performs the &ldquo;charge credit card&rdquo; activity and an error is thrown, which causes the &ldquo;cancel reservations&rdquo; event to trigger compensation. At this point the parallel subprocess is not yet completed which means that the compensation event is not propagated to the subprocess and thus the &ldquo;cancel hotel reservation&rdquo; compensation handler is not executed. If the user task (and thus the embedded subprocess) completes before the &ldquo;cancel reservations&rdquo; is performed, compensation is propagated to the embedded subprocess.</p>
 <p>Note: When compensation is thrown for a multi instance activity, the associated compensation handler is only executed when all instances of this activity have ended. That means, the multi instance activity must be ended before it can be compensated.</p>
 <p>Process variables: When compensating an embedded subprocess, the execution used for executing the compensation handlers has access to the local process variables of the subprocess in the state they were in when the subprocess completed execution. To achieve this, a snapshot of the process variables associated with the scope execution (execution created for executing the subprocess) is taken. From this, a couple of implications follow:</p>
@@ -4527,7 +4527,28 @@
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;compensateEventDefinition</span> <span style="color:#f92672">/&gt;</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/endEvent&gt;</span>
 </span></span></code></pre></div><h2 id="camunda-extensions">Camunda Extensions</h2>
-<!-- raw HTML omitted -->
+<table class="table table-striped">
+  <tr>
+    <th>Attributes</th>
+    <td>
+      <a href="/7docs/manual/7.22/reference/bpmn20/custom-extensions/extension-attributes/#asyncbefore">camunda:asyncBefore</a>,
+      <a href="/7docs/manual/7.22/reference/bpmn20/custom-extensions/extension-attributes/#asyncafter">camunda:asyncAfter</a>,
+      <a href="/7docs/manual/7.22/reference/bpmn20/custom-extensions/extension-attributes/#exclusive">camunda:exclusive</a>,
+      <a href="/7docs/manual/7.22/reference/bpmn20/custom-extensions/extension-attributes/#jobpriority">camunda:jobPriority</a>
+    </td>
+  </tr>
+  <tr>
+    <th>Extension Elements</th>
+    <td>
+      <a href="/7docs/manual/7.22/reference/bpmn20/custom-extensions/extension-elements/#inputoutput">
+        camunda:inputOutput</a>
+    </td>
+  </tr>
+  <tr>
+    <th>Constraints</th>
+    <td>&ndash;</td>
+  </tr>
+</table>
 <h2 id="compensation-boundary-event">Compensation Boundary Event</h2>
 <p>An attached intermediate catching compensation on the boundary of an activity, or, for short, a compensation boundary event, can be used to attach a compensation handler to an activity or an embedded subprocess.</p>
 <div class="bpmn-symbol"><img src="/7docs/manual/7.22//img/short-codes/bpmn-compensation-intermediate-boundary-event.png" /></div>
@@ -4561,7 +4582,7 @@
 </ul>
 <p>A compensation event subprocess can be used as a compensation handler for the embedded subprocess. Similar to a compensation boundary event attached to a subprocess, a compensation event subprocess will only be invoked by a thrown compensation event, if the subprocess completed successfully before. In this case, the compensation event subprocess will be invoked the same amount of times that the subprocess was completed.</p>
 <p>Contrary to a compensation boundary event attached to a subprocess, a compensation event subprocess <em>consumes</em> a thrown compensation event. That means, activities contained in the subprocess are not compensated by default. Instead, the compensation event subprocess can recursively trigger compensation for activities contained in its parent.</p>
-<!-- raw HTML omitted -->
+<div data-bpmn-diagram="../bpmn/compensation-event-subprocess"></div>
 <p>The above process contains an embedded subprocess with a compensation event subprocess, triggered by a compensation start event. Note that this compensation handler deviates from default compensation in that it triggers compensation activities in an specific order independent from the order of execution; it also contains an additional activity adding process logic that cannot be derived from the body of the subprocess itself.</p>
 <p>The XML representation of a compensation start event is the normal start event declaration with a compensateEventDefinition child-element:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;subProcess</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;compensationEventSubprocess&#34;</span> <span style="color:#a6e22e">triggeredByEvent=</span><span style="color:#e6db74">&#34;true&#34;</span><span style="color:#f92672">&gt;</span>

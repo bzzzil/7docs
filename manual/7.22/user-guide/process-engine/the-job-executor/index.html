@@ -4696,7 +4696,38 @@ acquisition query and may affect its performance. That&rsquo;s why we also advis
 add an index on the corresponding column(s) of the <code>ACT_RU_JOB</code> table.</p>
 </div>
 
-<!-- raw HTML omitted -->
+<table class="table table-striped">
+  <tr>
+    <th>jobExecutorAcquireByPriority</th>
+    <th>jobExecutorPreferTimerJobs</th>
+    <th>jobExecutorAcquireByDueDate</th>
+    <th>Recommended Index</th>
+  </tr>
+    <tr>
+    <td><code>true</code></td>
+    <td><code>false</code></td>
+    <td><code>false</code></td>
+    <td><code>ACT_RU_JOB(PRIORITY_ DESC)</code></td>
+  </tr>
+  <tr>
+    <td><code>false</code></td>
+    <td><code>true</code></td>
+    <td><code>false</code></td>
+    <td><code>ACT_RU_JOB(TYPE_ DESC)</code></td>
+  </tr>
+  <tr>
+    <td><code>false</code></td>
+    <td><code>false</code></td>
+    <td><code>true</code></td>
+    <td><code>ACT_RU_JOB(DUEDATE_ ASC)</code></td>
+  </tr>
+  <tr>
+    <td><code>false</code></td>
+    <td><code>true</code></td>
+    <td><code>true</code></td>
+    <td><code>ACT_RU_JOB(TYPE_ DESC, DUEDATE_ ASC)</code></td>
+  </tr>
+</table>
 <h2 id="job-executor-priority-range">Job Executor priority range</h2>
 <p>By default, the Job Executor executes all jobs regardless of their priorities. Some jobs might be more important to finish quicker than others, so we assign them priorities and set <code>jobExecutorAcquireByPriority</code> to <code>true</code> as described above. Depending on the workload, the Job Executor might be able to execute all jobs eventually. But if the load is high enough, we might face starvation where a Job Executor is always busy working on high-priority jobs and never manages to execute the lower priority jobs.</p>
 <p>To prevent this, you can specify a priority range for the job executor by setting values for <a href="/7docs/manual/7.22/reference/deployment-descriptors/tags/process-engine/#jobExecutorPriorityRangeMin"><code>jobExecutorPriorityRangeMin</code></a> or <a href="/7docs/manual/7.22/reference/deployment-descriptors/tags/process-engine/#jobExecutorPriorityRangeMax"><code>jobExecutorPriorityRangeMax</code></a> (or both). The Job Executor will only acquire jobs that are inside its priority range (inclusive). Both properties are optional, so it is fine only to set one of them.</p>
@@ -4877,7 +4908,7 @@ Here is an example of a global process engine configuration:</p>
 </span></span></code></pre></div>
 <div class="note bg-warning docs-warning">
   <h3></h3>
-  <p><p>The property <code>jobExecutorAcquireExclusiveOverProcessHierarchies</code> is by default set to <code>false</code>. See the <!-- raw HTML omitted -->property<!-- raw HTML omitted --> under the <code>Configuration Properties</code> section.</p>
+  <p><p>The property <code>jobExecutorAcquireExclusiveOverProcessHierarchies</code> is by default set to <code>false</code>. See the <a href="/7docs/manual/7.22/reference/deployment-descriptors/tags/process-engine/#jobExecutorAcquireExclusiveOverProcessHierarchies">property</a> under the <code>Configuration Properties</code> section.</p>
 <p>Keep in mind that enabling the feature to guarantee exclusive jobs across all subprocesses originating from a root process might have performance implications, especially for process definitions that involve complex and numerous hierarchies.</p>
 <p>Use the feature in combination with awareness of your process model.</p>
 </p>

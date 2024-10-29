@@ -4468,7 +4468,20 @@
     <div class="col-xs-12 content-text">
       <p>With the dependency <a href="https://github.com/camunda/camunda-bpm-platform/tree/master/connect">camunda-connect</a>, the process engine supports simple
 connectors. Currently the following connector implementations exist:</p>
-<!-- raw HTML omitted -->
+<table class="table">
+  <tr>
+    <th>Connector</th>
+    <th>ID</th>
+  </tr>
+  <tr>
+    <td>REST HTTP</td>
+    <td>http-connector</td>
+  </tr>
+  <tr>
+    <td>SOAP HTTP</td>
+    <td>soap-http-connector</td>
+  </tr>
+</table>
 <p>It is also possible to implement your own custom connector in camunda. For more information about extending connectors please visit the <a href="/7docs/manual/latest/reference/connect/extending-connect/">Connector reference</a>.</p>
 <h1 id="configure-camunda-connect">Configure Camunda Connect</h1>
 <p>As Camunda Connect is available only partially when using the process engine (check the list below). With a pre-built distribution, Camunda Connect is already preconfigured.</p>

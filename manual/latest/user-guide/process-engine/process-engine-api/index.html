@@ -4522,7 +4522,7 @@
 
 <div class="note bg-warning docs-warning">
   <h3>Java Docs</h3>
-  <p>For more detailed information on the service operations and the engine API, see the <!-- raw HTML omitted -->Java Docs<!-- raw HTML omitted -->
+  <p>For more detailed information on the service operations and the engine API, see the <a href="/7docs/manual/latest/reference/javadoc/">Java Docs</a>
 .</p>
 </div>
 
@@ -4557,14 +4557,14 @@ you can restrict the maximum number of results.</p>
 </ul>
 <h3 id="forbidden">Forbidden</h3>
 <ul>
-<li>Performing a query with an unbounded number of results using the <!-- raw HTML omitted -->#list()<!-- raw HTML omitted --> method</li>
+<li>Performing a query with an unbounded number of results using the <code>#list()</code> method</li>
 <li>Performing a <a href="#paginated-queries">Paginated Query</a> that exceeds the configured limit of maximum results</li>
 <li>Performing a query-based synchronous operation that affects more instances than the limit of
 maximum results (please use a <a href="/7docs/manual/latest/user-guide/process-engine/batch-operations/">Batch Operation</a> instead)</li>
 </ul>
 <h3 id="allowed">Allowed</h3>
 <ul>
-<li>Performing a query using the <!-- raw HTML omitted --><a href="/7docs/manual/latest/reference/javadoc/org/camunda/bpm/engine/query/Query.html#unlimitedList--">Query#unlimitedList</a><!-- raw HTML omitted --> method</li>
+<li>Performing a query using the <code><a href="/7docs/manual/latest/reference/javadoc/org/camunda/bpm/engine/query/Query.html#unlimitedList--">Query#unlimitedList</a></code> method</li>
 <li>Performing a <a href="#paginated-queries">Paginated Query</a> with a maximum number of results less or equal
 to the maximum results limit</li>
 <li>Performing a <a href="#native-queries">Native Query</a> since it is not accessible via REST API or Webapps
@@ -4581,7 +4581,7 @@ and therefore not likely to be exploited</li>
 <li>a custom identity provider implementation by implementing the interface <code>ReadOnlyIdentityProvider</code> or <code>WritableIdentityProvider</code></li>
 <li><strong>AND</strong> a dedicated implementation of Identity Service Queries (e. g. <code>GroupQuery</code>, <code>TenantQuery</code>, <code>UserQuery</code>)</li>
 </ol>
-<p>Make sure to return all results without any limitation when calling <!-- raw HTML omitted --><a href="/7docs/manual/latest/reference/javadoc/org/camunda/bpm/engine/query/Query.html#unlimitedList--">Query#unlimitedList</a><!-- raw HTML omitted -->.
+<p>Make sure to return all results without any limitation when calling <code><a href="/7docs/manual/latest/reference/javadoc/org/camunda/bpm/engine/query/Query.html#unlimitedList--">Query#unlimitedList</a></code>.
 The possibility to retrieve an unlimited list is important to make sure that the REST API works appropriately since a few endpoints
 rely on retrieving unlimited results.</p>
 <h2 id="paginated-queries">Paginated Queries</h2>
@@ -4619,7 +4619,7 @@ to putting the filter criteria in brackets.</p>
 </span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">endOr</span>()
 </span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">list</span>();
 </span></span></code></pre></div><p>The query above retrieves all tasks which are assigned to &ldquo;John Munda&rdquo; and simultaneously either named &ldquo;Approve Invoice&rdquo;
-or given the fifth degree of priority (<code>assignee = &quot;John Munda&quot; AND (name = &quot;Approve Invoice&quot; OR priority = 5)</code>, <!-- raw HTML omitted -->Conjunctive Normal Form<!-- raw HTML omitted -->).</p>
+or given the fifth degree of priority (<code>assignee = &quot;John Munda&quot; AND (name = &quot;Approve Invoice&quot; OR priority = 5)</code>, <a href="https://en.wikipedia.org/wiki/Conjunctive_normal_form">Conjunctive Normal Form</a>).</p>
 <p>Internally the query is translated to the following SQL query (slightly simplified):</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">SELECT</span> <span style="color:#66d9ef">DISTINCT</span> <span style="color:#f92672">*</span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">FROM</span>   act_ru_task RES

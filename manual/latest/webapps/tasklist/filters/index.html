@@ -4486,7 +4486,7 @@
 
 <div class="note bg-warning docs-warning">
   <h3>Security Consideration</h3>
-  <p>Filter expressions can be abused to execute arbitrary code when the query is evaluated. It is therefore required that any user authorized to create filters is trusted in this respect. The default behavior of evaluating filter expressions can be deactivated in the process engine configuration. See the section on <!-- raw HTML omitted -->security considerations for custom code<!-- raw HTML omitted --> for details.</p>
+  <p>Filter expressions can be abused to execute arbitrary code when the query is evaluated. It is therefore required that any user authorized to create filters is trusted in this respect. The default behavior of evaluating filter expressions can be deactivated in the process engine configuration. See the section on <a href="/7docs/manual/latest/user-guide/process-engine/securing-custom-code/">security considerations for custom code</a> for details.</p>
 </div>
 
 <h1 id="common-filters">Common Filters</h1>
@@ -4499,7 +4499,224 @@
 </figure>
 
 <p>In the table below we list some of the more common and useful filters that you can create in Tasklist and how to set them up.</p>
-<!-- raw HTML omitted -->
+<section class="row">
+  <div class="col-md-12">
+    <table class="table table-responsive">
+      <thead>
+        <tr>
+        <th class="table-condensed-column">
+         Filter name
+        </th>
+        <th>
+          Description
+        </th>
+        <th>
+          Criterion<br>
+          Key
+        </th>
+        <th>
+          Criterion<br>
+          Value
+        </th>
+      </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            All my tasks
+          </td>
+          <td>
+            Displays all tasks assigned to the currently logged in user
+          </td>
+          <td>
+            Assignee
+          </td>
+          <td>
+            <code>$ { currentUser() }</code>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Tasks of a specific user
+          </td>
+          <td>
+            Displays all tasks assigned to a specified user
+          </td>
+          <td>
+            Assignee
+          </td>
+          <td>
+            User ID of the user (e.g., <code>demo</code>)
+          </td>
+        </tr>
+        <tr>
+          <td>
+            All my groups
+          </td>
+          <td>
+            Displays all tasks assigned to a user group of which the currently logged on user is a member
+          </td>
+          <td>
+            Candidate Groups
+          </td>
+          <td>
+           <code>${ currentUserGroups() }</code>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Tasks of a specific group
+          </td>
+          <td>
+            Displays all tasks assigned to a specific user group
+          </td>
+          <td>
+            Candidate Groups
+          </td>
+          <td>
+           Group name (e.g., <code>accounting</code>)
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Unclaimed tasks of a specific group
+          </td>
+          <td>
+            Displays all tasks assigned to a specific user group which have not been claimed yet
+          </td>
+          <td>
+            Candidate Groups,<br>
+            Unassigned
+          </td>
+          <td>
+           Group name (e.g., <code>accounting</code>),<br>
+           N/A
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Unassigned tasks
+          </td>
+          <td>
+            Displays all tasks that have not yet been claimed
+          </td>
+          <td>
+            Unassigned
+          </td>
+          <td>
+            N/A
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Overdue tasks
+          </td>
+          <td>
+            Displays all tasks that have a due date set in the past
+          </td>
+          <td>
+            Due Before
+          </td>
+          <td>
+            <code>${ now() }</code>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Tasks due today
+          </td>
+          <td>
+            Displays all tasks that have a due date set for the current date
+          </td>
+          <td>
+            Due After, <br>
+            Due Before
+          </td>
+          <td>
+            <code>${ dateTime().withTimeAtStartOfDay() }</code>,<br>
+            <code>${ dateTime().withTimeAtStartOfDay()<br>
+            .plusDays(1).minusSeconds(1) }</code>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Tasks due after a specific date
+          </td>
+          <td>
+            Displays all tasks that have a due date set after a specified date
+          </td>
+          <td>
+            Due After
+          </td>
+          <td>
+            The specified date in accordance with <a href="http://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a> (e.g., <code>2015-01-01T00:00:01</code>)
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Tasks due within a specific timespan
+          </td>
+          <td>
+            Displays all tasks that have a due date set within a specified timespan (in this example, within 2 days)
+          </td>
+          <td>
+            Due After, <br>
+            Due Before
+          </td>
+          <td>
+            Expressions specifying the timespan<br>
+            (e.g., <code>${ now() }</code>, <br>
+            <code>${ dateTime().plusDays(2) }</code>)
+          </td>
+        </tr>
+        <tr>
+        <tr>
+          <td>
+            Tasks due after a specific timespan
+          </td>
+          <td>
+            Displays all tasks that have a due date set after a specified timespan (in this example, after 2 days)
+          </td>
+          <td>
+            Due After
+          </td>
+          <td>
+            An expression specifying the timespan<br>
+            (e.g.,<code>${ dateTime().plusDays(2) }</code>)
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Tasks with a certain priority
+          </td>
+          <td>
+            Displays all tasks that are marked with a specified priority (in this example, priority 10)
+          </td>
+          <td>
+            Priority
+          </td>
+          <td>
+            <code>10</code>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Follow-up tasks
+          </td>
+          <td>
+            Displays all tasks that have a follow-up date set in the past
+          </td>
+          <td>
+            Follow Up Before
+          </td>
+          <td>
+            <code>${ now() }</code>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
 
     </div>
   </div>

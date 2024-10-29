@@ -4467,7 +4467,7 @@
 
     <div class="col-xs-12 content-text">
       <p>Timer events are events which are triggered by a defined timer. They can be used as start event, intermediate event or boundary event. Boundary events can be interrupting or not.</p>
-<!-- raw HTML omitted -->
+<div data-bpmn-diagram="../bpmn/event-timer" ></div>
 <h1 id="configuration">Configuration</h1>
 <p>Timers are only fired when the <a href="/7docs/manual/7.22/user-guide/process-engine/the-job-executor/">Job Executor</a> is enabled.</p>
 <h1 id="defining-a-timer">Defining a Timer</h1>
@@ -4480,7 +4480,10 @@
 </span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/timerEventDefinition&gt;</span>
 </span></span></code></pre></div><h2 id="time-duration">Time Duration</h2>
 <p>To specify how long the timer should run before it is fired, a timeDuration can be specified as a sub-element of timerEventDefinition. It is possible to define the duration in two different <a href="http://en.wikipedia.org/wiki/ISO_8601#Durations">ISO 8601 Durations</a> formats:</p>
-<!-- raw HTML omitted -->
+<ul>
+  <li>PnYnMnDTnHnMnS</li>
+  <li>PnW</li>
+</ul>
 <p>Example (interval lasting 10 days):</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;timerEventDefinition&gt;</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;timeDuration&gt;</span>P10D<span style="color:#f92672">&lt;/timeDuration&gt;</span>
@@ -4493,7 +4496,7 @@
 </span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/timerEventDefinition&gt;</span>
 </span></span></code></pre></div><p>Additionally, you can specify a time cycle using cron expressions, the example below shows a trigger firing every 5 minutes, starting at full hour:</p>
 <pre tabindex="0"><code>0 0/5 * * * ?
-</code></pre><p>Please see the <!-- raw HTML omitted -->CronTrigger Tutorial<!-- raw HTML omitted --> for additional information about using cron expressions.</p>
+</code></pre><p>Please see the <a href="http://www.quartz-scheduler.org/documentation/quartz-2.1.7/tutorials/tutorial-lesson-06.html">CronTrigger Tutorial</a> for additional information about using cron expressions.</p>
 <p>Note: The first symbol denotes seconds, not minutes as in normal Unix cron.</p>
 <p>The recurring time duration option is better suited for handling relative timers, which are calculated in respect to some particular point in time (e.g., the time when a user task was started), while cron expressions can handle absolute timers - which is particularly useful for timer start events.</p>
 <h3 id="modify-a-time-cycle">Modify a Time Cycle</h3>
@@ -4530,10 +4533,10 @@
 </ol>
 <ul>
 <li>
-<p>via Java API: <!-- raw HTML omitted -->ManagementService#setJobDuedate<!-- raw HTML omitted --></p>
+<p>via Java API: <a href="/7docs/manual/7.22/reference/javadoc/org/camunda/bpm/engine/ManagementService.html#setJobDuedate%28java.lang.String,java.util.Date%29">ManagementService#setJobDuedate</a></p>
 </li>
 <li>
-<p>via REST API: <!-- raw HTML omitted -->Job/operation/setJobDuedate<!-- raw HTML omitted --></p>
+<p>via REST API: <a href="/7docs/manual/7.22/reference/rest/specification/#tag/Job/operation/setJobDuedate">Job/operation/setJobDuedate</a></p>
 </li>
 <li>
 <p>via Cockpit: Navigate to the Job view of the currently running process instance and select &ldquo;Change due date for this Job&rdquo; button.</p>
@@ -4546,7 +4549,30 @@
 <h2 id="handling-of-timezones">Handling of Timezones</h2>
 <p>The configuration <code>2022-03-11T12:13:14</code> does not specify a time zone. At runtime, such a date is interpreted in the local time zone of the JVM executing the process. This can be problematic in various cases, such as when running multiple Camunda nodes in different time zones or when you cannot assume the time zone the platform runs in. Furthermore, there can be glitches with respect to daylight saving time (DST). If in doubt, specify the time in UTC (e.g., <code>2022-03-11T12:13:14Z</code>) or with a UTC-relative offset (e.g., <code>2022-03-11T12:13:14+01</code>).</p>
 <h2 id="camunda-extensions">Camunda Extensions</h2>
-<!-- raw HTML omitted -->
+<table class="table table-striped">
+  <tr>
+    <th>Attributes</th>
+    <td>
+      <a href="/7docs/manual/7.22/reference/bpmn20/custom-extensions/extension-attributes/#asyncbefore">camunda:asyncBefore</a>,
+      <a href="/7docs/manual/7.22/reference/bpmn20/custom-extensions/extension-attributes/#asyncafter">camunda:asyncAfter</a>,
+      <a href="/7docs/manual/7.22/reference/bpmn20/custom-extensions/extension-attributes/#exclusive">camunda:exclusive</a>,
+      <a href="/7docs/manual/7.22/reference/bpmn20/custom-extensions/extension-attributes/#jobpriority">camunda:jobPriority</a>
+    </td>
+  </tr>
+  <tr>
+    <th>Extension Elements</th>
+    <td>
+      <a href="/7docs/manual/7.22/reference/bpmn20/custom-extensions/extension-elements/#failedjobretrytimecycle">
+        camunda:failedJobRetryTimeCycle</a>,
+      <a href="/7docs/manual/7.22/reference/bpmn20/custom-extensions/extension-elements/#inputoutput">
+        camunda:inputOutput</a>
+    </td>
+  </tr>
+  <tr>
+    <th>Constraints</th>
+    <td>&ndash;</td>
+  </tr>
+</table>
 <h1 id="timer-start-event">Timer Start Event</h1>
 <p>A timer start event is used to create process instance at a given time. It can be used both for processes which should start only once and for processes that should start in specific time intervals.</p>
 <p>Note: A subprocess cannot have a timer start event.</p>

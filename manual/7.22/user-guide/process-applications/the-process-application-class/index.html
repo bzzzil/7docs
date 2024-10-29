@@ -4676,8 +4676,17 @@ You could of course use something like the maven shade plugin for adding the cla
 <li>the call is intercepted by the EJB container and &ldquo;enters&rdquo; the process application legally.</li>
 <li>the <code>JavaDelegate</code> may take advantage of the EJB process application&rsquo;s invocation context and resolve resources from the component&rsquo;s environment (such as a <code>java:comp/BeanManager</code>).</li>
 </ul>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
+<pre>
+                   Big pile of EJB interceptors
+                                |
+                                |  +--------------------+
+                                |  |Process Application |
+                  invoke        v  |                    |
+ ProcessEngine ----------------OOOOO--> Java Delegate   |
+                                   |                    |
+                                   |                    |
+                                   +--------------------+
+</pre>
 <p>The EJB process application allows to hook into the invocation by overriding the <code>execute(Callable callable, InvocationContext invocationContext)</code> method. It provides the context of the current invocation (e.g., the execution) and can be used to execute custom code, for example initialize the security context before a service task is invoked.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MyEjbProcessApplication</span> <span style="color:#66d9ef">extends</span> EjbProcessApplication {
 </span></span><span style="display:flex;"><span>

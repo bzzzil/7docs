@@ -4604,7 +4604,7 @@ reserved for the CIB seven Webapp again.</p>
 <li>a custom identity provider implementation by implementing the interface <code>ReadOnlyIdentityProvider</code> or <code>WritableIdentityProvider</code></li>
 <li><strong>AND</strong> a dedicated implementation of Identity Service Queries (e. g. <code>GroupQuery</code>, <code>TenantQuery</code>, <code>UserQuery</code>)</li>
 </ol>
-<p>With this release, you need to implement a new API method <!-- raw HTML omitted --><a href="https://docs.camunda.org/javadoc/camunda-bpm-platform/7.13/org/camunda/bpm/engine/query/Query.html#unlimitedList--">Query#unlimitedList</a><!-- raw HTML omitted -->
+<p>With this release, you need to implement a new API method <code><a href="https://docs.camunda.org/javadoc/camunda-bpm-platform/7.13/org/camunda/bpm/engine/query/Query.html#unlimitedList--">Query#unlimitedList</a></code>
 so that the REST API works appropriately.</p>
 <p>Please read more about it in the <a href="/7docs/manual/7.22/user-guide/process-engine/process-engine-api/#custom-identity-service-queries">User Guide</a>.</p>
 <h1 id="metricsreporteridprovider-interface-deprecation">MetricsReporterIdProvider interface Deprecation</h1>
@@ -4648,7 +4648,33 @@ Functions programmatically. Please read all about it in the documentation about 
 The old way to register a Custom Function is not supported with the new FEEL Engine.</p>
 <h2 id="new-default-expression-languages">New Default Expression Languages</h2>
 <p>The FEEL Engine changes the default Expression Languages for certain DMN Notation Elements:</p>
-<!-- raw HTML omitted -->
+<table class="table table-striped">
+  <tr>
+    <th>DMN Notation Element</th>
+    <th>Old</th>
+    <th>New</th>
+  </tr>
+  <tr>
+    <td>Input Expression</td>
+    <td>JUEL</td>
+    <td>FEEL</td>
+  </tr>
+  <tr>
+    <td>Input Entries</td>
+    <td>FEEL</td>
+    <td>FEEL</td>
+  </tr>
+  <tr>
+    <td>Output Entries</td>
+    <td>JUEL</td>
+    <td>FEEL</td>
+  </tr>
+  <tr>
+    <td>Literal Expression</td>
+    <td>JUEL</td>
+    <td>FEEL</td>
+  </tr>
+</table>
 <p>Expression languages defined in the DMN Model (*.dmn file) will override the defaults.</p>
 <h2 id="new-logger-category">New Logger Category</h2>
 <p>The new FEEL Engine uses the slf4j logging &ldquo;facade&rdquo;, as defined in the

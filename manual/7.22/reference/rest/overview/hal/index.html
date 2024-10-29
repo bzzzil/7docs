@@ -4619,11 +4619,51 @@ used:</p>
 </span></span></code></pre></div><p>It is configured by the context parameter
 <code>org.camunda.bpm.engine.rest.hal.cache.config</code>. The configuration is provided
 as JSON and consists of two properties:</p>
-<!-- raw HTML omitted -->
+<table class="table table-striped">
+  <tr>
+    <th>Property</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>cacheImplementation</td>
+    <td>
+      The class which is used as cache. The class has to implement the
+      <code>org.camunda.bpm.engine.rest.cache.Cache</code> interface.
+      A simple default implementation is provided by the
+      <code>org.camunda.bpm.engine.rest.hal.cache.DefaultHalResourceCache</code> class.
+    </td>
+  </tr>
+  <tr>
+    <td>caches</td>
+    <td>
+      A JSON object to specify which HAL relations should be cached. Every HAL relation cache is configured
+      separately and identified by the HalResource class to cache. The possible configuration parameters
+      depend on the cache implementation and have to be available as setters on the implementation class.
+    </td>
+  </tr>
+</table>
 <h2 id="defaulthalresourcecache-configuration-options">DefaultHalResourceCache Configuration Options</h2>
 <p>The simple default cache implementation <code>DefaultHalResourceCache</code> provides following configuration
 options:</p>
-<!-- raw HTML omitted -->
+<table class="table table-striped">
+  <tr>
+    <th>Property</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>capacity</td>
+    <td>
+      The number of maximal cache entries.
+    </td>
+  </tr>
+  <tr>
+    <td>secondsToLive</td>
+    <td>
+      The number of seconds a cache entry is valid. If a cache entry is expired, it is removed
+      and resolved again.
+    </td>
+  </tr>
+</table>
 <h2 id="list-of-resources-which-support-caching">List of Resources Which Support Caching</h2>
 <ul>
 <li>Case Definition: <code>org.camunda.bpm.engine.rest.hal.caseDefinition.HalCaseDefinition</code></li>

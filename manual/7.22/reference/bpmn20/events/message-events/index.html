@@ -4497,7 +4497,27 @@
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;message</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;newInvoice&#34;</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;newInvoiceMessage-${execution.processBusinessKey}&#34;</span> <span style="color:#f92672">/&gt;</span>
 </span></span></code></pre></div><p><strong>Note:</strong> It is not allowed to use expressions in the message name of a start event of the process definition. So using an expression in the message definition and then referencing this definition in a message start event of the process entry point will cause an error. However, it is allowed to use expressions in the message start event of a subprocess. Therefore, using an expression in the message definition and then referencing this definition in the message start event within a subprocess will work just fine.</p>
 <h2 id="camunda-extensions">Camunda Extensions</h2>
-<!-- raw HTML omitted -->
+<table class="table table-striped">
+  <tr>
+    <th>Attributes</th>
+    <td>
+      <a href="/7docs/manual/7.22/reference/bpmn20/custom-extensions/extension-attributes/#asyncbefore">camunda:asyncBefore</a>,
+      <a href="/7docs/manual/7.22/reference/bpmn20/custom-extensions/extension-attributes/#asyncafter">camunda:asyncAfter</a>,
+      <a href="/7docs/manual/7.22/reference/bpmn20/custom-extensions/extension-attributes/#exclusive">camunda:exclusive</a>,
+      <a href="/7docs/manual/7.22/reference/bpmn20/custom-extensions/extension-attributes/#jobpriority">camunda:jobPriority</a>
+    </td>
+  </tr>
+  <tr>
+    <th>Extension Elements</th>
+    <td>
+      <a href="/7docs/manual/7.22/reference/bpmn20/custom-extensions/extension-elements/#inputoutput">camunda:inputOutput</a>
+    </td>
+  </tr>
+  <tr>
+    <th>Constraints</th>
+    <td>&ndash;</td>
+  </tr>
+</table>
 <h1 id="message-api">Message Api</h1>
 <p>As an embeddable process engine, the Camunda engine is not concerned with the receiving part of the message. This would be environment dependent and entails platform-specific activities such as connecting to a JMS (Java Messaging Service) Queue/Topic or processing a Webservice or REST request. The reception of messages is therefore something you have to implement as part of the application or infrastructure into which the process engine is embedded.</p>
 <p>After you have received a message, you can choose whether you employ the engine&rsquo;s built-in correlation or explicitly deliver the message to start a new process instance or trigger a waiting execution.</p>
@@ -4629,15 +4649,15 @@ If the type is set to <code>execution</code>, then the result contains an <code>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/definitions&gt;</span>
 </span></span></code></pre></div><p>A process can be started using one of two different messages, this is useful if the process needs alternative ways to react to different start events but eventually continues in a uniform way.</p>
-<!-- raw HTML omitted -->
+<div data-bpmn-diagram="../bpmn/event-message-start-alternative" > </div>
 <h1 id="message-intermediate-catching-event">Message Intermediate Catching Event</h1>
 <p>When a token arrives at the message intermediate catching event it will wait there until a message with the proper name arrives. As already described, the message must be handed into the engine via the appropriate API calls.</p>
 <p>The following example shows different message events in a process model:</p>
-<!-- raw HTML omitted -->
+<div data-bpmn-diagram="../bpmn/event-message"></div>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;intermediateCatchEvent</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;message&#34;</span><span style="color:#f92672">&gt;</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;messageEventDefinition</span> <span style="color:#a6e22e">messageRef=</span><span style="color:#e6db74">&#34;newCustomerMessage&#34;</span> <span style="color:#f92672">/&gt;</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/intermediateCatchEvent&gt;</span>
-</span></span></code></pre></div><p>Instead of the message intermediate catching event you might want to think about a <!-- raw HTML omitted -->Receive Task<!-- raw HTML omitted --> instead, which can serve similar purposes but is able to be used in combination with boundary events. In combination with the message intermediate catching event you might want to use an <!-- raw HTML omitted -->Event-based Gateway<!-- raw HTML omitted -->.</p>
+</span></span></code></pre></div><p>Instead of the message intermediate catching event you might want to think about a <a href="/7docs/manual/7.22/reference/bpmn20/tasks/receive-task/">Receive Task</a> instead, which can serve similar purposes but is able to be used in combination with boundary events. In combination with the message intermediate catching event you might want to use an <a href="/7docs/manual/7.22/reference/bpmn20/gateways/event-based-gateway/">Event-based Gateway</a>.</p>
 <h1 id="message-boundary-event">Message Boundary Event</h1>
 <p>Boundary events are catching events that are attached to an activity. This means that while the activity is running, the message boundary event is listening for named message. When this is caught, two things might happen, depending on the configuration of the boundary event:</p>
 <ul>
@@ -4646,19 +4666,119 @@ If the type is set to <code>execution</code>, then the result contains an <code>
 </ul>
 <h1 id="message-intermediate-throwing-event">Message Intermediate Throwing Event</h1>
 <p>A Message Intermediate Throwing event sends a message to an external service. This event has the same behavior as a <a href="/7docs/manual/7.22/reference/bpmn20/tasks/service-task/">Service Task</a>.</p>
-<!-- raw HTML omitted -->
+<div data-bpmn-diagram="../bpmn/event-message-throwing" > </div>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;intermediateThrowEvent</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;message&#34;</span><span style="color:#f92672">&gt;</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;messageEventDefinition</span> <span style="color:#a6e22e">camunda:class=</span><span style="color:#e6db74">&#34;org.camunda.bpm.MyMessageServiceDelegate&#34;</span> <span style="color:#f92672">/&gt;</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/intermediateThrowEvent&gt;</span>
 </span></span></code></pre></div><h2 id="camunda-extensions-for-messageeventdefinition">Camunda Extensions for <code>messageEventDefinition</code></h2>
-<!-- raw HTML omitted -->
+<table class="table table-striped">
+  <tr>
+    <th>Attributes</th>
+    <td>
+      <a href="/7docs/manual/7.22/reference/bpmn20/custom-extensions/extension-attributes/#class">camunda:class</a>,
+      <a href="/7docs/manual/7.22/reference/bpmn20/custom-extensions/extension-attributes/#delegateexpression">camunda:delegateExpression</a>,
+      <a href="/7docs/manual/7.22/reference/bpmn20/custom-extensions/extension-attributes/#expression">camunda:expression</a>,
+      <a href="/7docs/manual/7.22/reference/bpmn20/custom-extensions/extension-attributes/#resultvariable">camunda:resultVariable</a>,
+      <a href="/7docs/manual/7.22/reference/bpmn20/custom-extensions/extension-attributes/#topic">camunda:topic</a>,
+      <a href="/7docs/manual/7.22/reference/bpmn20/custom-extensions/extension-attributes/#type">camunda:type</a>,
+      <a href="/7docs/manual/7.22/reference/bpmn20/custom-extensions/extension-attributes/#taskpriority">camunda:taskPriority</a>
+    </td>
+  </tr>
+  <tr>
+    <th>Extension Elements</th>
+    <td>
+      <a href="/7docs/manual/7.22/reference/bpmn20/custom-extensions/extension-elements/#field">camunda:field</a>,
+      <a href="/7docs/manual/7.22/reference/bpmn20/custom-extensions/extension-elements/#connector">camunda:connector</a>
+    </td>
+  </tr>
+  <tr>
+    <th>Constraints</th>
+    <td>
+      One of the attributes <code>camunda:class</code>, <code>camunda:delegateExpression</code>, <code>camunda:type</code> or <code>camunda:expression</code> is mandatory
+    </td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>
+      The attribute <code>camunda:resultVariable</code> can only be used in combination with the <code>camunda:expression</code> attribute
+    </td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>
+      The attribute <code>camunda:type</code> can only be set to <code>external</code>.
+    </td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>
+      The attribute <code>camunda:topic</code> can only be used when the <code>camunda:type</code> attribute is set to <code>external</code>.
+    </td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>
+      The attribute <code>camunda:taskPriority</code> can only be used when the <code>camunda:type</code> attribute is set to <code>external</code>.
+    </td>
+  </tr>
+</table>
 <h1 id="message-end-event">Message End Event</h1>
 <p>When process execution arrives at a Message End Event, the current path of execution is ended and a message is sent. The Message End Event has the same behavior as a <a href="/7docs/manual/7.22/reference/bpmn20/tasks/service-task/">Service Task</a>.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;endEvent</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;end&#34;</span><span style="color:#f92672">&gt;</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;messageEventDefinition</span> <span style="color:#a6e22e">camunda:class=</span><span style="color:#e6db74">&#34;org.camunda.bpm.MyMessageServiceDelegate&#34;</span> <span style="color:#f92672">/&gt;</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/endEvent&gt;</span>
 </span></span></code></pre></div><h2 id="camunda-extensions-for-messageeventdefinition-1">Camunda Extensions for <code>messageEventDefinition</code></h2>
-<!-- raw HTML omitted -->
+<table class="table table-striped">
+  <tr>
+    <th>Attributes</th>
+    <td>
+      <a href="/7docs/manual/7.22/reference/bpmn20/custom-extensions/extension-attributes/#class">camunda:class</a>,
+      <a href="/7docs/manual/7.22/reference/bpmn20/custom-extensions/extension-attributes/#delegateexpression">camunda:delegateExpression</a>,
+      <a href="/7docs/manual/7.22/reference/bpmn20/custom-extensions/extension-attributes/#expression">camunda:expression</a>,
+      <a href="/7docs/manual/7.22/reference/bpmn20/custom-extensions/extension-attributes/#resultvariable">camunda:resultVariable</a>,
+      <a href="/7docs/manual/7.22/reference/bpmn20/custom-extensions/extension-attributes/#topic">camunda:topic</a>,
+      <a href="/7docs/manual/7.22/reference/bpmn20/custom-extensions/extension-attributes/#type">camunda:type</a>,
+      <a href="/7docs/manual/7.22/reference/bpmn20/custom-extensions/extension-attributes/#taskpriority">camunda:taskPriority</a>
+    </td>
+  </tr>
+  <tr>
+    <th>Extension Elements</th>
+    <td>
+      <a href="/7docs/manual/7.22/reference/bpmn20/custom-extensions/extension-elements/#field">camunda:field</a>,
+      <a href="/7docs/manual/7.22/reference/bpmn20/custom-extensions/extension-elements/#connector">camunda:connector</a>
+    </td>
+  </tr>
+  <tr>
+    <th>Constraints</th>
+    <td>
+      One of the attributes <code>camunda:class</code>, <code>camunda:delegateExpression</code>, <code>camunda:type</code> or <code>camunda:expression</code> is mandatory
+    </td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>
+      The attribute <code>camunda:resultVariable</code> can only be used in combination with the <code>camunda:expression</code> attribute
+    </td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>
+      The attribute <code>camunda:type</code> can only be set to <code>external</code>.
+    </td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>
+      The attribute <code>camunda:topic</code> can only be used when the <code>camunda:type</code> attribute is set to <code>external</code>.
+    </td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>
+      The attribute <code>camunda:taskPriority</code> can only be used when the <code>camunda:type</code> attribute is set to <code>external</code>.
+    </td>
+  </tr>
+</table>
 
     </div>
   </div>

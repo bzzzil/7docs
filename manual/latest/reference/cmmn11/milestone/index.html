@@ -4493,7 +4493,12 @@
 </span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/defintions&gt;</span>
 </span></span></code></pre></div><p>In this case, the milestone will complete as soon as as the human task completes.</p>
 <p>A milestone cannot have exit criteria.</p>
-<!-- raw HTML omitted -->
+<div class="alert alert-info">
+  <p><strong>Always define Milestones with Entry Criteria</strong></p>
+  <p>
+    A milestone without entry criteria is fulfilled as soon as the stage it is contained in becomes active. For example, a milestone item that is defined on the case definition level is completed as soon as the case is instantiated. It is therefore advisable to define at least one entry criterion for a milestone plan item.
+  </p>
+</div>
 <h2 id="checking-milestones">Checking Milestones</h2>
 <p>In order to check whether a milestone has occurred, the history service can be used. The following checks the state of a milestone instance:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>HistoricCaseActivityInstance milestoneInstance <span style="color:#f92672">=</span> historyService
@@ -4504,7 +4509,14 @@
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>milestoneInstance.<span style="color:#a6e22e">isCompleted</span>(); <span style="color:#75715e">// true if milestone occurred</span>
 </span></span></code></pre></div><h2 id="camunda-extensions">Camunda Extensions</h2>
-<!-- raw HTML omitted -->
+<table class="table table-striped">
+  <tr>
+    <th>Extension Elements</th>
+    <td>
+      <a href="/7docs/manual/latest/reference/cmmn11/custom-extensions/camunda-elements/#caseexecutionlistener">camunda:caseExecutionListener</a>
+    </td>
+  </tr>
+</table>
 
     </div>
   </div>

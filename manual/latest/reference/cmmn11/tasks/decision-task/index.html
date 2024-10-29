@@ -4540,7 +4540,32 @@ entry or none at all.</p>
 <h1 id="limitations-of-the-decision-task">Limitations of the Decision Task</h1>
 <p>To evaluate a referenced decision, the integration of the Camunda DMN engine is used. As a result, only <a href="/7docs/manual/latest/reference/dmn/">DMN 1.3</a> decisions can be evaluated with a decision task. There is no option to integrate with other rule engines.</p>
 <h1 id="camunda-extensions">Camunda Extensions</h1>
-<!-- raw HTML omitted -->
+<table class="table table-striped">
+  <tr>
+    <th>Attributes</th>
+    <td>
+      <a href="/7docs/manual/latest/reference/cmmn11/custom-extensions/camunda-attributes/#decisionbinding">camunda:decisionBinding</a>,
+            <a href="/7docs/manual/latest/reference/cmmn11/custom-extensions/camunda-attributes/#decisiontenantid">camunda:decisionTenantId</a>,
+      <a href="/7docs/manual/latest/reference/cmmn11/custom-extensions/camunda-attributes/#decisionversion">camunda:decisionVersion</a>,
+      <a href="/7docs/manual/latest/reference/cmmn11/custom-extensions/camunda-attributes/#mapdecisionresult">camunda:mapDecisionResult</a>,
+      <a href="/7docs/manual/latest/reference/cmmn11/custom-extensions/camunda-attributes/#resultvariable">camunda:resultVariable</a>
+    </td>
+  </tr>
+  <tr>
+    <th>Extension Elements</th>
+    <td>
+      <a href="/7docs/manual/latest/reference/cmmn11/custom-extensions/camunda-elements/#caseexecutionlistener">camunda:caseExecutionListener</a>,
+      <a href="/7docs/manual/latest/reference/cmmn11/custom-extensions/camunda-elements/#variablelistener">camunda:variableListener</a>
+    </td>
+  </tr>
+  <tr>
+    <th>Constraints</th>
+    <td>
+      The attribute <code>camunda:decisionVersion</code> should only be set if
+      the attribute <code>camunda:decisionBinding</code> equals <code>version</code>
+    </td>
+  </tr>
+</table>
 
     </div>
   </div>

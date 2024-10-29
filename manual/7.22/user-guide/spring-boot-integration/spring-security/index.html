@@ -4568,7 +4568,34 @@ This needs to contain a <a href="https://docs.spring.io/spring-boot/reference/fe
 <h2 id="configuration">Configuration</h2>
 <p>All configuration properties of the identity provider start with the prefix <code>camunda.bpm.oauth2.identity-provider</code>.
 The following properties are available:</p>
-<!-- raw HTML omitted -->
+<table class="table table-striped">
+  <tr>
+    <th style="min-width: 150px">Property name</th>
+    <th>Description</th>
+    <th style="min-width: 100px">Default value</th>
+  </tr>
+  <tr>
+    <th>enabled</th>
+    <td>
+      Enables the OAuth2 identity provider.<br/>
+      <b>Enabled by default!</b>
+    </td>
+    <td><code>true</code></td>
+  </tr>
+  <tr>
+    <th>group-name-attribute</th>
+    <td>Enables and configures the OAuth2 Granted Authorities Mapper.</td>
+    <td>-</td>
+  </tr>
+  <tr>
+    <th>group-name-delimiter</th>
+    <td>
+      Configures the delimiter used in the OAuth2 Granted Authorities Mapper.
+      It's only used if the configured <code>group-name-attribute</code> contains <code>String</code> value.
+    </td>
+    <td><code>,</code> (comma)</td>
+  </tr>
+</table>
 <h2 id="limitations">Limitations</h2>
 <p>As previously mentioned, this provider is a read-only provider, so creating users, groups or memberships is not available.
 Due to the fallback to DB Identity Service this provider is still defined as writeable which means the create buttons are still visible on the Admin pages, but are non-functional.</p>
@@ -4595,7 +4622,23 @@ Please refer Spring&rsquo;s <a href="https://docs.spring.io/spring-security/refe
 </span></span></code></pre></div><h2 id="configuration-1">Configuration</h2>
 <p>All configuration properties of the identity provider start with the prefix <code>camunda.bpm.oauth2.sso-logout</code>.
 The following properties are available:</p>
-<!-- raw HTML omitted -->
+<table class="table table-striped">
+  <tr>
+    <th style="min-width: 150px">Property name</th>
+    <th>Description</th>
+    <th style="min-width: 100px">Default value</th>
+  </tr>
+  <tr>
+    <th>enabled</th>
+    <td>Activates the client initiated OIDC logout feature.</td>
+    <td><code>false</code></td>
+  </tr>
+  <tr>
+    <th>post-logout-redirect-uri</th>
+    <td>Configures the URI the user is redirected after SSO logout from the provider.</td>
+    <td><code>{baseUrl}</code></td>
+  </tr>
+</table>
 <h2 id="limitations-1">Limitations</h2>
 <p>Currently, it&rsquo;s not possible to change the default Spring logout endpoint, which is <code>/logout</code>.</p>
 <h1 id="security-recommendations">Security Recommendations</h1>

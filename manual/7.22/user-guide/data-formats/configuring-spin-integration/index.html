@@ -4484,7 +4484,25 @@
 registers variable serializers that enable the process engine to store Java objects as JSON.</p>
 <h3 id="configuration-properties-of-the-spin-plugin">Configuration properties of the Spin plugin</h3>
 <p>The Spin process engine plugin provides the following configuration options:</p>
-<!-- raw HTML omitted -->
+<table class="table table-striped">
+  <tr>
+    <th>Property</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td><code>enableXxeProcessing</code></td>
+    <td>Toggle the processing of External XML Entities (XXE) in an XML document. Disable to prevent 
+        <a href="https://en.wikipedia.org/wiki/XML_external_entity_attack">XXE attacks</a>. Default value: 
+        <code>false</code>
+    </td>
+  </tr>
+  <tr>
+    <td><code>enableSecureXmlProcessing</code></td>
+    <td>Toggle the <a href="https://docs.oracle.com/en/java/javase/13/security/java-api-xml-processing-jaxp-security-guide.html">secure processing of an XML document</a>. 
+        Default value: <code>true</code>
+    </td>
+  </tr>
+</table>
 <h2 id="maven-coordinates">Maven coordinates</h2>
 <p>Import the <a href="/7docs/get-started/apache-maven/">Camunda BOM</a> to ensure that you use the right version of Spin that is tested to work with your version of the process engine.</p>
 <p>All Spin artifacts have the group id <code>org.camunda.spin</code>, so in order to import <code>camunda-spin-core</code>, we can write:</p>

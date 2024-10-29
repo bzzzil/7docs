@@ -4497,7 +4497,28 @@ available.</p>
 <p>Besides the configuration methods also a generic API exists to
 set parameters of a request. The following parameters are
 available:</p>
-<!-- raw HTML omitted -->
+<table class="table table-striped">
+  <tr>
+    <th>Parameter</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>method</td>
+    <td>Sets the HTTP method of the request</td>
+  </tr>
+  <tr>
+    <td>url</td>
+    <td>Sets the URL of the request</td>
+  </tr>
+  <tr>
+    <td>headers</td>
+    <td>Contains a map of the configured HTTP headers of the request</td>
+  </tr>
+  <tr>
+    <td>payload</td>
+    <td>Sets the payload of the request</td>
+  </tr>
+</table>
 <p>This can be used as follows:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>HttpRequest request <span style="color:#f92672">=</span> http.<span style="color:#a6e22e">createRequest</span>();
 </span></span><span style="display:flex;"><span>request.<span style="color:#a6e22e">setRequestParameter</span>(<span style="color:#e6db74">&#34;method&#34;</span>, <span style="color:#e6db74">&#34;GET&#34;</span>);
@@ -4514,7 +4535,24 @@ available:</p>
 <p>Besides the response methods a generic API is provided
 to gather the response parameters. The following parameters
 are available:</p>
-<!-- raw HTML omitted -->
+<table class="table table-striped">
+  <tr>
+    <th>Parameter</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>statusCode</td>
+    <td>Contains the status code of the response</td>
+  </tr>
+  <tr>
+    <td>headers</td>
+    <td>Contains a map with the HTTP headers of the response</td>
+  </tr>
+  <tr>
+    <td>response</td>
+    <td>Contains the response body</td>
+  </tr>
+</table>
 <p>This can be used as follows:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>response.<span style="color:#a6e22e">getResponseParameter</span>(<span style="color:#e6db74">&#34;statusCode&#34;</span>);
 </span></span><span style="display:flex;"><span>response.<span style="color:#a6e22e">getResponseParameter</span>(<span style="color:#e6db74">&#34;headers&#34;</span>);

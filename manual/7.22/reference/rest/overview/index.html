@@ -4512,9 +4512,58 @@ activity was not mapped by the migration plan.</p>
 <p><code>MigrationPlanValidationException</code></p>
 <h4 id="response-body-1">Response Body</h4>
 <p>A JSON object with the following properties:</p>
-<!-- raw HTML omitted -->
+<table class="table table-striped">
+  <tr>
+    <th>Name</th>
+    <th>Type</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>type</td>
+    <td>String</td>
+    <td>The type of exception, here <code>MigrationPlanValidationException</code>.</td>
+  </tr>
+  <tr>
+    <td>message</td>
+    <td>String</td>
+    <td>The error message.</td>
+  </tr>
+  <tr>
+    <td>code</td>
+    <td>Number</td>
+    <td>
+        The code allows your client application to identify the error in an automated fashion. 
+        You can look up the meaning of all built-in codes and learn how to add custom codes in the 
+        <a href="/7docs/manual/7.22/user-guide/process-engine/error-handling/#exception-codes">User Guide</a>.
+    </td>
+  </tr>
+  <tr>
+    <td>validationReport</td>
+    <td>Object</td>
+    <td>
+      A JSON object containing details about all detected validation errors.
+      Its properties are described below.
+    </td>
+  </tr>
+</table>
 <p>Every validation report object contains the following properties:</p>
-<!-- raw HTML omitted -->
+<table class="table table-striped">
+  <tr>
+    <th>Name</th>
+    <th>Type</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>instructionReports</td>
+    <td>Array</td>
+    <td>
+      A JSON array describing a single instruction validation report.
+      Each report object consists of an <code>instruction</code> that is
+      invalid and a <code>failures</code> array containing the validation
+      messages for this instruction.
+    </td>
+  </tr>
+</table>
 <h4 id="example">Example</h4>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;MigrationPlanValidationException&#34;</span>,
@@ -4544,9 +4593,89 @@ activity was not mapped by the migration plan.</p>
 <p><code>MigratingProcessInstanceValidationException</code></p>
 <h4 id="response-body-2">Response Body</h4>
 <p>A JSON object with the following properties:</p>
-<!-- raw HTML omitted -->
+<table class="table table-striped">
+  <tr>
+    <th>Name</th>
+    <th>Type</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>type</td>
+    <td>String</td>
+    <td>The type of exception, here <code>MigratingProcessInstanceValidationException</code>.</td>
+  </tr>
+  <tr>
+    <td>code</td>
+    <td>Number</td>
+    <td>
+        The code allows your client application to identify the error in an automated fashion. 
+        You can look up the meaning of all built-in codes and learn how to add custom codes in the 
+        <a href="/7docs/manual/7.22/user-guide/process-engine/error-handling/#exception-codes">User Guide</a>.
+    </td>
+  </tr>
+  <tr>
+    <td>message</td>
+    <td>String</td>
+    <td>The error message.</td>
+  </tr>
+  <tr>
+    <td>validationReport</td>
+    <td>Object</td>
+    <td>
+      A JSON object containing details about all detected validation errors.
+      Its properties are described below.
+    </td>
+  </tr>
+</table>
 <p>Every validation report object contains the following properties:</p>
-<!-- raw HTML omitted -->
+<table class="table table-striped">
+  <tr>
+    <th>Name</th>
+    <th>Type</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>processInstanceId</td>
+    <td>String</td>
+    <td>The id of the process instance that cannot be migrated when following the migration plan.</td>
+  </tr>
+  <tr>
+    <td>failures</td>
+    <td>Array</td>
+    <td>
+      An array of general failure messages, which are not related to
+      a specific activity or transition.
+    </td>
+  </tr>
+  <tr>
+    <td>activityInstanceValidationReports</td>
+    <td>Array</td>
+    <td>
+      An array of JSON objects describing the single activity instance
+      validation errors. Each activity instance validation report
+      consists of a <code>migrationInstruction</code>, if the error is
+      related to an existing migration instruction, the
+      <code>activityInstanceId</code> and <code>sourceScopeId</code>
+      of the activity which cannot be migrated and an array
+      <code>failures</code>, which is a list of all validation error
+      messages for this report.
+    </td>
+  </tr>
+  <tr>
+    <td>transitionInstanceValidationReports</td>
+    <td>Array</td>
+    <td>
+      An array of JSON objects describing the single transition instance
+      validation errors. Each transition instance validation report
+      consists of a <code>migrationInstruction</code>, if the error is
+      related to an existing migration instruction, the
+      <code>transitionInstanceId</code> and <code>sourceScopeId</code>
+      of the transition which cannot be migrated and an array
+      <code>failures</code>, which is a list of all validation error
+      messages for this report.
+    </td>
+  </tr>
+</table>
 <h4 id="example-1">Example</h4>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;MigratingProcessInstanceValidationException&#34;</span>,

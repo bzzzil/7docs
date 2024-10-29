@@ -4546,7 +4546,34 @@ using a predefined or a custom mapping of the decision result, if necessary.</p>
 cases. The mapping is similar to an <a href="/7docs/manual/7.22/user-guide/process-engine/variables/#input-output-variable-mapping">output variable mapping</a>. It extracts a
 value from the decision result which is saved in a process/case variable. The
 following mappings are available:</p>
-<!-- raw HTML omitted -->
+<table class="table table-striped">
+  <tr>
+    <th>Mapper</th>
+    <th>Result</th>
+    <th>Is suitable for</th>
+  </tr>
+  <tr>
+    <td>singleEntry</td>
+    <td>TypedValue</td>
+    <td>decision literal expressions and <br/>
+    decision tables with no more than one matching rule and only one output</td>
+  </tr>
+  <tr>
+    <td>singleResult</td>
+    <td>Map&lt;String, Object&gt;</td>
+    <td>decision tables with no more than one matching rule</td>
+  </tr>
+  <tr>
+    <td>collectEntries</td>
+    <td>List&lt;Object&gt;</td>
+    <td>decision tables with multiple matching rules and only one output</td>
+  </tr>
+  <tr>
+    <td>resultList</td>
+    <td>List&lt;Map&lt;String, Object&gt;&gt;</td>
+    <td>decision tables with multiple matching rules and multiple outputs</td>
+  </tr>
+</table>
 <p>Only the <code>singleEntry</code> mapper returns a <a href="/7docs/manual/7.22/user-guide/process-engine/variables/#typed-value-api">typed value</a> that
 wraps the value of the output entry and additional type information. The
 other mappers return collections which contain the value of the output entries

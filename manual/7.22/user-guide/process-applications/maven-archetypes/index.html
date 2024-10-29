@@ -4473,7 +4473,44 @@ We incorporated best practices for different application types into the template
 In case generating a project from an Archetype on your own is not feasible, we also provide a template GitHub repository for every Archetype.</p>
 <h1 id="overview-of-available-maven-archetypes">Overview of Available Maven Archetypes</h1>
 <p>The following archetypes are currently provided. They are distributed via our Maven repository: <a href="https://artifacts.camunda.com/artifactory/camunda-bpm/">https://artifacts.camunda.com/artifactory/camunda-bpm/</a></p>
-<!-- raw HTML omitted -->
+<table class="table table-bordered">
+  <thead>
+    <tr><th>Archetype</th><th>Description</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="https://artifacts.camunda.com/artifactory/camunda-bpm/org/camunda/bpm/archetype/camunda-archetype-cockpit-plugin/">Camunda Cockpit Plugin</a></td>
+      <td>Plugin for Camunda Cockpit, contains REST-Backend, MyBatis database query, HTML and JavaScript frontend, Ant build script for one-click deployment</td>
+    </tr>
+    <tr>
+      <td><a href="https://artifacts.camunda.com/artifactory/camunda-bpm/org/camunda/bpm/archetype/camunda-archetype-ejb-war/">Process Application (EJB, WAR)</a></td>
+      <td>Process application that uses a shared CIB seven engine in a Java EE Container, e.g., Wildfly.
+          Contains: Camunda EJB Client, Camunda CDI Integration, BPMN Process, Java Delegate as CDI bean, HTML5- & JSF-based start and task forms,
+          configuration for JPA (Hibernate), JUnit Test with in-memory engine and visual process test coverage, Arquillian Test for Wildfly, Maven Plugins or Ant build script for one-click deployment in Eclipse</td>
+    </tr>
+    <tr>
+      <td><a href="https://artifacts.camunda.com/artifactory/camunda-bpm/org/camunda/bpm/archetype/camunda-archetype-servlet-war/">Process Application (Servlet, WAR)</a></td>
+      <td>Process application that uses a shared CIB seven engine in a Servlet Container, e.g., Apache Tomcat.
+          Contains: Servlet process application, BPMN Process, Java Delegate, HTML5-based start and task forms,
+          JUnit Test with in-memory engine, Maven Plugins or Ant build script for one-click deployment in Eclipse</td>
+    </tr>
+    <tr>
+      <td><a href="https://artifacts.camunda.com/artifactory/camunda-bpm/org/camunda/bpm/archetype/camunda-archetype-spring-boot/">Camunda Spring Boot Application</a></td>
+      <td>Application that uses the Camunda Spring Boot Starter.
+          Contains: Spring Boot Process Application, Camunda Webapps, BPMN Process, Java Delegate, HTML5-based start and task forms,
+          JUnit Test with in-memory engine, Maven Plugins for packing as an executable application.</td>
+    </tr>
+    <tr>
+      <td><a href="https://artifacts.camunda.com/artifactory/camunda-bpm/org/camunda/bpm/archetype/camunda-archetype-spring-boot-demo/">Camunda Spring Boot Application with Demo Users</a></td>
+      <td>Same as the <i>Spring Boot Application</i> archetype and additionally creates demo users and groups for easy start with the Camunda Webapps (use <code>demo/demo</code> to log in).</td>
+    </tr>
+    <tr>
+      <td><a href="https://artifacts.camunda.com/artifactory/camunda-bpm/org/camunda/bpm/archetype/camunda-archetype-engine-plugin/">Process Engine Plugin</a></td>
+      <td>An example for a process engine plugin.
+      Contains: Process engine plugin, BPMN Parse Listener that is registered via the plugin, Task Listener that is added to every user task, JUnit Test with in-memory engine.</td>
+    </tr>
+  </tbody>
+</table>
 <h1 id="template-repositories">Template repositories</h1>
 <p>We provide a template repository for every Camunda Archetype.
 Every repository contains a project generated from one specific template.
@@ -4582,12 +4619,22 @@ and select any <code>org.camunda.bpm.archetype</code> entry.</li>
 <h1 id="usage-on-command-line">Usage on Command Line</h1>
 <h2 id="interactive">Interactive</h2>
 <p>Run the following command in a terminal to generate a project. Maven will allow you to select an archetype and ask you for all parameters needed to configure it:</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
+<pre class="console">
+mvn archetype:generate -Dfilter=org.camunda.bpm.archetype:
+</pre>
 <h2 id="full-automation">Full Automation</h2>
 <p>The following command completely automates the project generation and can be used in shell scripts or Ant builds:</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
+<pre class="console">
+mvn archetype:generate \
+  -DinteractiveMode=false \
+  -DarchetypeGroupId=org.camunda.bpm.archetype \
+  -DarchetypeArtifactId=camunda-archetype-ejb-war \
+  -DarchetypeVersion=7.10.0 \
+  -DgroupId=org.example.camunda.bpm \
+  -DartifactId=camunda-bpm-ejb-project \
+  -Dversion=0.0.1-SNAPSHOT \
+  -Dpackage=org.example.camunda.bpm.ejb
+</pre>
 <h1 id="source-code-and-customization">Source Code and Customization</h1>
 <p>You can also customize the project templates for your own technology stack. Just <a href="https://github.com/camunda/camunda-archetypes">fork them on GitHub</a>!</p>
 

@@ -4469,7 +4469,7 @@
       <p>BPMN 2.0 makes a distinction between an embedded subprocess and a call activity. From a conceptual point of view, both will call a subprocess when process execution arrives at the activity.</p>
 <p>The difference is that the call activity references a process that is external to the process definition, whereas the subprocess is embedded within the original process definition. The main use case for the call activity is to have a reusable process definition that can be called from multiple other process definitions. Although not yet part of the BPMN specification, it is also possible to call a CMMN case definition.</p>
 <p>When process execution arrives at the call activity, a new process instance is created, which is used to execute the subprocess, potentially creating parallel child executions as within a regular process. The main process instance waits until the subprocess is completely ended, and continues the original process afterwards.</p>
-<!-- raw HTML omitted -->
+<div data-bpmn-diagram="../bpmn/call-activity"></div>
 <p>A call activity is visualized the same way as a collapsed embedded subprocess, however with a thick border. Depending on the modeling tool, a call activity can also be expanded, but the default visualization is the collapsed representation.</p>
 <p>A call activity is a regular activity that requires a calledElement which references a process definition by its key. In practice, this means that the id of the process is used in the calledElement:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;callActivity</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;callCheckCreditProcess&#34;</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;Check credit&#34;</span> <span style="color:#a6e22e">calledElement=</span><span style="color:#e6db74">&#34;checkCreditProcess&#34;</span> <span style="color:#f92672">/&gt;</span>
@@ -4635,7 +4635,7 @@ This allows to specify an expression that resolves to an object implementing the
 </span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/callActivity&gt;</span>
 </span></span></code></pre></div><h1 id="example">Example</h1>
 <p>The following process diagram shows a simple handling of an order. Since, for example, the billing could be common to many other processes, it is modeled as a call activity.</p>
-<!-- raw HTML omitted -->
+<div data-bpmn-diagram="../bpmn/call-activity"></div>
 <p>The XML looks as follows:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;startEvent</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;theStart&#34;</span> <span style="color:#f92672">/&gt;</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;sequenceFlow</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;flow1&#34;</span> <span style="color:#a6e22e">sourceRef=</span><span style="color:#e6db74">&#34;theStart&#34;</span> <span style="color:#a6e22e">targetRef=</span><span style="color:#e6db74">&#34;shipping&#34;</span> <span style="color:#f92672">/&gt;</span>
@@ -4678,7 +4678,64 @@ This allows to specify an expression that resolves to an object implementing the
 </span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">camunda:caseTenantId=</span><span style="color:#e6db74">&#34;${ execution.tenantId }&#34;</span><span style="color:#f92672">&gt;</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/callActivity&gt;</span>
 </span></span></code></pre></div><h1 id="camunda-extensions">Camunda Extensions</h1>
-<!-- raw HTML omitted -->
+<table class="table table-striped">
+  <tr>
+    <th>Attributes</th>
+    <td>
+      <a href="/7docs/manual/latest/reference/bpmn20/custom-extensions/extension-attributes/#asyncbefore">camunda:asyncBefore</a>,
+      <a href="/7docs/manual/latest/reference/bpmn20/custom-extensions/extension-attributes/#asyncafter">camunda:asyncAfter</a>,
+      <a href="/7docs/manual/latest/reference/bpmn20/custom-extensions/extension-attributes/#calledelementbinding">camunda:calledElementBinding</a>,
+      <a href="/7docs/manual/latest/reference/bpmn20/custom-extensions/extension-attributes/#calledelementversion">camunda:calledElementVersion</a>,
+      <a href="/7docs/manual/latest/reference/bpmn20/custom-extensions/extension-attributes/#calledelementversiontag">camunda:calledElementVersionTag</a>,
+      <a href="/7docs/manual/latest/reference/bpmn20/custom-extensions/extension-attributes/#calledelementtenantid">camunda:calledElementTenantId</a>,
+      <a href="/7docs/manual/latest/reference/bpmn20/custom-extensions/extension-attributes/#casebinding">camunda:caseBinding</a>,
+      <a href="/7docs/manual/latest/reference/bpmn20/custom-extensions/extension-attributes/#caseref">camunda:caseRef</a>,
+      <a href="/7docs/manual/latest/reference/bpmn20/custom-extensions/extension-attributes/#caseversion">camunda:caseVersion</a>,
+      <a href="/7docs/manual/latest/reference/bpmn20/custom-extensions/extension-attributes/#casetenantid">camunda:caseTenantId</a>,
+      <a href="/7docs/manual/latest/reference/bpmn20/custom-extensions/extension-attributes/#exclusive">camunda:exclusive</a>,
+      <a href="/7docs/manual/latest/reference/bpmn20/custom-extensions/extension-attributes/#jobpriority">camunda:jobPriority</a>,
+      <a href="/7docs/manual/latest/reference/bpmn20/custom-extensions/extension-attributes/#variablemappingclass">camunda:variableMappingClass</a>,
+      <a href="/7docs/manual/latest/reference/bpmn20/custom-extensions/extension-attributes/#variablemappingdelegateexpression">camunda:variableMappingDelegateExpression</a>
+    </td>
+  </tr>
+  <tr>
+    <th>Extension Elements</th>
+    <td>
+      <a href="/7docs/manual/latest/reference/bpmn20/custom-extensions/extension-elements/#in">camunda:in</a>,
+      <a href="/7docs/manual/latest/reference/bpmn20/custom-extensions/extension-elements/#out">camunda:out</a>,
+      <a href="/7docs/manual/latest/reference/bpmn20/custom-extensions/extension-elements/#inputoutput">camunda:inputOutput</a>,
+      <a href="/7docs/manual/latest/reference/bpmn20/custom-extensions/extension-elements/#failedjobretrytimecycle">camunda:failedJobRetryTimeCycle</a>
+    </td>
+  </tr>
+  <tr>
+    <th>Constraints</th>
+    <td>
+      The <code>camunda:exclusive</code> attribute is only evaluated if the attribute
+      <code>camunda:asyncBefore</code> or <code>camunda:asyncAfter</code> is set to <code>true</code>
+    </td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>
+      The attribute <code>camunda:calledElementVersion</code> should only be set if
+      the attribute <code>camunda:calledElementBinding</code> equals <code>version</code>
+    </td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>
+      The attribute <code>calledElement</code> cannot be used in combination
+      with the attribute <code>camunda:caseRef</code> and vice versa.
+    </td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>
+      The attribute <code>camunda:caseVersion</code> should only be set if
+      the attribute <code>camunda:caseBinding</code> equals <code>version</code>
+    </td>
+  </tr>
+</table>
 <h1 id="additional-resources">Additional Resources</h1>
 <ul>
 <li><a href="http://camunda.org/bpmn/reference.html#activities-call-activity">Call Activity</a> in the <a href="http://camunda.org/bpmn/reference.html">BPMN 2.0 Modeling Reference</a></li>

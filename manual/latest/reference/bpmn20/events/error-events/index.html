@@ -4467,7 +4467,7 @@
 
     <div class="col-xs-12 content-text">
       <p>Error events are events which are triggered by a defined error.</p>
-<!-- raw HTML omitted -->
+<div data-bpmn-diagram="../bpmn/event-error"></div>
 <h1 id="business-errors-vs-technical-errors">Business Errors vs. Technical Errors</h1>
 <p>A BPMN error is meant for business errors - which are different than technical exceptions. So, this is different than Java exceptions - which are, by default, handled in their own way.</p>
 <p>You might also want to check out the basics of <a href="/7docs/manual/latest/user-guide/process-engine/transactions-in-processes/#transaction-boundaries">Threading and Transactions</a> in the <a href="/7docs/manual/latest/user-guide/">User Guide</a> first.</p>
@@ -4499,8 +4499,8 @@
 </span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/definitions&gt;</span>
 </span></span></code></pre></div><p>The exception type should only be used for business exceptions and not for technical exceptions in the process.</p>
 <p>An error event handler references the same error element to declare that it catches the error.</p>
-<p>It is also possible to define an error message with the <!-- raw HTML omitted --><code>camunda:errorMessage</code><!-- raw HTML omitted --> extension for an error element to give further information about the error.
-The referencing error event definition must specify <!-- raw HTML omitted --><code>camunda:errorMessageVariable</code><!-- raw HTML omitted --> to receive the error message. The error message can also contain <!-- raw HTML omitted -->expressions<!-- raw HTML omitted -->.</p>
+<p>It is also possible to define an error message with the <a href="/7docs/manual/latest/reference/bpmn20/custom-extensions/extension-attributes/#errormessage"><code>camunda:errorMessage</code></a> extension for an error element to give further information about the error.
+The referencing error event definition must specify <a href="/7docs/manual/latest/reference/bpmn20/custom-extensions/extension-attributes/#errormessagevariable"><code>camunda:errorMessageVariable</code></a> to receive the error message. The error message can also contain <a href="/7docs/manual/latest/user-guide/process-engine/expression-language/">expressions</a>.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;definitions&gt;</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;error</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;myError&#34;</span> <span style="color:#a6e22e">errorCode=</span><span style="color:#e6db74">&#34;ERROR-OCCURED&#34;</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;ERROR-OCCURED&#34;</span> 
 </span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">camunda:errorMessage=</span><span style="color:#e6db74">&#34;Something went wrong: ${errorCause}&#34;</span> <span style="color:#f92672">/&gt;</span>
@@ -4526,8 +4526,8 @@ The referencing error event definition must specify <!-- raw HTML omitted --><co
 </span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/serviceTask&gt;</span>
 </span></span></code></pre></div><h1 id="error-start-event">Error Start Event</h1>
 <p>An error start event can only be used to trigger an Event Sub-Process - it <strong>cannot</strong> be used to start a process instance. The error start event is always interrupting.</p>
-<!-- raw HTML omitted -->
-<p>Three optional attributes can be added to the error start event: <!-- raw HTML omitted -->errorRef<!-- raw HTML omitted -->, <!-- raw HTML omitted -->camunda:errorCodeVariable<!-- raw HTML omitted --> and <!-- raw HTML omitted -->camunda:errorMessageVariable<!-- raw HTML omitted -->:</p>
+<div data-bpmn-diagram="../bpmn/event-subprocess-alternative1"></div>
+<p>Three optional attributes can be added to the error start event: <code>errorRef</code>, <code>camunda:errorCodeVariable</code> and <code>camunda:errorMessageVariable</code>:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;definitions&gt;</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;error</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;myException&#34;</span> <span style="color:#a6e22e">errorCode=</span><span style="color:#e6db74">&#34;com.company.MyBusinessException&#34;</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;myBusinessException&#34;</span><span style="color:#f92672">/&gt;</span>
 </span></span><span style="display:flex;"><span>  ...
@@ -4553,14 +4553,51 @@ The referencing error event definition must specify <!-- raw HTML omitted --><co
 <p>When process execution arrives at an error end event, the current path of execution is ended and an error is thrown. This error can be caught by a matching intermediate error boundary event. In case no matching error boundary event is found, the execution semantics defaults to the none end event semantics.</p>
 <h2 id="camunda-extensions">Camunda Extensions</h2>
 <h3 id="error-event-definition">Error Event Definition</h3>
-<!-- raw HTML omitted -->
+<table class="table table-striped">
+  <tr>
+    <th>Attributes</th>
+    <td>
+      <a href="/7docs/manual/latest/reference/bpmn20/custom-extensions/extension-attributes/#asyncbefore">camunda:asyncBefore</a>,
+      <a href="/7docs/manual/latest/reference/bpmn20/custom-extensions/extension-attributes/#asyncafter">camunda:asyncAfter</a>,
+      <a href="/7docs/manual/latest/reference/bpmn20/custom-extensions/extension-attributes/#errorcodevariable">camunda:errorCodeVariable</a>,
+	  <a href="/7docs/manual/latest/reference/bpmn20/custom-extensions/extension-attributes/#errormessagevariable">camunda:errorMessageVariable</a>,
+      <a href="/7docs/manual/latest/reference/bpmn20/custom-extensions/extension-attributes/#exclusive">camunda:exclusive</a>,
+      <a href="/7docs/manual/latest/reference/bpmn20/custom-extensions/extension-attributes/#jobpriority">camunda:jobPriority</a>
+    </td>
+  </tr>
+  <tr>
+    <th>Extension Elements</th>
+    <td>
+      <a href="/7docs/manual/latest/reference/bpmn20/custom-extensions/extension-elements/#inputoutput">camunda:inputOutput</a>
+    </td>
+  </tr>
+  <tr>
+    <th>Constraints</th>
+    <td>&ndash;</td>
+  </tr>
+</table>
 <h3 id="error-definition">Error Definition</h3>
-<!-- raw HTML omitted -->
+<table class="table table-striped">
+  <tr>
+    <th>Attributes</th>
+    <td>
+      <a href="/7docs/manual/latest/reference/bpmn20/custom-extensions/extension-attributes/#errormessage">camunda:errorMessage</a>
+    </td>
+  </tr>
+  <tr>
+    <th>Extension Elements</th>
+    <td>&ndash;</td>
+  </tr>
+  <tr>
+    <th>Constraints</th>
+    <td>&ndash;</td>
+  </tr>
+</table>
 <h1 id="error-boundary-event">Error Boundary Event</h1>
 <p>An intermediate catching error event on the boundary of an activity, or error boundary event for short, catches errors that are thrown within the scope of the activity on which it is defined.</p>
 <p>Defining a error boundary event makes most sense on an embedded subprocess, or a call activity, as a subprocess creates a scope for all activities inside the subprocess. Errors are thrown by error end events. Such an error will propagate its parent scopes upwards until a scope is found on which a error boundary event is defined that matches the error event definition.</p>
 <p>When an error event is caught, the activity on which the boundary event is defined is destroyed, also destroying all current executions therein (e.g., concurrent activities, nested subprocesses, etc.). Process execution continues following the outgoing sequence flow of the boundary event.</p>
-<!-- raw HTML omitted -->
+<div data-bpmn-diagram="../bpmn/event-subprocess-alternative2"></div>
 <p>A error boundary event is defined as a typical boundary event. As with the other error events, the errorRef references an error defined outside of the process element:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;definitions&gt;</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;error</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;myError&#34;</span> <span style="color:#a6e22e">errorCode=</span><span style="color:#e6db74">&#34;ERROR-OCCURED&#34;</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;name of error&#34;</span><span style="color:#f92672">/&gt;</span>
@@ -4585,11 +4622,11 @@ The referencing error event definition must specify <!-- raw HTML omitted --><co
 </ul>
 <h1 id="unhandled-bpmn-error">Unhandled BPMN Error</h1>
 <p>It can happen that no catching boundary event was defined for an error event. The default behaviour in this case is to log information and end the current execution.
-This behaviour can be changed with <!-- raw HTML omitted -->enableExceptionsAfterUnhandledBpmnError<!-- raw HTML omitted --> property set to <!-- raw HTML omitted -->true<!-- raw HTML omitted -->
+This behaviour can be changed with <code>enableExceptionsAfterUnhandledBpmnError</code> property set to <code>true</code>
 (via the process engine configuration or the deployment descriptor) and Process Engine Exception will be thrown if unhandled BPMN Error occurs.</p>
 <h1 id="catch-and-re-throw-pattern">Catch and Re-Throw Pattern</h1>
 <p>An error can be handled by the error start event in the event sub process and the same error can be thrown from the event sub process to handle the error on the higher level scope (in the example  below, the error thrown from the Event Subprocess is handled by the error boundary event in the Subprocess).</p>
-<!-- raw HTML omitted -->
+<div data-bpmn-diagram="../bpmn/catchandthrowpattern"></div>
 <h2 id="additional-resources">Additional Resources</h2>
 <ul>
 <li><a href="http://camunda.org/bpmn/reference.html#events-error">Error Events</a> in the <a href="http://camunda.org/bpmn/reference.html">BPMN 2.0 Modeling Reference</a></li>
