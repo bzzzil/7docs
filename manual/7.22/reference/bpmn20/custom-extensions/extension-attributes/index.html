@@ -18,12 +18,12 @@
 
   <title>Camunda BPMN Extension Attributes | docs.cibseven.de</title>
 
-  <meta name="generator" content="Hugo! " />
+  <meta name="generator" content="Hugo 0.136.4">
   <link rel="shortcut icon" href="/7docs/manual/7.22/img/favicon.ico" type="image/x-icon" />
 
   
 
-  <link rel="stylesheet" href="/7docs/manual/7.22/css/docs.b78af71c7d3431ee12120b08e7712744e466d06aa6a501153ca117485c742671.css" integrity="sha256-t4r3HH00Me4SEgsI53EnRORm0GqmpQEVPKEXSFx0JnE=">
+  <link rel="stylesheet" href="/7docs/manual/7.22/css/docs.9f129a00105d0d24cc75d54daabc84fc17f98711f78f552e74638fcb64a32d6d.css" integrity="sha256-nxKaABBdDSTMddVNqryE/Bf5hxH3j1UudGOPy2SjLW0=">
   <link rel="canonical" href="https://docs.cibseven.de/7docs/manual/7.22/reference/bpmn20/custom-extensions/extension-attributes/" />
 </head>
 <body class="">
@@ -32,7 +32,7 @@
   <div class="navbar-container">
     <div class="navbar-header">
       <a href="/7docs/manual/7.22/">
-      <img src="/7docs/manual/7.22/img/logo.png" style="width:331;height:69px; padding:0 5px 7px 0;">
+      <img src="/7docs/manual/7.22/img/logo.png" style="padding:0 5px 7px 0;">
         <span class="site-name">Docs</span>
       </a>
     </div>
@@ -58,7 +58,7 @@
     </div>
 
     <ul class="external-menu">
-      <li class="external"><a href="https://cibseven.de">CIBseven.de</a></li>
+      <li class="external"><a href="https://cibseven.de">cibseven.de</a></li>
     </ul>
   </div>
 </nav>
@@ -4459,7 +4459,7 @@
 
       
 <div class="edit-on-github">
-  <a target="_blank" href="https://github.com/cibseven/cib-seven-docs-manual/tree/master/content/reference%5cbpmn20%5ccustom-extensions%5cextension-attributes.md"><i>Edit on Github</i> <span class="cam-docs-github"></span></a>
+  <a target="_blank" href="https://github.com/cibseven/cibseven-docs-manual/tree/master/content/reference%5cbpmn20%5ccustom-extensions%5cextension-attributes.md"><i>Edit on Github</i> <span class="cam-docs-github"></span></a>
 </div>
 
       <h1 class="page-title">Camunda BPMN Extension Attributes</h1>
@@ -4525,35 +4525,30 @@
       <a href="/7docs/manual/7.22/reference/bpmn20/events/">End Events</a>,
       <a href="/7docs/manual/7.22/reference/bpmn20/events/">Intermediate Throw Events</a>,
       <a href="/7docs/manual/7.22/reference/bpmn20/events/">Intermediate Catch Events</a>,
-<pre><code>  Task,
-  &lt;a href=&quot;/7docs/manual/7.22/reference/bpmn20/tasks/service-task/&quot;&gt;Service Task&lt;/a&gt;,
-  &lt;a href=&quot;/7docs/manual/7.22/reference/bpmn20/tasks/send-task/&quot;&gt;Send Task&lt;/a&gt;,
-  &lt;a href=&quot;/7docs/manual/7.22/reference/bpmn20/tasks/user-task/&quot;&gt;User Task&lt;/a&gt;,
-  &lt;a href=&quot;/7docs/manual/7.22/reference/bpmn20/tasks/business-rule-task/&quot;&gt;Business Rule Task&lt;/a&gt;,
-  &lt;a href=&quot;/7docs/manual/7.22/reference/bpmn20/tasks/script-task/&quot;&gt;Script Task&lt;/a&gt;,
-  &lt;a href=&quot;/7docs/manual/7.22/reference/bpmn20/tasks/receive-task/&quot;&gt;Receive Task&lt;/a&gt;,
-  &lt;a href=&quot;/7docs/manual/7.22/reference/bpmn20/tasks/manual-task/&quot;&gt;Manual Task&lt;/a&gt;,
-
-  &lt;a href=&quot;/7docs/manual/7.22/reference/bpmn20/subprocesses/embedded-subprocess/&quot;&gt;Embedded Subprocess&lt;/a&gt;,
-  &lt;a href=&quot;/7docs/manual/7.22/reference/bpmn20/subprocesses/call-activity/&quot;&gt;Call Activity&lt;/a&gt;,
-  &lt;a href=&quot;/7docs/manual/7.22/reference/bpmn20/subprocesses/transaction-subprocess/&quot;&gt;Transaction Subprocess&lt;/a&gt;,
-
-  &lt;a href=&quot;/7docs/manual/7.22/reference/bpmn20/gateways/parallel-gateway/&quot;&gt;Parallel Gateway&lt;/a&gt;,
-  &lt;a href=&quot;/7docs/manual/7.22/reference/bpmn20/gateways/inclusive-gateway/&quot;&gt;Inclusive Gateway&lt;/a&gt;,
-  &lt;a href=&quot;/7docs/manual/7.22/reference/bpmn20/gateways/exclusive-gateway/&quot;&gt;Exclusive Gateway&lt;/a&gt;,
-
-  &lt;a href=&quot;/7docs/manual/7.22/reference/bpmn20/tasks/task-markers/#multiple-instance&quot;&gt;Multi Instance Loop Characteristics&lt;/a&gt;,
-
-  Boundary Event,
-  &lt;a href=&quot;/7docs/manual/7.22/reference/bpmn20/events/message-events/#message-boundary-event&quot;&gt;Message Boundary Event&lt;/a&gt;,
-  &lt;a href=&quot;/7docs/manual/7.22/reference/bpmn20/events/error-events/#error-boundary-event&quot;&gt;Error Boundary Event&lt;/a&gt;,
-  &lt;a href=&quot;/7docs/manual/7.22/reference/bpmn20/events/timer-events/#timer-boundary-event&quot;&gt;Timer Boundary Event&lt;/a&gt;,
-  &lt;a href=&quot;/7docs/manual/7.22/reference/bpmn20/events/escalation-events/#escalation-boundary-event&quot;&gt;Escalation Boundary Event&lt;/a&gt;,
-  &lt;a href=&quot;/7docs/manual/7.22/reference/bpmn20/events/conditional-events/#conditional-boundary-event&quot;&gt;Conditional Boundary Event&lt;/a&gt;,
-  &lt;a href=&quot;/7docs/manual/7.22/reference/bpmn20/events/signal-events/#signal-boundary-event&quot;&gt;Signal Boundary Event&lt;/a&gt;,
-  &lt;a href=&quot;/7docs/manual/7.22/reference/bpmn20/events/cancel-and-compensation-events/#cancel-boundary-event&quot;&gt;Cancel Boundary Event&lt;/a&gt;
-&lt;/td&gt;
-</code></pre>
+      Task,
+      <a href="/7docs/manual/7.22/reference/bpmn20/tasks/service-task/">Service Task</a>,
+      <a href="/7docs/manual/7.22/reference/bpmn20/tasks/send-task/">Send Task</a>,
+      <a href="/7docs/manual/7.22/reference/bpmn20/tasks/user-task/">User Task</a>,
+      <a href="/7docs/manual/7.22/reference/bpmn20/tasks/business-rule-task/">Business Rule Task</a>,
+      <a href="/7docs/manual/7.22/reference/bpmn20/tasks/script-task/">Script Task</a>,
+      <a href="/7docs/manual/7.22/reference/bpmn20/tasks/receive-task/">Receive Task</a>,
+      <a href="/7docs/manual/7.22/reference/bpmn20/tasks/manual-task/">Manual Task</a>,
+      <a href="/7docs/manual/7.22/reference/bpmn20/subprocesses/embedded-subprocess/">Embedded Subprocess</a>,
+      <a href="/7docs/manual/7.22/reference/bpmn20/subprocesses/call-activity/">Call Activity</a>,
+      <a href="/7docs/manual/7.22/reference/bpmn20/subprocesses/transaction-subprocess/">Transaction Subprocess</a>,
+      <a href="/7docs/manual/7.22/reference/bpmn20/gateways/parallel-gateway/">Parallel Gateway</a>,
+      <a href="/7docs/manual/7.22/reference/bpmn20/gateways/inclusive-gateway/">Inclusive Gateway</a>,
+      <a href="/7docs/manual/7.22/reference/bpmn20/gateways/exclusive-gateway/">Exclusive Gateway</a>,
+      <a href="/7docs/manual/7.22/reference/bpmn20/tasks/task-markers/#multiple-instance">Multi Instance Loop Characteristics</a>,
+      Boundary Event,
+      <a href="/7docs/manual/7.22/reference/bpmn20/events/message-events/#message-boundary-event">Message Boundary Event</a>,
+      <a href="/7docs/manual/7.22/reference/bpmn20/events/error-events/#error-boundary-event">Error Boundary Event</a>,
+      <a href="/7docs/manual/7.22/reference/bpmn20/events/timer-events/#timer-boundary-event">Timer Boundary Event</a>,
+      <a href="/7docs/manual/7.22/reference/bpmn20/events/escalation-events/#escalation-boundary-event">Escalation Boundary Event</a>,
+      <a href="/7docs/manual/7.22/reference/bpmn20/events/conditional-events/#conditional-boundary-event">Conditional Boundary Event</a>,
+      <a href="/7docs/manual/7.22/reference/bpmn20/events/signal-events/#signal-boundary-event">Signal Boundary Event</a>,
+      <a href="/7docs/manual/7.22/reference/bpmn20/events/cancel-and-compensation-events/#cancel-boundary-event">Cancel Boundary Event</a>
+    </td>
   </tr>
 </table>
 <h1 id="asyncbefore">asyncBefore</h1>
@@ -4585,36 +4580,31 @@
       <a href="/7docs/manual/7.22/reference/bpmn20/events/">End Events</a>,
       <a href="/7docs/manual/7.22/reference/bpmn20/events/">Intermediate Throw Events</a>,
       <a href="/7docs/manual/7.22/reference/bpmn20/events/">Intermediate Catch Events</a>,
-<pre><code>  Task,
-  &lt;a href=&quot;/7docs/manual/7.22/reference/bpmn20/tasks/service-task/&quot;&gt;Service Task&lt;/a&gt;,
-  &lt;a href=&quot;/7docs/manual/7.22/reference/bpmn20/tasks/send-task/&quot;&gt;Send Task&lt;/a&gt;,
-  &lt;a href=&quot;/7docs/manual/7.22/reference/bpmn20/tasks/user-task/&quot;&gt;User Task&lt;/a&gt;,
-  &lt;a href=&quot;/7docs/manual/7.22/reference/bpmn20/tasks/business-rule-task/&quot;&gt;Business Rule Task&lt;/a&gt;,
-  &lt;a href=&quot;/7docs/manual/7.22/reference/bpmn20/tasks/script-task/&quot;&gt;Script Task&lt;/a&gt;,
-  &lt;a href=&quot;/7docs/manual/7.22/reference/bpmn20/tasks/receive-task/&quot;&gt;Receive Task&lt;/a&gt;,
-  &lt;a href=&quot;/7docs/manual/7.22/reference/bpmn20/tasks/manual-task/&quot;&gt;Manual Task&lt;/a&gt;,
-
-  &lt;a href=&quot;/7docs/manual/7.22/reference/bpmn20/subprocesses/embedded-subprocess/&quot;&gt;Embedded Subprocess&lt;/a&gt;,
-  &lt;a href=&quot;/7docs/manual/7.22/reference/bpmn20/subprocesses/call-activity/&quot;&gt;Call Activity&lt;/a&gt;,
-  &lt;a href=&quot;/7docs/manual/7.22/reference/bpmn20/subprocesses/transaction-subprocess/&quot;&gt;Transaction Subprocess&lt;/a&gt;,
-
-  &lt;a href=&quot;/7docs/manual/7.22/reference/bpmn20/gateways/parallel-gateway/&quot;&gt;Parallel Gateway&lt;/a&gt;,
-  &lt;a href=&quot;/7docs/manual/7.22/reference/bpmn20/gateways/event-based-gateway/&quot;&gt;Event Based Gateway&lt;/a&gt;,
-  &lt;a href=&quot;/7docs/manual/7.22/reference/bpmn20/gateways/inclusive-gateway/&quot;&gt;Inclusive Gateway&lt;/a&gt;,
-  &lt;a href=&quot;/7docs/manual/7.22/reference/bpmn20/gateways/exclusive-gateway/&quot;&gt;Exclusive Gateway&lt;/a&gt;,
-
-  &lt;a href=&quot;/7docs/manual/7.22/reference/bpmn20/tasks/task-markers/#multiple-instance&quot;&gt;Multi Instance Loop Characteristics&lt;/a&gt;,
-
-  Boundary Event,
-  &lt;a href=&quot;/7docs/manual/7.22/reference/bpmn20/events/message-events/#message-boundary-event&quot;&gt;Message Boundary Event&lt;/a&gt;,
-  &lt;a href=&quot;/7docs/manual/7.22/reference/bpmn20/events/error-events/#error-boundary-event&quot;&gt;Error Boundary Event&lt;/a&gt;,
-  &lt;a href=&quot;/7docs/manual/7.22/reference/bpmn20/events/timer-events/#timer-boundary-event&quot;&gt;Timer Boundary Event&lt;/a&gt;,
-  &lt;a href=&quot;/7docs/manual/7.22/reference/bpmn20/events/escalation-events/#escalation-boundary-event&quot;&gt;Escalation Boundary Event&lt;/a&gt;,
-  &lt;a href=&quot;/7docs/manual/7.22/reference/bpmn20/events/conditional-events/#conditional-boundary-event&quot;&gt;Conditional Boundary Event&lt;/a&gt;,
-  &lt;a href=&quot;/7docs/manual/7.22/reference/bpmn20/events/signal-events/#signal-boundary-event&quot;&gt;Signal Boundary Event&lt;/a&gt;,
-  &lt;a href=&quot;/7docs/manual/7.22/reference/bpmn20/events/cancel-and-compensation-events/#cancel-boundary-event&quot;&gt;Cancel Boundary Event&lt;/a&gt;
-&lt;/td&gt;
-</code></pre>
+      Task,
+      <a href="/7docs/manual/7.22/reference/bpmn20/tasks/service-task/">Service Task</a>,
+      <a href="/7docs/manual/7.22/reference/bpmn20/tasks/send-task/">Send Task</a>,
+      <a href="/7docs/manual/7.22/reference/bpmn20/tasks/user-task/">User Task</a>,
+      <a href="/7docs/manual/7.22/reference/bpmn20/tasks/business-rule-task/">Business Rule Task</a>,
+      <a href="/7docs/manual/7.22/reference/bpmn20/tasks/script-task/">Script Task</a>,
+      <a href="/7docs/manual/7.22/reference/bpmn20/tasks/receive-task/">Receive Task</a>,
+      <a href="/7docs/manual/7.22/reference/bpmn20/tasks/manual-task/">Manual Task</a>,
+      <a href="/7docs/manual/7.22/reference/bpmn20/subprocesses/embedded-subprocess/">Embedded Subprocess</a>,
+      <a href="/7docs/manual/7.22/reference/bpmn20/subprocesses/call-activity/">Call Activity</a>,
+      <a href="/7docs/manual/7.22/reference/bpmn20/subprocesses/transaction-subprocess/">Transaction Subprocess</a>,
+      <a href="/7docs/manual/7.22/reference/bpmn20/gateways/parallel-gateway/">Parallel Gateway</a>,
+      <a href="/7docs/manual/7.22/reference/bpmn20/gateways/event-based-gateway/">Event Based Gateway</a>,
+      <a href="/7docs/manual/7.22/reference/bpmn20/gateways/inclusive-gateway/">Inclusive Gateway</a>,
+      <a href="/7docs/manual/7.22/reference/bpmn20/gateways/exclusive-gateway/">Exclusive Gateway</a>,
+      <a href="/7docs/manual/7.22/reference/bpmn20/tasks/task-markers/#multiple-instance">Multi Instance Loop Characteristics</a>,
+      Boundary Event,
+      <a href="/7docs/manual/7.22/reference/bpmn20/events/message-events/#message-boundary-event">Message Boundary Event</a>,
+      <a href="/7docs/manual/7.22/reference/bpmn20/events/error-events/#error-boundary-event">Error Boundary Event</a>,
+      <a href="/7docs/manual/7.22/reference/bpmn20/events/timer-events/#timer-boundary-event">Timer Boundary Event</a>,
+      <a href="/7docs/manual/7.22/reference/bpmn20/events/escalation-events/#escalation-boundary-event">Escalation Boundary Event</a>,
+      <a href="/7docs/manual/7.22/reference/bpmn20/events/conditional-events/#conditional-boundary-event">Conditional Boundary Event</a>,
+      <a href="/7docs/manual/7.22/reference/bpmn20/events/signal-events/#signal-boundary-event">Signal Boundary Event</a>,
+      <a href="/7docs/manual/7.22/reference/bpmn20/events/cancel-and-compensation-events/#cancel-boundary-event">Cancel Boundary Event</a>
+    </td>
   </tr>
 </table>
 <h1 id="calledelementbinding">calledElementBinding</h1>

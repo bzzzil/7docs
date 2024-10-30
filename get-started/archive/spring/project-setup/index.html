@@ -16,12 +16,12 @@
 
   <title>Setup a Spring Web Application Project | docs.cibseven.de</title>
 
-  <meta name="generator" content="Hugo! " />
+  <meta name="generator" content="Hugo 0.136.4">
   <link rel="shortcut icon" href="/7docs/get-started/img/favicon.ico" type="image/x-icon" />
 
   
 
-  <link rel="stylesheet" href="/7docs/get-started/css/docs.b78af71c7d3431ee12120b08e7712744e466d06aa6a501153ca117485c742671.css" integrity="sha256-t4r3HH00Me4SEgsI53EnRORm0GqmpQEVPKEXSFx0JnE=">
+  <link rel="stylesheet" href="/7docs/get-started/css/docs.9f129a00105d0d24cc75d54daabc84fc17f98711f78f552e74638fcb64a32d6d.css" integrity="sha256-nxKaABBdDSTMddVNqryE/Bf5hxH3j1UudGOPy2SjLW0=">
   <link rel="canonical" href="/7docs/get-started/archive/spring/project-setup/" />
 </head>
 <body class="">
@@ -30,7 +30,7 @@
   <div class="navbar-container">
     <div class="navbar-header">
       <a href="/">
-      <img src="/7docs/get-started/img/logo.png" style="width:331;height:69px; padding:0 5px 7px 0;">
+      <img src="/7docs/get-started/img/logo.png" style="padding:0 5px 7px 0;">
         <span class="site-name">Docs</span>
       </a>
     </div>
@@ -56,7 +56,7 @@
     </div>
 
     <ul class="external-menu">
-      <li class="external"><a href="https://cibseven.de">CIBseven.de</a></li>
+      <li class="external"><a href="https://cibseven.de">cibseven.de</a></li>
     </ul>
   </div>
 </nav>
@@ -681,8 +681,20 @@
 </figure>
 
 <p>You can now perform a full Maven build and deploy the project to a vanilla Apache Tomcat server. You should see the following log output:</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
+<pre class="console">
+INFORMATION org.apache.catalina.startup.HostConfig.deployWAR
+Deploying web application archive [..\webapps\loanapproval-spring-0.1.0-SNAPSHOT.war]
+INFORMATION org.springframework.web.context.ContextLoader.initWebApplicationContext
+Root WebApplicationContext: initialization started
+INFORMATION org.springframework.web.context.support.AnnotationConfigWebApplicationContext.prepareRefresh
+Refreshing Root WebApplicationContext: startup date [DATE]; root of context hierarchy
+INFORMATION org.springframework.web.context.support.AnnotationConfigWebApplicationContext.loadBeanDefinitions
+Successfully resolved class for [org.camunda.bpm.getstarted.loanapproval.LoanApplicationContext]
+INFORMATION org.springframework.web.context.ContextLoader.initWebApplicationContext
+Root WebApplicationContext: initialization completed in 891 ms
+INFORMATION org.apache.catalina.startup.HostConfig.deployWAR
+Deployment of web application archive [..\webapps\loanapproval-spring-0.1.0-SNAPSHOT.war] has finished in [6.257] ms
+</pre>
 <p>This means that you have set up your Spring web application correctly.</p>
 
 <div class="panel-group gs-download-step-panel" id="gitStep-1">

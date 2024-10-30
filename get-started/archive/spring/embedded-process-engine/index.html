@@ -16,12 +16,12 @@
 
   <title>Embedded Process Engine Configuration | docs.cibseven.de</title>
 
-  <meta name="generator" content="Hugo! " />
+  <meta name="generator" content="Hugo 0.136.4">
   <link rel="shortcut icon" href="/7docs/get-started/img/favicon.ico" type="image/x-icon" />
 
   
 
-  <link rel="stylesheet" href="/7docs/get-started/css/docs.b78af71c7d3431ee12120b08e7712744e466d06aa6a501153ca117485c742671.css" integrity="sha256-t4r3HH00Me4SEgsI53EnRORm0GqmpQEVPKEXSFx0JnE=">
+  <link rel="stylesheet" href="/7docs/get-started/css/docs.9f129a00105d0d24cc75d54daabc84fc17f98711f78f552e74638fcb64a32d6d.css" integrity="sha256-nxKaABBdDSTMddVNqryE/Bf5hxH3j1UudGOPy2SjLW0=">
   <link rel="canonical" href="/7docs/get-started/archive/spring/embedded-process-engine/" />
 </head>
 <body class="">
@@ -30,7 +30,7 @@
   <div class="navbar-container">
     <div class="navbar-header">
       <a href="/">
-      <img src="/7docs/get-started/img/logo.png" style="width:331;height:69px; padding:0 5px 7px 0;">
+      <img src="/7docs/get-started/img/logo.png" style="padding:0 5px 7px 0;">
         <span class="site-name">Docs</span>
       </a>
     </div>
@@ -56,7 +56,7 @@
     </div>
 
     <ul class="external-menu">
-      <li class="external"><a href="https://cibseven.de">CIBseven.de</a></li>
+      <li class="external"><a href="https://cibseven.de">cibseven.de</a></li>
     </ul>
   </div>
 </nav>
@@ -622,8 +622,28 @@
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>This bootstraps a process engine with an in-memory H2 database and makes the engine as well as its API services available as Spring beans.</p>
 <p>After you added the beans to the application context, perform a full Maven build and redeploy the application. In the logfile of the Apache Tomcat server you should be able to see the initialization of the process-engine:</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
+<pre class="console">
+INFO org.camunda.commons.logging.BaseLogger.logInfo
+ENGINE-03016 Performing database operation 'create' on component 'engine' with resource 'org/camunda/bpm/engine/db/create/activiti.h2.create.engine.sql'
+INFO org.camunda.commons.logging.BaseLogger.logInfo
+ENGINE-03016 Performing database operation 'create' on component 'history' with resource 'org/camunda/bpm/engine/db/create/activiti.h2.create.history.sql'
+INFO org.camunda.commons.logging.BaseLogger.logInfo
+ENGINE-03016 Performing database operation 'create' on component 'identity' with resource 'org/camunda/bpm/engine/db/create/activiti.h2.create.identity.sql'
+INFO org.camunda.commons.logging.BaseLogger.logInfo
+ENGINE-03016 Performing database operation 'create' on component 'case.engine' with resource 'org/camunda/bpm/engine/db/create/activiti.h2.create.case.engine.sql'
+INFO org.camunda.commons.logging.BaseLogger.logInfo
+ENGINE-03016 Performing database operation 'create' on component 'case.history' with resource 'org/camunda/bpm/engine/db/create/activiti.h2.create.case.history.sql'
+INFO org.camunda.commons.logging.BaseLogger.logInfo
+ENGINE-03016 Performing database operation 'create' on component 'decision.engine' with resource 'org/camunda/bpm/engine/db/create/activiti.h2.create.decision.engine.sql'
+INFO org.camunda.commons.logging.BaseLogger.logInfo
+ENGINE-03016 Performing database operation 'create' on component 'decision.history' with resource 'org/camunda/bpm/engine/db/create/activiti.h2.create.decision.history.sql'
+INFO org.camunda.commons.logging.BaseLogger.logInfo
+ENGINE-03067 No history level property found in database
+INFO org.camunda.commons.logging.BaseLogger.logInfo
+ENGINE-03065 Creating historyLevel property in database for level: HistoryLevelAudit(name=audit, id=2)
+INFO org.camunda.commons.logging.BaseLogger.logInfo
+ENGINE-00001 Process Engine engine created.
+</pre>
 
 <div class="panel-group gs-download-step-panel" id="gitStep-2">
   <div class="panel panel-success">

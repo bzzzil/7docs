@@ -33,7 +33,7 @@
       <link>/7docs/security/report-vulnerability/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>/7docs/security/report-vulnerability/</guid>
-      <description>&lt;p&gt;In order to report a vulnerability in the Camunda Platform products, follow the steps outlined in the [Camunda Trust Center] (&lt;a href=&#34;https://camunda.com/trust-center/reporting-vulnerabilities/)&#34;&gt;https://camunda.com/trust-center/reporting-vulnerabilities/)&lt;/a&gt;.&lt;/p&gt;</description>
+      <description>&lt;p&gt;In order to report a vulnerability in the CIB seven project, please create an issue at &lt;a href=&#34;https://github.com/cibseven/cib-seven/issues&#34;&gt;CIB seven GitHub repository&lt;/a&gt;.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>
